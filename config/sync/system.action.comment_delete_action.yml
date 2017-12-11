@@ -1,0 +1,13 @@
+uuid: 57b86fd2-8d2b-4439-9ed3-7624981e900e
+langcode: ru
+status: true
+dependencies:
+  module:
+    - comment
+_core:
+  default_config_hash: VetuwpecspsjqMCd8e7wKyr2l-AZEh1UNYWNtNywHXM
+id: comment_delete_action
+label: 'Удалить комментарий'
+type: comment
+plugin: comment_delete_action
+configuration: {  }

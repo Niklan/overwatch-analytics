@@ -1,0 +1,18 @@
+
+# Overwatch match menu items definition
+entity.overwatch_match.collection:
+  title: 'Overwatch match list'
+  route_name: entity.overwatch_match.collection
+  description: 'List Overwatch match entities'
+  parent: system.admin_structure
+  weight: 100
+
+
+# Overwatch match type menu items definition
+entity.overwatch_match_type.collection:
+  title: 'Overwatch match type'
+  route_name: entity.overwatch_match_type.collection
+  description: 'List Overwatch match type (bundles)'
+  parent: system.admin_structure
+  weight: 99
+

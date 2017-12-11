@@ -1,0 +1,22 @@
+{#
+/**
+ * @file overwatch_match.html.twig
+ * Default theme implementation to present Overwatch match data.
+ *
+ * This template is used when viewing Overwatch match pages.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_overwatch_match()
+ *
+ * @ingroup themeable
+ */
+#}
+<div{{ attributes.addClass('overwatch_match') }}>
+  {% if content %}
+    {{- content -}}
+  {% endif %}
+</div>

@@ -1,0 +1,14 @@
+
+# Overwatch hero menu items definition
+entity.overwatch_hero.collection:
+  title: Heroes
+  route_name: entity.overwatch_hero.collection
+  description: 'List heroes'
+  parent: overwatch_analytics.admin_toolbar_menu_item
+  weight: 100
+
+overwatch_hero.admin.structure.settings:
+  title: Settings
+  description: 'Configure'
+  route_name: overwatch_hero.settings
+  parent: entity.overwatch_hero.collection

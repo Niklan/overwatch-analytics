@@ -1,0 +1,14 @@
+uuid: bf8f8da4-0d8e-47aa-8920-3f45bfd28c0c
+name: 'Overwatch Analytics'
+mail: hello@niklan.net
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node
+admin_compact_mode: false
+weight_select_max: 100
+langcode: ru
+default_langcode: ru
+_core:
+  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI

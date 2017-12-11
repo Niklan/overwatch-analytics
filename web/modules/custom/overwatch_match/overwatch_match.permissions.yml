@@ -1,0 +1,30 @@
+add overwatch match entities:
+  title: 'Create new Overwatch match entities'
+
+administer overwatch match entities:
+  title: 'Administer Overwatch match entities'
+  description: 'Allow to access the administration form to configure Overwatch match entities.'
+  restrict access: true
+
+delete overwatch match entities:
+  title: 'Delete Overwatch match entities'
+
+edit overwatch match entities:
+  title: 'Edit Overwatch match entities'
+
+view published overwatch match entities:
+  title: 'View published Overwatch match entities'
+
+view unpublished overwatch match entities:
+  title: 'View unpublished Overwatch match entities'
+
+view all overwatch match revisions:
+  title: 'View all Overwatch match revisions'
+
+revert all overwatch match revisions:
+  title: 'Revert all Overwatch match revisions'
+  description: 'Role requires permission <em>view Overwatch match revisions</em> and <em>edit rights</em> for overwatch match entities in question or <em>administer overwatch match entities</em>.'
+
+delete all overwatch match revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Overwatch match revisions</em> and <em>delete rights</em> for overwatch match entities in question or <em>administer overwatch match entities</em>.'

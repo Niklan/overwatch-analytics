@@ -1,0 +1,24 @@
+uuid: dcbfa5c8-5543-48a6-8cb9-b67f860f8384
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.overwatch_hero.field_age
+  module:
+    - overwatch_hero
+id: overwatch_hero.overwatch_hero.field_age
+field_name: field_age
+entity_type: overwatch_hero
+bundle: overwatch_hero
+label: Возраст
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

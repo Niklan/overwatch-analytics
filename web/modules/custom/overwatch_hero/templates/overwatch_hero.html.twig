@@ -1,0 +1,22 @@
+{#
+/**
+ * @file overwatch_hero.html.twig
+ * Default theme implementation to present Overwatch hero data.
+ *
+ * This template is used when viewing Overwatch hero pages.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_overwatch_hero()
+ *
+ * @ingroup themeable
+ */
+#}
+<div{{ attributes.addClass('overwatch_hero') }}>
+  {% if content %}
+    {{- content -}}
+  {% endif %}
+</div>

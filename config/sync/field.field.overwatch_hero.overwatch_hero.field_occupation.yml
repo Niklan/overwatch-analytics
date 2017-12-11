@@ -1,0 +1,20 @@
+uuid: 89e93c5a-f2a0-484c-a2c7-0cb19542ea8f
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.overwatch_hero.field_occupation
+  module:
+    - overwatch_hero
+id: overwatch_hero.overwatch_hero.field_occupation
+field_name: field_occupation
+entity_type: overwatch_hero
+bundle: overwatch_hero
+label: 'Род занятий'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,12 @@
+overwatch_match.overwatch_match_type.*:
+  type: config_entity
+  label: 'Overwatch match type config'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    uuid:
+      type: string

@@ -1,0 +1,10 @@
+uuid: d54fab53-6cf6-43cd-a596-e1fa59fb4f4f
+langcode: ru
+status: true
+dependencies:
+  module:
+    - file
+id: file.token
+label: Токен
+targetEntityType: file
+cache: true

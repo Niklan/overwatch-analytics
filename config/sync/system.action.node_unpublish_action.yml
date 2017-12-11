@@ -1,0 +1,13 @@
+uuid: 9a4791b3-21d5-4169-a858-38dbb6858bdc
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: gGQXiSspwGl0lyOS6w_HCPpvGAPDciqDNLFwWOydVtI
+id: node_unpublish_action
+label: 'Снять материал с публикации'
+type: node
+plugin: node_unpublish_action
+configuration: {  }

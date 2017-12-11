@@ -1,0 +1,30 @@
+uuid: a6335479-101a-4cf3-bf4a-da56f95b2e76
+langcode: ru
+status: true
+dependencies:
+  module:
+    - file
+    - image
+    - overwatch_hero
+id: overwatch_hero.field_portrait
+field_name: field_portrait
+entity_type: overwatch_hero
+type: image
+settings:
+  uri_scheme: public
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  target_type: file
+  display_field: false
+  display_default: false
+module: image
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

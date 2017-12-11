@@ -1,0 +1,5 @@
+name: Overwatch Hero
+type: module
+description: Overwatch hero entity.
+core: 8.x
+package: Custom

@@ -1,0 +1,20 @@
+uuid: 2e6492d6-103f-4995-b691-f3a89d2c041e
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.overwatch_hero.field_affiliation
+  module:
+    - overwatch_hero
+id: overwatch_hero.overwatch_hero.field_affiliation
+field_name: field_affiliation
+entity_type: overwatch_hero
+bundle: overwatch_hero
+label: Принадлежность
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

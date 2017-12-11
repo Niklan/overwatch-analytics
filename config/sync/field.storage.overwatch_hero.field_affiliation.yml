@@ -1,0 +1,21 @@
+uuid: 95704e8e-05ee-45b4-b042-d554be715da1
+langcode: ru
+status: true
+dependencies:
+  module:
+    - overwatch_hero
+id: overwatch_hero.field_affiliation
+field_name: field_affiliation
+entity_type: overwatch_hero
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

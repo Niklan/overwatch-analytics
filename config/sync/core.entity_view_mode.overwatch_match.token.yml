@@ -1,0 +1,10 @@
+uuid: 1e4d4806-4118-4f6d-93e7-07cdb593a183
+langcode: ru
+status: true
+dependencies:
+  module:
+    - overwatch_match
+id: overwatch_match.token
+label: Токен
+targetEntityType: overwatch_match
+cache: true

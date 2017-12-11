@@ -1,0 +1,13 @@
+uuid: c2d2ea29-fd18-425e-a4c6-6ef297755d7f
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: Zx0jD1Klh5tZaGJy8uOeR_2MCu9FDM4xg7TaUJUEbkI
+id: node_delete_action
+label: 'Удалить содержимое'
+type: node
+plugin: node_delete_action
+configuration: {  }

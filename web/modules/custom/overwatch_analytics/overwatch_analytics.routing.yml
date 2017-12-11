@@ -1,0 +1,7 @@
+overwatch_analytics.overwatch_menu_group:
+  path: '/admin/overwatch'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'Overwatch'
+  requirements:
+    _permission: 'access administration pages'

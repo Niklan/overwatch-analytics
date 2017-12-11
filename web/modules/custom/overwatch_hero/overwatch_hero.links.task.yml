@@ -1,0 +1,27 @@
+# Overwatch hero routing definition
+overwatch_hero.settings_tab:
+  route_name: overwatch_hero.settings
+  title: 'Settings'
+  base_route: overwatch_hero.settings
+
+entity.overwatch_hero.canonical:
+  route_name: entity.overwatch_hero.canonical
+  base_route: entity.overwatch_hero.canonical
+  title: 'View'
+
+entity.overwatch_hero.edit_form:
+  route_name: entity.overwatch_hero.edit_form
+  base_route: entity.overwatch_hero.canonical
+  title: 'Edit'
+
+entity.overwatch_hero.version_history:
+  route_name: entity.overwatch_hero.version_history
+  base_route: entity.overwatch_hero.canonical
+  title: 'Revisions'
+
+entity.overwatch_hero.delete_form:
+  route_name:  entity.overwatch_hero.delete_form
+  base_route:  entity.overwatch_hero.canonical
+  title: Delete
+  weight: 10
+

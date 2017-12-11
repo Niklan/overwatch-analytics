@@ -1,0 +1,41 @@
+<?php
+
+/**
+ * @file
+ * Contains overwatch_match.module.
+ */
+
+
+/**
+ * Implements hook_theme().
+ */
+function overwatch_match_theme() {
+  $theme = [];
+  $theme['overwatch_match'] = [
+    'render element' => 'elements',
+    'file' => 'overwatch_match.page.inc',
+    'template' => 'overwatch_match',
+  ];
+  $theme['overwatch_match_content_add_list'] = [
+    'render element' => 'content',
+    'variables' => ['content' => NULL],
+    'file' => 'overwatch_match.page.inc',
+  ];
+  return $theme;
+}
+
+/**
+* Implements hook_theme_suggestions_HOOK().
+*/
+function overwatch_match_theme_suggestions_overwatch_match(array $variables) {
+  $suggestions = [];
+  $entity = $variables['elements']['#overwatch_match'];
+  $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+
+  $suggestions[] = 'overwatch_match__' . $sanitized_view_mode;
+  $suggestions[] = 'overwatch_match__' . $entity->bundle();
+  $suggestions[] = 'overwatch_match__' . $entity->bundle() . '__' . $sanitized_view_mode;
+  $suggestions[] = 'overwatch_match__' . $entity->id();
+  $suggestions[] = 'overwatch_match__' . $entity->id() . '__' . $sanitized_view_mode;
+  return $suggestions;
+}

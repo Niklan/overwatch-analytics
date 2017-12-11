@@ -1,0 +1,20 @@
+uuid: b8311aef-daf8-4398-abea-775a078d1646
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.overwatch_hero.field_base_of_operations
+  module:
+    - overwatch_hero
+id: overwatch_hero.overwatch_hero.field_base_of_operations
+field_name: field_base_of_operations
+entity_type: overwatch_hero
+bundle: overwatch_hero
+label: 'Оперативная база'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

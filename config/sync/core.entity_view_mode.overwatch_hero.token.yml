@@ -1,0 +1,10 @@
+uuid: 41800973-d21a-416f-b906-e80f745c8582
+langcode: ru
+status: true
+dependencies:
+  module:
+    - overwatch_hero
+id: overwatch_hero.token
+label: Токен
+targetEntityType: overwatch_hero
+cache: true

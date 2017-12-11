@@ -1,0 +1,30 @@
+add overwatch hero entities:
+  title: 'Create new Overwatch hero entities'
+
+administer overwatch hero entities:
+  title: 'Administer Overwatch hero entities'
+  description: 'Allow to access the administration form to configure Overwatch hero entities.'
+  restrict access: true
+
+delete overwatch hero entities:
+  title: 'Delete Overwatch hero entities'
+
+edit overwatch hero entities:
+  title: 'Edit Overwatch hero entities'
+
+view published overwatch hero entities:
+  title: 'View published Overwatch hero entities'
+
+view unpublished overwatch hero entities:
+  title: 'View unpublished Overwatch hero entities'
+
+view all overwatch hero revisions:
+  title: 'View all Overwatch hero revisions'
+
+revert all overwatch hero revisions:
+  title: 'Revert all Overwatch hero revisions'
+  description: 'Role requires permission <em>view Overwatch hero revisions</em> and <em>edit rights</em> for overwatch hero entities in question or <em>administer overwatch hero entities</em>.'
+
+delete all overwatch hero revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Overwatch hero revisions</em> and <em>delete rights</em> for overwatch hero entities in question or <em>administer overwatch hero entities</em>.'

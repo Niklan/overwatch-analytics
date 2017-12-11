@@ -1,0 +1,33 @@
+uuid: af541fd9-f1c6-458e-83db-4104d8614591
+langcode: ru
+status: true
+dependencies:
+  module:
+    - options
+    - overwatch_hero
+id: overwatch_hero.field_role
+field_name: field_role
+entity_type: overwatch_hero
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: offense
+      label: Штурм
+    -
+      value: defense
+      label: Защита
+    -
+      value: tank
+      label: Танк
+    -
+      value: support
+      label: Поддержка
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

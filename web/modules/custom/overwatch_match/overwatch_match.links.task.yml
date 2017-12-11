@@ -1,0 +1,23 @@
+# Overwatch match routing definition
+
+entity.overwatch_match.canonical:
+  route_name: entity.overwatch_match.canonical
+  base_route: entity.overwatch_match.canonical
+  title: 'View'
+
+entity.overwatch_match.edit_form:
+  route_name: entity.overwatch_match.edit_form
+  base_route: entity.overwatch_match.canonical
+  title: 'Edit'
+
+entity.overwatch_match.version_history:
+  route_name: entity.overwatch_match.version_history
+  base_route: entity.overwatch_match.canonical
+  title: 'Revisions'
+
+entity.overwatch_match.delete_form:
+  route_name:  entity.overwatch_match.delete_form
+  base_route:  entity.overwatch_match.canonical
+  title: Delete
+  weight: 10
+

@@ -1,0 +1,97 @@
+uuid: ed876981-232b-404b-ac9b-35c40bbc67c2
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.field.overwatch_hero.overwatch_hero.field_affiliation
+    - field.field.overwatch_hero.overwatch_hero.field_age
+    - field.field.overwatch_hero.overwatch_hero.field_base_of_operations
+    - field.field.overwatch_hero.overwatch_hero.field_occupation
+    - field.field.overwatch_hero.overwatch_hero.field_portrait
+    - field.field.overwatch_hero.overwatch_hero.field_real_name
+    - field.field.overwatch_hero.overwatch_hero.field_role
+    - image.style.thumbnail
+  module:
+    - image
+    - overwatch_hero
+    - path
+id: overwatch_hero.overwatch_hero.default
+targetEntityType: overwatch_hero
+bundle: overwatch_hero
+mode: default
+content:
+  field_affiliation:
+    weight: 7
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_age:
+    weight: 8
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_base_of_operations:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_occupation:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_portrait:
+    weight: 1
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_real_name:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_role:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  langcode:
+    type: language_select
+    weight: 0
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: -4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

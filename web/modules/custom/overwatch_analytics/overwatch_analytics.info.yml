@@ -1,0 +1,5 @@
+name: Overwatch Analytics
+type: module
+description: Main module for custom code.
+core: 8.x
+package: Custom

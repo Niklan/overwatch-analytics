@@ -1,0 +1,5 @@
+entity.overwatch_hero.add_form:
+  route_name: entity.overwatch_hero.add_form
+  title: 'Add Overwatch hero'
+  appears_on:
+    - entity.overwatch_hero.collection

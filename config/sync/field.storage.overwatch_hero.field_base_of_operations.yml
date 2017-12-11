@@ -1,0 +1,21 @@
+uuid: 90b16de6-a16a-4233-8d7d-b5c216cb3fa8
+langcode: ru
+status: true
+dependencies:
+  module:
+    - overwatch_hero
+id: overwatch_hero.field_base_of_operations
+field_name: field_base_of_operations
+entity_type: overwatch_hero
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

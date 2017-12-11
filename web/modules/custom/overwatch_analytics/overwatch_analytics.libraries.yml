@@ -1,0 +1,5 @@
+toolbar-styles:
+  version: VERSION
+  css:
+    theme:
+      assets/css/overwatch_analytics.toolbar.css: {}

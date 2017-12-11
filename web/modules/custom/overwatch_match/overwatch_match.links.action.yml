@@ -1,0 +1,11 @@
+entity.overwatch_match.add_form:
+  route_name: entity.overwatch_match.add_page
+  title: 'Add Overwatch match'
+  appears_on:
+    - entity.overwatch_match.collection
+entity.overwatch_match_type.add_form:
+  route_name: entity.overwatch_match_type.add_form
+  title: 'Add Overwatch match type'
+  appears_on:
+    - entity.overwatch_match_type.collection
+

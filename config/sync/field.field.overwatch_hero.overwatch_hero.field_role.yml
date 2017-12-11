@@ -1,0 +1,21 @@
+uuid: c9e8afde-2c9b-459d-8365-bde178a3fb94
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.overwatch_hero.field_role
+  module:
+    - options
+    - overwatch_hero
+id: overwatch_hero.overwatch_hero.field_role
+field_name: field_role
+entity_type: overwatch_hero
+bundle: overwatch_hero
+label: Роль
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

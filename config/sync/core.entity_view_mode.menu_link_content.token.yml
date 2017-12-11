@@ -1,0 +1,10 @@
+uuid: 5b940de5-3095-4f04-a4a5-2984e086d09c
+langcode: ru
+status: true
+dependencies:
+  module:
+    - menu_link_content
+id: menu_link_content.token
+label: Токен
+targetEntityType: menu_link_content
+cache: true
