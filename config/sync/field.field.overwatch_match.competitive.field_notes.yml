@@ -1,0 +1,19 @@
+uuid: 083e3aa4-4388-49a7-a47b-12ec31f9b9ab
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.overwatch_match.field_notes
+    - overwatch_match.overwatch_match_type.competitive
+id: overwatch_match.competitive.field_notes
+field_name: field_notes
+entity_type: overwatch_match
+bundle: competitive
+label: Заметки
+description: 'Эти заметки доступны публично.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

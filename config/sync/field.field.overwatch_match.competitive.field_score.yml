@@ -1,0 +1,19 @@
+uuid: 073a5376-6cd5-48c1-a177-64b86d0dd63b
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.overwatch_match.field_score
+    - overwatch_match.overwatch_match_type.competitive
+id: overwatch_match.competitive.field_score
+field_name: field_score
+entity_type: overwatch_match
+bundle: competitive
+label: Счёт
+description: 'Например, 3:2. Показывается в после окончания матча.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

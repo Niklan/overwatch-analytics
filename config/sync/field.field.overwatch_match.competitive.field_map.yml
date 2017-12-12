@@ -1,0 +1,26 @@
+uuid: 24e7bde4-9d07-40bf-9499-1bd146e5259e
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.overwatch_match.field_map
+    - overwatch_match.overwatch_match_type.competitive
+id: overwatch_match.competitive.field_map
+field_name: field_map
+entity_type: overwatch_match
+bundle: competitive
+label: Карта
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:overwatch_map'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: field_map_types
+      direction: ASC
+    auto_create: false
+field_type: entity_reference

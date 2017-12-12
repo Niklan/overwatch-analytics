@@ -1,0 +1,20 @@
+uuid: 86ca48c0-1375-4dd2-b8e9-f66c89a22ba5
+langcode: ru
+status: true
+dependencies:
+  module:
+    - overwatch_match
+id: overwatch_match.field_skill_rating
+field_name: field_skill_rating
+entity_type: overwatch_match
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

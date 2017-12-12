@@ -1,0 +1,20 @@
+uuid: 1ec06780-f4fb-4c6d-8735-ba98562fe996
+langcode: ru
+status: true
+dependencies:
+  module:
+    - overwatch_hero
+    - overwatch_match
+id: overwatch_match.field_heroes
+field_name: field_heroes
+entity_type: overwatch_match
+type: entity_reference
+settings:
+  target_type: overwatch_hero
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

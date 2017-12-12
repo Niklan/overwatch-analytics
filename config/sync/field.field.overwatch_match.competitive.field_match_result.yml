@@ -1,0 +1,21 @@
+uuid: 9cd6d245-0e85-4bf0-a04d-744cece6ffd5
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.overwatch_match.field_match_result
+    - overwatch_match.overwatch_match_type.competitive
+  module:
+    - options
+id: overwatch_match.competitive.field_match_result
+field_name: field_match_result
+entity_type: overwatch_match
+bundle: competitive
+label: 'Результат матча'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

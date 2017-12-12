@@ -1,0 +1,30 @@
+uuid: b93280f4-d56a-4448-a82a-13f4196584cf
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.overwatch_match.field_season
+    - overwatch_match.overwatch_match_type.competitive
+  content:
+    - 'overwatch_season:overwatch_season:ff821d9e-8afb-42d2-9485-e3be01697ab1'
+id: overwatch_match.competitive.field_season
+field_name: field_season
+entity_type: overwatch_match
+bundle: competitive
+label: Сезон
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    target_uuid: ff821d9e-8afb-42d2-9485-e3be01697ab1
+default_value_callback: ''
+settings:
+  handler: 'default:overwatch_season'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: name
+      direction: DESC
+    auto_create: false
+field_type: entity_reference

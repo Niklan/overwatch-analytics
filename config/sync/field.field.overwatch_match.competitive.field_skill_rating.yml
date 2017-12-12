@@ -1,0 +1,23 @@
+uuid: 3b4c8933-e0c2-4f2e-b3b8-38adcce2c16e
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.overwatch_match.field_skill_rating
+    - overwatch_match.overwatch_match_type.competitive
+id: overwatch_match.competitive.field_skill_rating
+field_name: field_skill_rating
+entity_type: overwatch_match
+bundle: competitive
+label: SR
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

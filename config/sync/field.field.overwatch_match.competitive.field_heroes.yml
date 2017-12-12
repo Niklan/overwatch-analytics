@@ -1,0 +1,26 @@
+uuid: 91e4f341-6926-43ec-bcad-80f46bf6ac05
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.overwatch_match.field_heroes
+    - overwatch_match.overwatch_match_type.competitive
+id: overwatch_match.competitive.field_heroes
+field_name: field_heroes
+entity_type: overwatch_match
+bundle: competitive
+label: Герои
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:overwatch_hero'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: name
+      direction: ASC
+    auto_create: false
+field_type: entity_reference

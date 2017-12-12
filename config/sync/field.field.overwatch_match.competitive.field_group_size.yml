@@ -1,0 +1,23 @@
+uuid: 389a2172-8103-4c25-9301-f78d1c2be00d
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.overwatch_match.field_group_size
+    - overwatch_match.overwatch_match_type.competitive
+  module:
+    - options
+id: overwatch_match.competitive.field_group_size
+field_name: field_group_size
+entity_type: overwatch_match
+bundle: competitive
+label: 'Размер группы'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

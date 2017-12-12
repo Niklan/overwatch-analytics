@@ -1,0 +1,21 @@
+uuid: 6f3a9bf6-00be-45ee-82bf-b3ca66b625c3
+langcode: ru
+status: true
+dependencies:
+  module:
+    - overwatch_match
+id: overwatch_match.field_duration
+field_name: field_duration
+entity_type: overwatch_match
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

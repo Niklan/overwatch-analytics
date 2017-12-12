@@ -1,0 +1,19 @@
+uuid: bea41b82-0f89-4a13-a17b-99e3cee07eeb
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.overwatch_match.field_duration
+    - overwatch_match.overwatch_match_type.competitive
+id: overwatch_match.competitive.field_duration
+field_name: field_duration
+entity_type: overwatch_match
+bundle: competitive
+label: 'Длительность матча'
+description: 'Например, 10:37 (10 минут, 37 секунд)'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

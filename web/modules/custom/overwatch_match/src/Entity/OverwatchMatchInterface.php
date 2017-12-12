@@ -14,6 +14,16 @@ use Drupal\user\EntityOwnerInterface;
  */
 interface OverwatchMatchInterface extends ContentEntityInterface, RevisionLogInterface, EntityChangedInterface, EntityOwnerInterface {
 
+  const STATUS_DRAW = 0;
+
+  const STATUS_VICTORY = 1;
+
+  const STATUS_DEFEAT = 2;
+
+  const STARTING_SIDE_ATTACK = 1;
+
+  const STARTING_SIDE_DEFEND = 2;
+
   // Add get/set methods for your configuration properties here.
 
   /**
@@ -68,7 +78,8 @@ interface OverwatchMatchInterface extends ContentEntityInterface, RevisionLogInt
    * Sets the published status of a Overwatch match.
    *
    * @param bool $published
-   *   TRUE to set this Overwatch match to published, FALSE to set it to unpublished.
+   *   TRUE to set this Overwatch match to published, FALSE to set it to
+   *   unpublished.
    *
    * @return \Drupal\overwatch_match\Entity\OverwatchMatchInterface
    *   The called Overwatch match entity.

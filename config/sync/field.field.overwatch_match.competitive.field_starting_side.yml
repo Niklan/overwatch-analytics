@@ -1,0 +1,23 @@
+uuid: faf4ae77-4c99-47e4-810e-fcb6cfe3a7f9
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.overwatch_match.field_starting_side
+    - overwatch_match.overwatch_match_type.competitive
+  module:
+    - options
+id: overwatch_match.competitive.field_starting_side
+field_name: field_starting_side
+entity_type: overwatch_match
+bundle: competitive
+label: 'Стартовая сторона'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: '1'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

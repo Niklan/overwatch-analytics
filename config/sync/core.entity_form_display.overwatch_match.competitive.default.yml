@@ -1,0 +1,121 @@
+uuid: b2324fb0-d799-4a0f-ae74-0f5c94bba521
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.field.overwatch_match.competitive.field_duration
+    - field.field.overwatch_match.competitive.field_group_size
+    - field.field.overwatch_match.competitive.field_heroes
+    - field.field.overwatch_match.competitive.field_is_placement
+    - field.field.overwatch_match.competitive.field_map
+    - field.field.overwatch_match.competitive.field_match_result
+    - field.field.overwatch_match.competitive.field_notes
+    - field.field.overwatch_match.competitive.field_score
+    - field.field.overwatch_match.competitive.field_season
+    - field.field.overwatch_match.competitive.field_skill_rating
+    - field.field.overwatch_match.competitive.field_starting_side
+    - overwatch_match.overwatch_match_type.competitive
+id: overwatch_match.competitive.default
+targetEntityType: overwatch_match
+bundle: competitive
+mode: default
+content:
+  field_duration:
+    weight: 36
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_group_size:
+    weight: 31
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_heroes:
+    weight: 32
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_is_placement:
+    weight: 27
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_map:
+    weight: 28
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_match_result:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_notes:
+    weight: 35
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_score:
+    weight: 33
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_season:
+    weight: 29
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_skill_rating:
+    weight: 37
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_starting_side:
+    weight: 30
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: -4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  user_id:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+hidden: {  }

@@ -1,0 +1,27 @@
+uuid: ce5b7bd6-7e39-406a-8ef7-1fa40a9c93ff
+langcode: ru
+status: true
+dependencies:
+  module:
+    - options
+    - overwatch_match
+id: overwatch_match.field_starting_side
+field_name: field_starting_side
+entity_type: overwatch_match
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '1'
+      label: 'Attack first'
+    -
+      value: '2'
+      label: 'Defend first'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

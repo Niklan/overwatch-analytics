@@ -1,0 +1,20 @@
+uuid: 48d471ab-c03e-4852-a99d-269f0c1b2df2
+langcode: ru
+status: true
+dependencies:
+  module:
+    - overwatch_map
+    - overwatch_match
+id: overwatch_match.field_map
+field_name: field_map
+entity_type: overwatch_match
+type: entity_reference
+settings:
+  target_type: overwatch_map
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

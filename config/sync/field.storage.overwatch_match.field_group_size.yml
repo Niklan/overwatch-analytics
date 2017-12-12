@@ -1,0 +1,39 @@
+uuid: bb51f930-95e4-4fa6-98e8-3eebb43298a0
+langcode: ru
+status: true
+dependencies:
+  module:
+    - options
+    - overwatch_match
+id: overwatch_match.field_group_size
+field_name: field_group_size
+entity_type: overwatch_match
+type: list_integer
+settings:
+  allowed_values:
+    -
+      value: 1
+      label: '1'
+    -
+      value: 2
+      label: '2'
+    -
+      value: 3
+      label: '3'
+    -
+      value: 4
+      label: '4'
+    -
+      value: 5
+      label: '5'
+    -
+      value: 6
+      label: '6'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

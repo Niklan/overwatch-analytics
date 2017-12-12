@@ -1,0 +1,30 @@
+uuid: 7050d2ad-ff3e-49ce-bdce-355c192acc33
+langcode: ru
+status: true
+dependencies:
+  module:
+    - options
+    - overwatch_match
+id: overwatch_match.field_match_result
+field_name: field_match_result
+entity_type: overwatch_match
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '0'
+      label: Ничья
+    -
+      value: '1'
+      label: Победа
+    -
+      value: '2'
+      label: Поражение
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

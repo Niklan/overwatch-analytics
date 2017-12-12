@@ -1,0 +1,20 @@
+uuid: f6911c25-6fb9-4f92-a7ab-8584dd056172
+langcode: ru
+status: true
+dependencies:
+  module:
+    - overwatch_match
+    - overwatch_season
+id: overwatch_match.field_season
+field_name: field_season
+entity_type: overwatch_match
+type: entity_reference
+settings:
+  target_type: overwatch_season
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
