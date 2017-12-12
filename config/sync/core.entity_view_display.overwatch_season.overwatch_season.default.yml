@@ -1,0 +1,21 @@
+uuid: 03963142-3a2d-4564-a4a8-aeab2faa0548
+langcode: ru
+status: true
+dependencies:
+  module:
+    - overwatch_season
+id: overwatch_season.overwatch_season.default
+targetEntityType: overwatch_season
+bundle: overwatch_season
+mode: default
+content:
+  name:
+    label: hidden
+    type: string
+    weight: -4
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  langcode: true

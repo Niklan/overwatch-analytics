@@ -1,0 +1,5 @@
+entity.overwatch_season.add_form:
+  route_name: entity.overwatch_season.add_form
+  title: 'Add Overwatch season'
+  appears_on:
+    - entity.overwatch_season.collection

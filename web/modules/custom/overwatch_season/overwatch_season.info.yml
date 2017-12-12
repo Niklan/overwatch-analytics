@@ -1,0 +1,5 @@
+name: Overwatch Season
+type: module
+description: Overwatch season entity.
+core: 8.x
+package: Custom

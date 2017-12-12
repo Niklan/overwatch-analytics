@@ -1,0 +1,30 @@
+add overwatch season entities:
+  title: 'Create new Overwatch season entities'
+
+administer overwatch season entities:
+  title: 'Administer Overwatch season entities'
+  description: 'Allow to access the administration form to configure Overwatch season entities.'
+  restrict access: true
+
+delete overwatch season entities:
+  title: 'Delete Overwatch season entities'
+
+edit overwatch season entities:
+  title: 'Edit Overwatch season entities'
+
+view published overwatch season entities:
+  title: 'View published Overwatch season entities'
+
+view unpublished overwatch season entities:
+  title: 'View unpublished Overwatch season entities'
+
+view all overwatch season revisions:
+  title: 'View all Overwatch season revisions'
+
+revert all overwatch season revisions:
+  title: 'Revert all Overwatch season revisions'
+  description: 'Role requires permission <em>view Overwatch season revisions</em> and <em>edit rights</em> for overwatch season entities in question or <em>administer overwatch season entities</em>.'
+
+delete all overwatch season revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Overwatch season revisions</em> and <em>delete rights</em> for overwatch season entities in question or <em>administer overwatch season entities</em>.'

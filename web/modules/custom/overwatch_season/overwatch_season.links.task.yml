@@ -1,0 +1,27 @@
+# Overwatch season routing definition
+overwatch_season.settings_tab:
+  route_name: overwatch_season.settings
+  title: 'Settings'
+  base_route: overwatch_season.settings
+
+entity.overwatch_season.canonical:
+  route_name: entity.overwatch_season.canonical
+  base_route: entity.overwatch_season.canonical
+  title: 'View'
+
+entity.overwatch_season.edit_form:
+  route_name: entity.overwatch_season.edit_form
+  base_route: entity.overwatch_season.canonical
+  title: 'Edit'
+
+entity.overwatch_season.version_history:
+  route_name: entity.overwatch_season.version_history
+  base_route: entity.overwatch_season.canonical
+  title: 'Revisions'
+
+entity.overwatch_season.delete_form:
+  route_name:  entity.overwatch_season.delete_form
+  base_route:  entity.overwatch_season.canonical
+  title: Delete
+  weight: 10
+

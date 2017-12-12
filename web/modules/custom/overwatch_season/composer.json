@@ -1,0 +1,14 @@
+{
+  "name": "drupal/overwatch_season",
+  "type": "drupal-module",
+  "description": "Overwatch season entity.",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/overwatch_season",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/overwatch_season",
+    "source": "http://cgit.drupalcode.org/overwatch_season"
+  },
+  "require": { }
+}

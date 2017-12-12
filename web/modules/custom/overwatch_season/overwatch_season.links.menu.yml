@@ -1,0 +1,20 @@
+
+# Overwatch season menu items definition
+entity.overwatch_season.collection:
+  title: 'Seasons'
+  route_name: entity.overwatch_season.collection
+  description: 'List of competitive seasons'
+  parent: overwatch_analytics.admin_toolbar_menu_item
+  weight: 100
+
+overwatch_season.admin.structure.settings:
+  title: Settings
+  description: 'Configure Overwatch season entities'
+  route_name: overwatch_season.settings
+  parent: entity.overwatch_season.collection
+
+entity.overwatch_season.add_form:
+  title: Add season
+  description: 'Add new Overwatch season'
+  route_name: entity.overwatch_season.add_form
+  parent: entity.overwatch_season.collection
