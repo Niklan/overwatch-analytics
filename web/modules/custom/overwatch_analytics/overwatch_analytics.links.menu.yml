@@ -3,4 +3,4 @@ overwatch_analytics.admin_toolbar_menu_item:
   title: 'Overwatch'
   parent: system.admin
   route_name: overwatch_analytics.overwatch_menu_group
-  weight: 0
+  weight: -10

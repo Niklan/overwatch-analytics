@@ -33,6 +33,7 @@ module:
   options: 0
   overwatch_analytics: 0
   overwatch_hero: 0
+  overwatch_map: 0
   overwatch_match: 0
   page_cache: 0
   path: 0

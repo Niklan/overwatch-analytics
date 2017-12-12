@@ -1,0 +1,21 @@
+uuid: ec8470b5-cfb4-40b4-a900-85dd0b628750
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.overwatch_map.field_map_types
+  module:
+    - options
+    - overwatch_map
+id: overwatch_map.overwatch_map.field_map_types
+field_name: field_map_types
+entity_type: overwatch_map
+bundle: overwatch_map
+label: 'Тип карты'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

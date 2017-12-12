@@ -1,0 +1,30 @@
+uuid: 36c85a11-e4e3-4d75-85c3-b6e2e69ab31e
+langcode: ru
+status: true
+dependencies:
+  module:
+    - file
+    - image
+    - overwatch_map
+id: overwatch_map.field_promo
+field_name: field_promo
+entity_type: overwatch_map
+type: image
+settings:
+  uri_scheme: public
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  target_type: file
+  display_field: false
+  display_default: false
+module: image
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,14 @@
+uuid: 86564752-8b98-4e7d-962b-bfdb60cd7a6a
+langcode: ru
+status: true
+dependencies:
+  module:
+    - overwatch_map
+id: overwatch_map
+label: 'Overwatch Map'
+type: 'canonical_entities:overwatch_map'
+pattern: 'maps/[overwatch_map:name]'
+selection_criteria: {  }
+selection_logic: and
+weight: 0
+relationships: {  }

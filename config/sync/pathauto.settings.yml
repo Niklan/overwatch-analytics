@@ -1,5 +1,6 @@
 enabled_entity_types:
   - overwatch_hero
+  - overwatch_map
   - user
 punctuation:
   double_quotes: 0

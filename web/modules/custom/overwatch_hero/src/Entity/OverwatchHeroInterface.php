@@ -14,6 +14,26 @@ use Drupal\user\EntityOwnerInterface;
  */
 interface OverwatchHeroInterface extends ContentEntityInterface, RevisionLogInterface, EntityChangedInterface {
 
+  /**
+   * Offense role.
+   */
+  const OFFENSE = 'offense';
+
+  /**
+   * Defense role.
+   */
+  const DEFENSE = 'defense';
+
+  /**
+   * Tank role.
+   */
+  const TANK = 'tank';
+
+  /**
+   * Support role.
+   */
+  const SUPPORT = 'support';
+
   // Add get/set methods for your configuration properties here.
 
   /**

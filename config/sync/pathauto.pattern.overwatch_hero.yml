@@ -3,22 +3,12 @@ langcode: ru
 status: true
 dependencies:
   module:
-    - language
     - overwatch_hero
 id: overwatch_hero
 label: 'Overwatch Hero'
 type: 'canonical_entities:overwatch_hero'
 pattern: 'heroes/[overwatch_hero:name]'
-selection_criteria:
-  206beca3-2fc5-42d9-b5a3-57d51d90de11:
-    id: language
-    langcodes:
-      ru: ru
-      en: en
-    negate: false
-    context_mapping:
-      language: 'overwatch_hero:langcode:language'
-    uuid: 206beca3-2fc5-42d9-b5a3-57d51d90de11
+selection_criteria: {  }
 selection_logic: and
 weight: -5
 relationships:

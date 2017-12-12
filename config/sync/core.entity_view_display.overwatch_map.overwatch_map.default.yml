@@ -1,0 +1,42 @@
+uuid: c41f5a20-b74c-44a0-8d72-7e9e1501c405
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.field.overwatch_map.overwatch_map.field_map_types
+    - field.field.overwatch_map.overwatch_map.field_promo
+  module:
+    - image
+    - options
+    - overwatch_map
+id: overwatch_map.overwatch_map.default
+targetEntityType: overwatch_map
+bundle: overwatch_map
+mode: default
+content:
+  field_map_types:
+    weight: -3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_promo:
+    weight: -2
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  name:
+    label: hidden
+    type: string
+    weight: -4
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  langcode: true

@@ -1,0 +1,27 @@
+# Overwatch map routing definition
+overwatch_map.settings_tab:
+  route_name: overwatch_map.settings
+  title: 'Settings'
+  base_route: overwatch_map.settings
+
+entity.overwatch_map.canonical:
+  route_name: entity.overwatch_map.canonical
+  base_route: entity.overwatch_map.canonical
+  title: 'View'
+
+entity.overwatch_map.edit_form:
+  route_name: entity.overwatch_map.edit_form
+  base_route: entity.overwatch_map.canonical
+  title: 'Edit'
+
+entity.overwatch_map.version_history:
+  route_name: entity.overwatch_map.version_history
+  base_route: entity.overwatch_map.canonical
+  title: 'Revisions'
+
+entity.overwatch_map.delete_form:
+  route_name:  entity.overwatch_map.delete_form
+  base_route:  entity.overwatch_map.canonical
+  title: Delete
+  weight: 10
+

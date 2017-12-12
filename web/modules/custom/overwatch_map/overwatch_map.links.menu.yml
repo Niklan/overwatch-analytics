@@ -1,0 +1,20 @@
+
+# Overwatch map menu items definition
+entity.overwatch_map.collection:
+  title: 'Maps'
+  route_name: entity.overwatch_map.collection
+  description: 'List of maps'
+  parent: overwatch_analytics.admin_toolbar_menu_item
+  weight: 100
+
+overwatch_map.admin.structure.settings:
+  title: Settings
+  description: 'Configure'
+  route_name: overwatch_map.settings
+  parent: entity.overwatch_map.collection
+
+entity.overwatch_map.add_form:
+  title: Add map
+  description: 'Add new Overwatch map'
+  route_name: entity.overwatch_map.add_form
+  parent: entity.overwatch_map.collection

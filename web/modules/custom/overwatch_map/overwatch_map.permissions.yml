@@ -1,0 +1,30 @@
+add overwatch map entities:
+  title: 'Create new Overwatch map entities'
+
+administer overwatch map entities:
+  title: 'Administer Overwatch map entities'
+  description: 'Allow to access the administration form to configure Overwatch map entities.'
+  restrict access: true
+
+delete overwatch map entities:
+  title: 'Delete Overwatch map entities'
+
+edit overwatch map entities:
+  title: 'Edit Overwatch map entities'
+
+view published overwatch map entities:
+  title: 'View published Overwatch map entities'
+
+view unpublished overwatch map entities:
+  title: 'View unpublished Overwatch map entities'
+
+view all overwatch map revisions:
+  title: 'View all Overwatch map revisions'
+
+revert all overwatch map revisions:
+  title: 'Revert all Overwatch map revisions'
+  description: 'Role requires permission <em>view Overwatch map revisions</em> and <em>edit rights</em> for overwatch map entities in question or <em>administer overwatch map entities</em>.'
+
+delete all overwatch map revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Overwatch map revisions</em> and <em>delete rights</em> for overwatch map entities in question or <em>administer overwatch map entities</em>.'

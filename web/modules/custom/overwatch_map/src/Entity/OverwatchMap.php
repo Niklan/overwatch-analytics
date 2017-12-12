@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\overwatch_hero\Entity;
+namespace Drupal\overwatch_map\Entity;
 
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
@@ -10,37 +10,37 @@ use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\user\UserInterface;
 
 /**
- * Defines the Overwatch hero entity.
+ * Defines the Overwatch map entity.
  *
- * @ingroup overwatch_hero
+ * @ingroup overwatch_map
  *
  * @ContentEntityType(
- *   id = "overwatch_hero",
- *   label = @Translation("Overwatch hero"),
+ *   id = "overwatch_map",
+ *   label = @Translation("Overwatch map"),
  *   handlers = {
- *     "storage" = "Drupal\overwatch_hero\OverwatchHeroStorage",
+ *     "storage" = "Drupal\overwatch_map\OverwatchMapStorage",
  *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
- *     "list_builder" = "Drupal\overwatch_hero\OverwatchHeroListBuilder",
- *     "views_data" = "Drupal\overwatch_hero\Entity\OverwatchHeroViewsData",
- *     "translation" = "Drupal\overwatch_hero\OverwatchHeroTranslationHandler",
+ *     "list_builder" = "Drupal\overwatch_map\OverwatchMapListBuilder",
+ *     "views_data" = "Drupal\overwatch_map\Entity\OverwatchMapViewsData",
+ *     "translation" = "Drupal\overwatch_map\OverwatchMapTranslationHandler",
  *
  *     "form" = {
- *       "default" = "Drupal\overwatch_hero\Form\OverwatchHeroForm",
- *       "add" = "Drupal\overwatch_hero\Form\OverwatchHeroForm",
- *       "edit" = "Drupal\overwatch_hero\Form\OverwatchHeroForm",
- *       "delete" = "Drupal\overwatch_hero\Form\OverwatchHeroDeleteForm",
+ *       "default" = "Drupal\overwatch_map\Form\OverwatchMapForm",
+ *       "add" = "Drupal\overwatch_map\Form\OverwatchMapForm",
+ *       "edit" = "Drupal\overwatch_map\Form\OverwatchMapForm",
+ *       "delete" = "Drupal\overwatch_map\Form\OverwatchMapDeleteForm",
  *     },
- *     "access" = "Drupal\overwatch_hero\OverwatchHeroAccessControlHandler",
+ *     "access" = "Drupal\overwatch_map\OverwatchMapAccessControlHandler",
  *     "route_provider" = {
- *       "html" = "Drupal\overwatch_hero\OverwatchHeroHtmlRouteProvider",
+ *       "html" = "Drupal\overwatch_map\OverwatchMapHtmlRouteProvider",
  *     },
  *   },
- *   base_table = "overwatch_hero",
- *   data_table = "overwatch_hero_field_data",
- *   revision_table = "overwatch_hero_revision",
- *   revision_data_table = "overwatch_hero_field_revision",
+ *   base_table = "overwatch_map",
+ *   data_table = "overwatch_map_field_data",
+ *   revision_table = "overwatch_map_revision",
+ *   revision_data_table = "overwatch_map_field_revision",
  *   translatable = TRUE,
- *   admin_permission = "administer overwatch hero entities",
+ *   admin_permission = "administer overwatch map entities",
  *   entity_keys = {
  *     "id" = "id",
  *     "revision" = "vid",
@@ -50,21 +50,21 @@ use Drupal\user\UserInterface;
  *     "status" = "status",
  *   },
  *   links = {
- *     "canonical" = "/overwatch-hero/{overwatch_hero}",
- *     "add-form" = "/overwatch-hero/add",
- *     "edit-form" = "/overwatch-hero/{overwatch_hero}/edit",
- *     "delete-form" = "/overwatch-hero/{overwatch_hero}/delete",
- *     "version-history" = "/overwatch-hero/{overwatch_hero}/revisions",
- *     "revision" = "/overwatch-hero/{overwatch_hero}/revisions/{overwatch_hero_revision}/view",
- *     "revision_revert" = "/overwatch-hero/{overwatch_hero}/revisions/{overwatch_hero_revision}/revert",
- *     "revision_delete" = "/overwatch-hero/{overwatch_hero}/revisions/{overwatch_hero_revision}/delete",
- *     "translation_revert" = "/overwatch-hero/{overwatch_hero}/revisions/{overwatch_hero_revision}/revert/{langcode}",
- *     "collection" = "/admin/overwatch/hero",
+ *     "canonical" = "/overwatch-map/{overwatch_map}",
+ *     "add-form" = "/overwatch-map/add",
+ *     "edit-form" = "/overwatch-map/{overwatch_map}/edit",
+ *     "delete-form" = "/overwatch-map/{overwatch_map}/delete",
+ *     "version-history" = "/overwatch-map/{overwatch_map}/revisions",
+ *     "revision" = "/overwatch-map/{overwatch_map}/revisions/{overwatch_map_revision}/view",
+ *     "revision_revert" = "/overwatch-map/{overwatch_map}/revisions/{overwatch_map_revision}/revert",
+ *     "revision_delete" = "/overwatch-map/{overwatch_map}/revisions/{overwatch_map_revision}/delete",
+ *     "translation_revert" = "/overwatch-map/{overwatch_map}/revisions/{overwatch_map_revision}/revert/{langcode}",
+ *     "collection" = "/admin/overwatch/map",
  *   },
- *   field_ui_base_route = "overwatch_hero.settings"
+ *   field_ui_base_route = "overwatch_map.settings"
  * )
  */
-class OverwatchHero extends RevisionableContentEntityBase implements OverwatchHeroInterface {
+class OverwatchMap extends RevisionableContentEntityBase implements OverwatchMapInterface {
 
   use EntityChangedTrait;
 
@@ -74,7 +74,7 @@ class OverwatchHero extends RevisionableContentEntityBase implements OverwatchHe
   public static function preCreate(EntityStorageInterface $storage_controller, array &$values) {
     parent::preCreate($storage_controller, $values);
     $values += [
-      // Default values for fields.
+      // Default values.
     ];
   }
 
@@ -86,13 +86,7 @@ class OverwatchHero extends RevisionableContentEntityBase implements OverwatchHe
 
     foreach (array_keys($this->getTranslationLanguages()) as $langcode) {
       $translation = $this->getTranslation($langcode);
-
-      // Make the anonymous user the owner.
-      //$translation->setOwnerId(0);
     }
-
-    // Make the anonymous user the owner.
-    //$this->setRevisionUserId(0);
   }
 
   /**
@@ -148,7 +142,7 @@ class OverwatchHero extends RevisionableContentEntityBase implements OverwatchHe
 
     $fields['name'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Name'))
-      ->setDescription(t('The name of the Overwatch hero.'))
+      ->setDescription(t('The name of the Overwatch map entity.'))
       ->setRevisionable(TRUE)
       ->setTranslatable(TRUE)
       ->setSettings([
@@ -170,7 +164,7 @@ class OverwatchHero extends RevisionableContentEntityBase implements OverwatchHe
 
     $fields['status'] = BaseFieldDefinition::create('boolean')
       ->setLabel(t('Publishing status'))
-      ->setDescription(t('A boolean indicating whether the Overwatch hero is published.'))
+      ->setDescription(t('A boolean indicating whether the Overwatch map is published.'))
       ->setRevisionable(TRUE)
       ->setDefaultValue(TRUE);
 

@@ -1,0 +1,5 @@
+entity.overwatch_map.add_form:
+  route_name: entity.overwatch_map.add_form
+  title: 'Add Overwatch map'
+  appears_on:
+    - entity.overwatch_map.collection

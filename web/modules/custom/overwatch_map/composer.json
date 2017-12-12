@@ -1,0 +1,14 @@
+{
+  "name": "drupal/overwatch_map",
+  "type": "drupal-module",
+  "description": "Overwatch map entity.",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/overwatch_map",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/overwatch_map",
+    "source": "http://cgit.drupalcode.org/overwatch_map"
+  },
+  "require": { }
+}

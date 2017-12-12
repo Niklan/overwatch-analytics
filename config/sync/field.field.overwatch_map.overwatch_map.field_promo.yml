@@ -1,0 +1,38 @@
+uuid: c6513fe8-708f-4a8f-a4b0-ab31cbd69fdb
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.overwatch_map.field_promo
+  module:
+    - image
+    - overwatch_map
+id: overwatch_map.overwatch_map.field_promo
+field_name: field_promo
+entity_type: overwatch_map
+bundle: overwatch_map
+label: Промо
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: 'fields/overwatch_map.overwatch_map.field_promo/[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: false
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image
