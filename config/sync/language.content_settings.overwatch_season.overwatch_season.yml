@@ -1,0 +1,11 @@
+uuid: 806c6594-c24f-4a68-8e12-99c0e1458d2b
+langcode: ru
+status: true
+dependencies:
+  module:
+    - overwatch_season
+id: overwatch_season.overwatch_season
+target_entity_type_id: overwatch_season
+target_bundle: overwatch_season
+default_langcode: site_default
+language_alterable: true

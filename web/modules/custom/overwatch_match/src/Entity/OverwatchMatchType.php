@@ -31,11 +31,11 @@ use Drupal\Core\Config\Entity\ConfigEntityBundleBase;
  *     "uuid" = "uuid"
  *   },
  *   links = {
- *     "canonical" = "/admin/structure/overwatch_match_type/{overwatch_match_type}",
- *     "add-form" = "/admin/structure/overwatch_match_type/add",
- *     "edit-form" = "/admin/structure/overwatch_match_type/{overwatch_match_type}/edit",
- *     "delete-form" = "/admin/structure/overwatch_match_type/{overwatch_match_type}/delete",
- *     "collection" = "/admin/structure/overwatch_match_type"
+ *     "canonical" = "/admin/structure/overwatch/match/type/{overwatch_match_type}",
+ *     "add-form" = "/admin/structure/overwatch/match/type/add",
+ *     "edit-form" = "/admin/structure/overwatch/match/type/{overwatch_match_type}/edit",
+ *     "delete-form" = "/admin/structure/overwatch/match/type/{overwatch_match_type}/delete",
+ *     "collection" = "/admin/structure/overwatch/match/type"
  *   }
  * )
  */

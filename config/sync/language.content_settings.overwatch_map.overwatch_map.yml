@@ -1,0 +1,11 @@
+uuid: 52f38490-dc31-4f2f-88cf-22bf1b46ff90
+langcode: ru
+status: true
+dependencies:
+  module:
+    - overwatch_map
+id: overwatch_map.overwatch_map
+target_entity_type_id: overwatch_map
+target_bundle: overwatch_map
+default_langcode: site_default
+language_alterable: true
