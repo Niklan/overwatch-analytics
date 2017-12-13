@@ -222,13 +222,15 @@ services:
 
   traefik:
     image: traefik
-    command: -c /dev/null --web --docker --logLevel=INFO
+    # http://www.selfsignedcertificate.com/
+    command: -c /dev/null --web --docker --logLevel=INFO --defaultEntryPoints='https' --entryPoints="Name:https Address::443 TLS:/certs/overwatch-analytics.localhost.cert,/certs/overwatch-analytics.localhost.key" --entryPoints="Name:http Address::80"
     ports:
       - '80:80'
       - '443:443'
       - '8080:8080' # Dashboard
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+      - ./certs:/certs
 
 volumes:
   codebase:
