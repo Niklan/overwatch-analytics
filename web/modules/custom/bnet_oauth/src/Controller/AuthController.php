@@ -5,8 +5,9 @@ namespace Drupal\bnet_oauth\Controller;
 use Drupal\Component\Serialization\Json;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Routing\TrustedRedirectResponse;
+use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Url;
-use SebastianBergmann\RecursionContext\Exception;
+use Drupal\user\Entity\User;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
@@ -57,7 +58,8 @@ class AuthController extends ControllerBase {
       if (!empty($response_result['access_token'])) {
         $request = \Drupal::httpClient()
           ->get('https://eu.api.battle.net/account/user?access_token=' . $response_result['access_token']);
-        ksm($request->getBody()->getContents());
+        $account_data = Json::decode($request->getBody()->getContents());
+        $this->finalizeAuth($account_data);
       }
       return RedirectResponse::create($frontpage_url);
     }
@@ -65,6 +67,61 @@ class AuthController extends ControllerBase {
       drupal_set_message(t("Something wen't wrong during battle.net access."), 'error');
       return RedirectResponse::create($frontpage_url);
     }
+  }
+
+  /**
+   * Finalize auth. Creates or login in-to user.
+   */
+  public function finalizeAuth($account_data) {
+    $user = \Drupal::entityQuery('user')
+      ->condition('bnet_oauth_id', $account_data['id'])
+      ->range(0, 1)
+      ->execute();
+
+    if (empty($user)) {
+      $this->createNewUser($account_data);
+    }
+    else {
+      $this->loginAsUser(reset($user));
+    }
+  }
+
+  /**
+   * Login as existing user.
+   *
+   * @param $uid
+   */
+  public function loginAsUser($uid) {
+    $user = User::load($uid);
+    user_login_finalize($user);
+  }
+
+  /**
+   * Create new user from Battle.net data.
+   */
+  public function createNewUser($account_data) {
+    // Username can't contain hash symbol.
+    $battletag = str_replace('#', '-', $account_data['battletag']);
+    $id = $account_data['id'];
+    $user = User::create([
+      // The name in Drupal must be unique. name-tag-id.
+      'name' => $battletag . '-' . $id,
+      'pass' => NULL,
+      'mail' => NULL,
+      'init' => NULL,
+      'status' => 1,
+      'roles' => [
+        AccountInterface::AUTHENTICATED_ROLE,
+      ],
+      'bnet_oauth_battletag' => [
+        'value' => $battletag,
+      ],
+      'bnet_oauth_id' => [
+        'value' => $id,
+      ],
+    ]);
+    $user->save();
+    $this->loginAsUser($user->id());
   }
 
 }

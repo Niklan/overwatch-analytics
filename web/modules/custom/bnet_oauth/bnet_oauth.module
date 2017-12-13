@@ -6,12 +6,25 @@
  */
 
 use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Field\BaseFieldDefinition;
 
 /**
- * Implements hook_entity_bundle_field_info().
+ * Implements hook_entity_base_field_info().
+ *
+ * This hook is require to run `drush entity-updates`.
  */
-function bnet_oauth_entity_bundle_field_info(EntityTypeInterface $entity_type, $bundle, array $base_field_definitions) {
-  if ($entity_type->id() == 'user' && $bundle == 'user') {
-    // @todo field for access token.
+function bnet_oauth_entity_base_field_info(EntityTypeInterface $entity_type) {
+  if ($entity_type->id() == 'user') {
+    $fields = [];
+    $fields['bnet_oauth_battletag'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Battle.net tag'))
+      ->setRevisionable(FALSE)
+      ->setTranslatable(FALSE);
+    $fields['bnet_oauth_id'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Battle.net ID'))
+      ->setRevisionable(FALSE)
+      ->setTranslatable(FALSE);
+
+    return $fields;
   }
 }
