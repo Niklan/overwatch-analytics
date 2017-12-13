@@ -1,0 +1,7 @@
+bnet_oauth.bnet_auth_settings:
+  title: 'Battle.net OAuth settings'
+  route_name: bnet_oauth.bnet_auth_settings
+  description: 'Main settings for OAuth.'
+  parent: system.admin_config_system
+  weight: 99
+
