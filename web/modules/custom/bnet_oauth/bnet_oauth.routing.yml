@@ -5,6 +5,13 @@ bnet_oauth.auth:
   requirements:
     _permission: 'access content'
 
+bnet_oauth.callback:
+  path: '/bnet/callback'
+  defaults:
+    _controller: '\Drupal\bnet_oauth\Controller\AuthController::callback'
+  requirements:
+    _permission: 'access content'
+
 bnet_oauth.bnet_auth_settings:
   path: '/admin/config/bnet-oauth/settings'
   defaults:

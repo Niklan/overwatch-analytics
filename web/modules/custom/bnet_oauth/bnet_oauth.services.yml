@@ -1,0 +1,3 @@
+services:
+  bnet_oauth:
+    class: Drupal\bnet_oauth\BnetOAuth
