@@ -17,9 +17,7 @@
             el: formElement,
             delimiters: ['${', '}'],
             data: {
-              token: settings.overwatchMatchAddCompetitiveForm.token,
-              is_placement_match: 0,
-              match_result: null,
+              formValues: settings.overwatchMatchAddCompetitiveForm.formValues,
             }
           });
         });

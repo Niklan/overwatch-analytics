@@ -6,13 +6,13 @@ dependencies:
     - field.field.overwatch_match.competitive.field_duration
     - field.field.overwatch_match.competitive.field_group_size
     - field.field.overwatch_match.competitive.field_heroes
-    - field.field.overwatch_match.competitive.field_is_placement
     - field.field.overwatch_match.competitive.field_map
     - field.field.overwatch_match.competitive.field_match_result
     - field.field.overwatch_match.competitive.field_notes
     - field.field.overwatch_match.competitive.field_score
     - field.field.overwatch_match.competitive.field_season
     - field.field.overwatch_match.competitive.field_skill_rating
+    - field.field.overwatch_match.competitive.field_special_match_type
     - field.field.overwatch_match.competitive.field_starting_side
     - overwatch_match.overwatch_match_type.competitive
 id: overwatch_match.competitive.default
@@ -39,13 +39,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_select
-    region: content
-  field_is_placement:
-    weight: 27
-    settings:
-      display_label: true
-    third_party_settings: {  }
-    type: boolean_checkbox
     region: content
   field_map:
     weight: 28
@@ -87,6 +80,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: number
+    region: content
+  field_special_match_type:
+    weight: 38
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
     region: content
   field_starting_side:
     weight: 30

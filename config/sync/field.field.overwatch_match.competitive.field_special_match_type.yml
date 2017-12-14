@@ -1,0 +1,21 @@
+uuid: 904f8548-dc05-4a10-aad9-fd4cab624d6f
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.overwatch_match.field_special_match_type
+    - overwatch_match.overwatch_match_type.competitive
+  module:
+    - options
+id: overwatch_match.competitive.field_special_match_type
+field_name: field_special_match_type
+entity_type: overwatch_match
+bundle: competitive
+label: 'Тип матча'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

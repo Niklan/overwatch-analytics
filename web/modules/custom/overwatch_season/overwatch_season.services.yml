@@ -1,0 +1,5 @@
+services:
+  overwatch_season.helper:
+    class: Drupal\overwatch_season\OverwatchSeasonHelperService
+    arguments: []
+

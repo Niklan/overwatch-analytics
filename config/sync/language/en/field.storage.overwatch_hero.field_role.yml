@@ -1,0 +1,10 @@
+settings:
+  allowed_values:
+    -
+      label: Offense
+    -
+      label: Defense
+    -
+      label: Tank
+    -
+      label: Support

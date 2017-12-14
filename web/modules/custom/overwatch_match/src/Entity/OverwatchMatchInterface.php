@@ -24,7 +24,9 @@ interface OverwatchMatchInterface extends ContentEntityInterface, RevisionLogInt
 
   const STARTING_SIDE_DEFEND = 2;
 
-  // Add get/set methods for your configuration properties here.
+  const SPECIAL_TYPE_PLACEMENT = 1;
+
+  const SPECIAL_TYPE_BASE = 2;
 
   /**
    * Gets the Overwatch match name.

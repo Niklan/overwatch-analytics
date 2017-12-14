@@ -1,19 +1,71 @@
+{#
+  /**
+   * @todo
+   * - group size
+   * - heroes
+   * - maps
+   * - starting side
+   */
+#}
 {{ attach_library('overwatch_match/add-competitive-form') }}
-<form @submit.prevent class="overwatch-match-add-competitive-form">
-  <input type="hidden" name="token" v-model="token">
-  <input type="checkbox" id="is-placement" name="is_placement_match" v-model="is_placement_match">
-  <label for="is-placement">{{ 'Placement match'|trans }}</label>
+<div @submit.prevent class="overwatch-match-add-competitive-form">
+  <input type="hidden" name="token" v-model="formValues.token">
 
-  <div v-if="is_placement_match" class="match-result">
+  <div class="seasons">
+    <div v-for="season in formValues.seasons" class="season">
+      <input type="radio" :value="season.id"
+             v-model="formValues.seasonSelected">
+      <label>${ season.label }</label>
+    </div>
+  </div>
+
+  <div v-if="!formValues.hasSr" class="no-sr">
+    <p>
+      {% trans %}
+        We don't have any information about your SR in current season. If you
+        don't finish placement already, you must mark this match as
+        placement.
+      {% endtrans %}
+    </p>
+
+    <p>
+      {% trans %}
+        If you already finish placement matches and want to start your analyze from
+        current state, you must add base match with SR only. This will be base
+        rating for all next matches.
+      {% endtrans %}
+    </p>
+
+    <p>
+      {% trans %}
+        After we detect that you have SR, this options will disappear.
+      {% endtrans %}
+    </p>
+
+    <input type="radio" id="is-placement" name="no_sr" value="1"
+           v-model="formValues.matchType">
+    <label for="is-placement">{{ 'Placement match'|trans }}</label>
+
+    <input type="radio" id="is-base-match" name="no_sr" value="2"
+           v-model="formValues.matchType">
+    <label for="is-base-match">{{ 'Base match'|trans }}</label>
+  </div>
+
+
+  <div v-if="formValues.matchType == 1" class="match-result">
     <div class="title">{{ 'Match result'|trans }}</div>
 
-    <input type="radio" id="victory" value="1" v-model="match_result">
+    <input type="radio" id="victory" value="1" v-model="formValues.matchResult">
     <label for="victory">{{ 'Victory'|trans }}</label>
     <br>
-    <input type="radio" id="draw" value="0" v-model="match_result">
+    <input type="radio" id="draw" value="0" v-model="formValues.matchResult">
     <label for="draw">{{ 'Draw'|trans }}</label>
     <br>
-    <input type="radio" id="defeat" value="2" v-model="match_result">
+    <input type="radio" id="defeat" value="2" v-model="formValues.matchResult">
     <label for="defeat">{{ 'Defeat'|trans }}</label>
   </div>
-</form>
+
+  <div class="sr-pane" v-if="formValues.hasSr || formValues.matchType == 2">
+    <input type="number" v-model="sr">
+  </div>
+</div>
