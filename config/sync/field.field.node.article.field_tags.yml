@@ -15,7 +15,7 @@ bundle: article
 label: Теги
 description: 'Введите список, разделенный запятой. Например: Амстердам, Мехико, "Кливленд, Огайо"'
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:

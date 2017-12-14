@@ -1,0 +1,18 @@
+uuid: 1a14cb8a-6084-4ad5-b335-075af95329fb
+langcode: ru
+status: true
+dependencies:
+  config:
+    - block_content.type.basic
+id: block_content.basic.info
+field_name: info
+entity_type: block_content
+bundle: basic
+label: 'Описание блока'
+description: 'Краткое описание вашего блока.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

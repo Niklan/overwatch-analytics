@@ -145,6 +145,7 @@ class OverwatchSeason extends RevisionableContentEntityBase implements Overwatch
       ->setLabel(t('Name'))
       ->setDescription(t('The name of the Overwatch season entity.'))
       ->setRevisionable(TRUE)
+      ->setTranslatable(TRUE)
       ->setSettings([
         'max_length' => 50,
         'text_processing' => 0,

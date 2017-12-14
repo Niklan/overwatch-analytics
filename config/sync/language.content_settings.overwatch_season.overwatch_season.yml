@@ -3,7 +3,11 @@ langcode: ru
 status: true
 dependencies:
   module:
+    - content_translation
     - overwatch_season
+third_party_settings:
+  content_translation:
+    enabled: true
 id: overwatch_season.overwatch_season
 target_entity_type_id: overwatch_season
 target_bundle: overwatch_season

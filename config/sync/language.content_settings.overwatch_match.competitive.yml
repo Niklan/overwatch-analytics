@@ -1,0 +1,11 @@
+uuid: 930ced71-0ca3-4f86-8929-7ab86a1e082b
+langcode: ru
+status: true
+dependencies:
+  config:
+    - overwatch_match.overwatch_match_type.competitive
+id: overwatch_match.competitive
+target_entity_type_id: overwatch_match
+target_bundle: competitive
+default_langcode: site_default
+language_alterable: false

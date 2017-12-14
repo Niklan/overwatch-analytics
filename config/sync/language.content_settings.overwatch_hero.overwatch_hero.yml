@@ -3,7 +3,11 @@ langcode: ru
 status: true
 dependencies:
   module:
+    - content_translation
     - overwatch_hero
+third_party_settings:
+  content_translation:
+    enabled: true
 id: overwatch_hero.overwatch_hero
 target_entity_type_id: overwatch_hero
 target_bundle: overwatch_hero

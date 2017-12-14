@@ -3,7 +3,11 @@ langcode: ru
 status: true
 dependencies:
   module:
+    - content_translation
     - overwatch_map
+third_party_settings:
+  content_translation:
+    enabled: true
 id: overwatch_map.overwatch_map
 target_entity_type_id: overwatch_map
 target_bundle: overwatch_map

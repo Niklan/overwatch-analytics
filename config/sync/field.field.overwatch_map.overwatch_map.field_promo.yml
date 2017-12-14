@@ -5,8 +5,15 @@ dependencies:
   config:
     - field.storage.overwatch_map.field_promo
   module:
+    - content_translation
     - image
     - overwatch_map
+third_party_settings:
+  content_translation:
+    translation_sync:
+      alt: alt
+      title: title
+      file: '0'
 id: overwatch_map.overwatch_map.field_promo
 field_name: field_promo
 entity_type: overwatch_map
@@ -14,7 +21,7 @@ bundle: overwatch_map
 label: Промо
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

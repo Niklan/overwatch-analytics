@@ -5,8 +5,15 @@ dependencies:
   config:
     - field.storage.overwatch_hero.field_portrait
   module:
+    - content_translation
     - image
     - overwatch_hero
+third_party_settings:
+  content_translation:
+    translation_sync:
+      alt: alt
+      title: title
+      file: '0'
 id: overwatch_hero.overwatch_hero.field_portrait
 field_name: field_portrait
 entity_type: overwatch_hero
@@ -14,7 +21,7 @@ bundle: overwatch_hero
 label: Портрет
 description: ''
 required: true
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
