@@ -3,3 +3,15 @@ toolbar-styles:
   css:
     theme:
       assets/css/overwatch_analytics.toolbar.css: {}
+
+# Third party libraries.
+vue:
+  version: 2.5.9
+  remote: https://vuejs.org/
+  license:
+    name: MIT
+    url: https://en.wikipedia.org/wiki/MIT_License
+    gpl-compatible: true
+  js:
+    #/libraries/vue/dist/vue.min.js: { minified: true }
+    /libraries/vue/dist/vue.js: {}

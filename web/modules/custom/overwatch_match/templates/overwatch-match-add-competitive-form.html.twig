@@ -1,0 +1,19 @@
+{{ attach_library('overwatch_match/add-competitive-form') }}
+<form @submit.prevent class="overwatch-match-add-competitive-form">
+  <input type="hidden" name="token" v-model="token">
+  <input type="checkbox" id="is-placement" name="is_placement_match" v-model="is_placement_match">
+  <label for="is-placement">{{ 'Placement match'|trans }}</label>
+
+  <div v-if="is_placement_match" class="match-result">
+    <div class="title">{{ 'Match result'|trans }}</div>
+
+    <input type="radio" id="victory" value="1" v-model="match_result">
+    <label for="victory">{{ 'Victory'|trans }}</label>
+    <br>
+    <input type="radio" id="draw" value="0" v-model="match_result">
+    <label for="draw">{{ 'Draw'|trans }}</label>
+    <br>
+    <input type="radio" id="defeat" value="2" v-model="match_result">
+    <label for="defeat">{{ 'Defeat'|trans }}</label>
+  </div>
+</form>

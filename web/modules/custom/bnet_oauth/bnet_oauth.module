@@ -28,3 +28,10 @@ function bnet_oauth_entity_base_field_info(EntityTypeInterface $entity_type) {
     return $fields;
   }
 }
+
+/**
+ * Implements hook_user_login().
+ */
+function bnet_oauth_user_login($account) {
+  // @todo add/update avatar and overwatch level.
+}

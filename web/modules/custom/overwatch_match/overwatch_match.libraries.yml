@@ -1,0 +1,7 @@
+add-competitive-form:
+  js:
+    assets/js/add-competitive-form.js: { }
+  dependencies:
+    - overwatch_analytics/vue
+    - core/jquery.once
+    - core/drupalSettings

@@ -35,6 +35,7 @@ class AuthController extends ControllerBase {
    * {@inheritdoc}
    */
   public function callback() {
+    \Drupal::service('page_cache_kill_switch')->trigger();
     $request_query = \Drupal::request()->query;
     $state = $request_query->get('state');
     /** @var \Drupal\bnet_oauth\BnetOAuth $bnet_oauth */

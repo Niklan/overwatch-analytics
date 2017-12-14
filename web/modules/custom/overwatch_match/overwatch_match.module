@@ -21,6 +21,10 @@ function overwatch_match_theme() {
     'variables' => ['content' => NULL],
     'file' => 'overwatch_match.page.inc',
   ];
+  $theme['overwatch_match_add_competitive_form'] = [
+    'variables' => [],
+    'file' => 'overwatch_match.theme.inc',
+  ];
   return $theme;
 }
 

@@ -3,3 +3,6 @@ type: module
 description: Overwatch match
 core: 8.x
 package: Custom
+
+dependencies:
+- overwatch_analytics

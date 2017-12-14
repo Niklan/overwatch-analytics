@@ -1,0 +1,8 @@
+
+overwatch_match.add_competitive_match_controller_hello:
+  path: '/add/match/competitive'
+  defaults:
+    _controller: '\Drupal\overwatch_match\Controller\AddCompetitiveMatchController::content'
+    _title: 'Add competitive match'
+  requirements:
+    _permission: 'add overwatch match entities'
