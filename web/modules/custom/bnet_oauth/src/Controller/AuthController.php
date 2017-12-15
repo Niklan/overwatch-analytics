@@ -20,6 +20,8 @@ class AuthController extends ControllerBase {
    */
   public function auth() {
     \Drupal::service('page_cache_kill_switch')->trigger();
+    // It's necessary to work csrfToken.
+    $state = \Drupal::service('session_manager')->start();
     $client_id = \Drupal::state()->get('bnet_oauth_settings_key');
 
     /** @var \Drupal\bnet_oauth\BnetOAuth $bnet_oauth */

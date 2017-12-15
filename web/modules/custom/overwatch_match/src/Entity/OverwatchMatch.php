@@ -256,4 +256,18 @@ class OverwatchMatch extends RevisionableContentEntityBase implements OverwatchM
     return $fields;
   }
 
+  /**
+   * {@inheritdoc}
+   */
+  protected function urlRouteParameters($rel) {
+    $uri_route_parameters = parent::urlRouteParameters($rel);
+    if ($rel === 'revision_revert' && $this instanceof RevisionableContentEntityBase) {
+      $uri_route_parameters[$this->getEntityTypeId() . '_revision'] = $this->getRevisionId();
+    }
+    elseif ($rel === 'revision_delete' && $this instanceof RevisionableContentEntityBase) {
+      $uri_route_parameters[$this->getEntityTypeId() . '_revision'] = $this->getRevisionId();
+    }
+    return $uri_route_parameters;
+  }
+
 }

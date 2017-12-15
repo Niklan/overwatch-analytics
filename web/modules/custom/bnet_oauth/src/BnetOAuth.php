@@ -102,7 +102,7 @@ class BnetOAuth {
    * Generate token for state parameter of auth.
    */
   public function getCsrfToken() {
-    return \Drupal::csrfToken()->get(\Drupal::request()->getClientIp());
+    return \Drupal::csrfToken()->get();
   }
 
   /**

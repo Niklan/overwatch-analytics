@@ -26,7 +26,7 @@ function template_preprocess_overwatch_match_add_competitive_form(&$variables) {
     'sr' => NULL,
     'heroes' => [],
     'heroesSelected' => [],
-    'note' => '',
+    'notes' => '',
   ];
 
   /** @var \Drupal\overwatch_season\OverwatchSeasonHelperService $overwatch_season_helper */

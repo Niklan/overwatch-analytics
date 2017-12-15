@@ -1,3 +1,11 @@
+{#
+  /**
+   * @todo
+   * - time
+   * - duration
+   * - score
+   */
+#}
 {{ attach_library('overwatch_match/add-competitive-form') }}
 <div @submit.prevent class="overwatch-match-add-competitive-form">
   <input type="hidden" name="token" v-model="formValues.token">
@@ -97,7 +105,7 @@
 
   <div class="note">
     <div class="label">{{ 'Note'|trans }}</div>
-    <textarea v-model="formValues.note"></textarea>
+    <textarea v-model="formValues.notes"></textarea>
   </div>
 
   <button type="submit" @click="submitForm">{{ 'Save'|trans }}</button>

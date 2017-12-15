@@ -28,8 +28,7 @@
                   url: '/add/match/competitive/callback',
                   data: this.formValues,
                 }).done(response => {
-                  // @todo
-                  console.log('success', response);
+                  location.reload();
                 }).fail((response) => {
                   console.log(response.responseJSON.error);
                 });
