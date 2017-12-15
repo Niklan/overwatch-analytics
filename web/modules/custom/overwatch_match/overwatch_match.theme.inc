@@ -26,10 +26,22 @@ function template_preprocess_overwatch_match_add_competitive_form(&$variables) {
     'sr' => NULL,
     'heroes' => [],
     'heroesSelected' => [],
+    'note' => '',
   ];
 
   /** @var \Drupal\overwatch_season\OverwatchSeasonHelperService $overwatch_season_helper */
   $overwatch_season_helper = \Drupal::service('overwatch_season.helper');
   $settings['formValues']['seasons'] = $overwatch_season_helper->getAllSeasons();
   $settings['formValues']['seasonSelected'] = $overwatch_season_helper->getCurrentSeason()['id'];
+
+  /** @var \Drupal\overwatch_map\OverwatchMapHelperService $overwatch_map_helper */
+  $overwatch_map_helper = \Drupal::service('overwatch_map.helper');
+  $settings['formValues']['maps'] = $overwatch_map_helper->getAllMaps();
+
+  /** @var \Drupal\overwatch_hero\OverwatchHeroHelperService $overwatch_hero_helper */
+  $overwatch_hero_helper = \Drupal::service('overwatch_hero.helper');
+  $settings['formValues']['heroes'] = $overwatch_hero_helper->getAllHeroes();
+
+  // Add AJAX callback to trusted.
+  $variables['#attached']['drupalSettings']['ajaxTrustedUrl']['/add/match/competitive/callback'] = TRUE;
 }

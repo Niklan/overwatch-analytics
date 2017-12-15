@@ -3,13 +3,15 @@
  * Add competitive match behaviors.
  */
 
-(function ($, Drupal) {
+(function($, Drupal) {
 
   'use strict';
 
   Drupal.behaviors.overwatchMatchAddCompetitiveForm = {
-    attach: function (context, settings) {
-      let addCompetitiveForms = $(context).find('.overwatch-match-add-competitive-form').once('add-competitive-form');
+    attach: function(context, settings) {
+      let addCompetitiveForms = $(context).
+        find('.overwatch-match-add-competitive-form').
+        once('add-competitive-form');
 
       if (addCompetitiveForms.length) {
         $.each(addCompetitiveForms, (key, formElement) => {
@@ -18,11 +20,25 @@
             delimiters: ['${', '}'],
             data: {
               formValues: settings.overwatchMatchAddCompetitiveForm.formValues,
-            }
+            },
+            methods: {
+              submitForm() {
+                $.ajax({
+                  type: 'POST',
+                  url: '/add/match/competitive/callback',
+                  data: this.formValues,
+                }).done(response => {
+                  // @todo
+                  console.log('success', response);
+                }).fail((response) => {
+                  console.log(response.responseJSON.error);
+                });
+              },
+            },
           });
         });
       }
-    }
+    },
   };
 
 })(jQuery, Drupal);

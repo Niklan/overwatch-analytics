@@ -1,0 +1,21 @@
+uuid: b7de1027-abba-4192-84a9-9c846520694b
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.overwatch_match.field_date
+    - overwatch_match.overwatch_match_type.competitive
+id: overwatch_match.competitive.field_date
+field_name: field_date
+entity_type: overwatch_match
+bundle: competitive
+label: 'Дата матча'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1513314114
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

@@ -1,0 +1,5 @@
+services:
+  overwatch_hero.helper:
+    class: Drupal\overwatch_hero\OverwatchHeroHelperService
+    arguments: []
+

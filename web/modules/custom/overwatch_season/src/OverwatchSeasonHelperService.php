@@ -26,8 +26,10 @@ class OverwatchSeasonHelperService {
   public function getAllSeasons() {
     $result = &drupal_static(__METHOD__);
     if (!isset($result)) {
+      $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
       $query = \Drupal::entityQuery('overwatch_season')
         ->condition('status', 1)
+        ->condition('langcode', $language)
         ->sort('created', 'DESC');
       $query_result = $query->execute();
       $seasons = $this->entityTypeManager->loadMultiple($query_result);
@@ -36,7 +38,7 @@ class OverwatchSeasonHelperService {
       foreach ($seasons as $season) {
         $result[] = [
           'id' => $season->id(),
-          'label' => $season->label(),
+          'label' => $season->getTranslation($language)->label(),
         ];
       }
     }

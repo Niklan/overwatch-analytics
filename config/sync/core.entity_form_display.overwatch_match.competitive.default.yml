@@ -3,6 +3,7 @@ langcode: ru
 status: true
 dependencies:
   config:
+    - field.field.overwatch_match.competitive.field_date
     - field.field.overwatch_match.competitive.field_duration
     - field.field.overwatch_match.competitive.field_group_size
     - field.field.overwatch_match.competitive.field_heroes
@@ -20,6 +21,12 @@ targetEntityType: overwatch_match
 bundle: competitive
 mode: default
 content:
+  field_date:
+    weight: 39
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_timestamp
+    region: content
   field_duration:
     weight: 36
     settings:

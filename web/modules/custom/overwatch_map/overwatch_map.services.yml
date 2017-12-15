@@ -1,0 +1,5 @@
+services:
+  overwatch_map.helper:
+    class: Drupal\overwatch_map\OverwatchMapHelperService
+    arguments: []
+

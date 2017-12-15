@@ -1,21 +1,46 @@
-{#
-  /**
-   * @todo
-   * - group size
-   * - heroes
-   * - maps
-   * - starting side
-   */
-#}
 {{ attach_library('overwatch_match/add-competitive-form') }}
 <div @submit.prevent class="overwatch-match-add-competitive-form">
   <input type="hidden" name="token" v-model="formValues.token">
 
-  <div class="seasons">
-    <div v-for="season in formValues.seasons" class="season">
-      <input type="radio" :value="season.id"
-             v-model="formValues.seasonSelected">
-      <label>${ season.label }</label>
+  <div class="first-step">
+    <select class="season" v-model="formValues.seasonSelected">
+      <option v-for="season in formValues.seasons" :value="season.id">${ season.label }</option>
+    </select>
+
+    <div class="group-size">
+      <div class="label">{{ 'Group size'|trans }}</div>
+      <input type="number" v-model="formValues.groupSize" min="1" max="6">
+    </div>
+  </div>
+
+  <div class="second-step">
+    <div class="maps">
+      <div class="label">{{ 'Map'|trans }}</div>
+      <select class="map" v-model="formValues.mapSelected">
+        <option v-for="map in formValues.maps" :value="map.id">${ map.label }</option>
+      </select>
+    </div>
+
+    <div class="starting-side">
+      <div class="label">{{ 'Starting side'|trans }}</div>
+      <div class="radios">
+        <input type="radio" id="attack" name="starting_side" value="1"
+               v-model="formValues.startingSide">
+        <label for="attack">{{ 'Attack first'|trans }}</label>
+
+        <input type="radio" id="defend" name="starting_side" value="2"
+               v-model="formValues.startingSide">
+        <label for="defend">{{ 'Defend first'|trans }}</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="third-step">
+    <div class="heroes">
+      <div class="label">{{ 'Heroes'|trans }}</div>
+      <select class="hero" v-model="formValues.heroesSelected" multiple :size="formValues.heroes.length">
+        <option v-for="hero in formValues.heroes" :value="hero.id">${ hero.label }</option>
+      </select>
     </div>
   </div>
 
@@ -66,6 +91,14 @@
   </div>
 
   <div class="sr-pane" v-if="formValues.hasSr || formValues.matchType == 2">
-    <input type="number" v-model="sr">
+    SR
+    <input type="number" v-model="formValues.sr" min="1" max="5000">
   </div>
+
+  <div class="note">
+    <div class="label">{{ 'Note'|trans }}</div>
+    <textarea v-model="formValues.note"></textarea>
+  </div>
+
+  <button type="submit" @click="submitForm">{{ 'Save'|trans }}</button>
 </div>
