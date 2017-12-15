@@ -32,7 +32,7 @@ class OverwatchMatchAddCompetitiveController extends ControllerBase {
     $form_values = \Drupal::request()->request->all();
 
     $response = [];
-    if ($form_values['token'] == \Drupal::csrfToken()->get()) {
+    if (\Drupal::csrfToken()->validate($form_values['token'])) {
       // @todo
       return JsonResponse::create($form_values);
     }

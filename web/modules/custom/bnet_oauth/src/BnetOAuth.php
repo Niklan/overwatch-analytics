@@ -115,9 +115,7 @@ class BnetOAuth {
    *   TRUE if they are equal.
    */
   public function compareCsrfToken($token) {
-    // @todo remove this methor or rewrite using validate() method from
-    // csrfToken object.
-    return $token == $this->getCsrfToken();
+    return \Drupal::csrfToken()->validate($token);
   }
 
   /**
