@@ -1,18 +1,12 @@
-{#
-  /**
-   * @todo
-   * - time
-   * - duration
-   * - score
-   */
-#}
 {{ attach_library('overwatch_match/add-competitive-form') }}
 <div @submit.prevent class="overwatch-match-add-competitive-form">
   <input type="hidden" name="token" v-model="formValues.token">
 
   <div class="first-step">
     <select class="season" v-model="formValues.seasonSelected">
-      <option v-for="season in formValues.seasons" :value="season.id">${ season.label }</option>
+      <option v-for="season in formValues.seasons" :value="season.id">${
+        season.label }
+      </option>
     </select>
 
     <div class="group-size">
@@ -21,11 +15,19 @@
     </div>
   </div>
 
+  <div class="time">
+    <div class="label">{{ 'Date and time'|trans }}</div>
+    <input type="date" v-model="formValues.dateDate">
+    <input type="time" v-model="formValues.dateTime">
+    <div class="description">{% trans %}Leave values empty for auto time on save.{% endtrans %}</div>
+  </div>
+
   <div class="second-step">
     <div class="maps">
       <div class="label">{{ 'Map'|trans }}</div>
       <select class="map" v-model="formValues.mapSelected">
-        <option v-for="map in formValues.maps" :value="map.id">${ map.label }</option>
+        <option v-for="map in formValues.maps" :value="map.id">${ map.label }
+        </option>
       </select>
     </div>
 
@@ -46,8 +48,11 @@
   <div class="third-step">
     <div class="heroes">
       <div class="label">{{ 'Heroes'|trans }}</div>
-      <select class="hero" v-model="formValues.heroesSelected" multiple :size="formValues.heroes.length">
-        <option v-for="hero in formValues.heroes" :value="hero.id">${ hero.label }</option>
+      <select class="hero" v-model="formValues.heroesSelected" multiple
+              :size="formValues.heroes.length">
+        <option v-for="hero in formValues.heroes" :value="hero.id">${ hero.label
+          }
+        </option>
       </select>
     </div>
   </div>
@@ -64,28 +69,17 @@
     <p>
       {% trans %}
         If you already finish placement matches and want to start your analyze from
-        current state, you must add base match with SR only. This will be base
-        rating for all next matches.
+        current state, just add game only with SR data.
       {% endtrans %}
     </p>
 
-    <p>
-      {% trans %}
-        After we detect that you have SR, this options will disappear.
-      {% endtrans %}
-    </p>
-
-    <input type="radio" id="is-placement" name="no_sr" value="1"
-           v-model="formValues.matchType">
+    <input type="checkbox" id="is-placement" name="is_placement" value="1"
+           v-model="formValues.isPlacement">
     <label for="is-placement">{{ 'Placement match'|trans }}</label>
-
-    <input type="radio" id="is-base-match" name="no_sr" value="2"
-           v-model="formValues.matchType">
-    <label for="is-base-match">{{ 'Base match'|trans }}</label>
   </div>
 
 
-  <div v-if="formValues.matchType == 1" class="match-result">
+  <div v-if="formValues.isPlacement" class="match-result">
     <div class="title">{{ 'Match result'|trans }}</div>
 
     <input type="radio" id="victory" value="1" v-model="formValues.matchResult">
@@ -98,8 +92,28 @@
     <label for="defeat">{{ 'Defeat'|trans }}</label>
   </div>
 
-  <div class="sr-pane" v-if="formValues.hasSr || formValues.matchType == 2">
-    SR
+  <div class="score">
+    <div class="label">{{ 'Score'|trans }}</div>
+    <div class="value">
+      <div class="team">
+        <div class="label">{{ 'Team'|trans }}</div>
+        <input type="number" min="0" max="10" v-model="formValues.scoreTeam">
+      </div>
+
+      <div class="enemy">
+        <div class="label">{{ 'Enemy'|trans }}</div>
+        <input type="number" min="0" max="10" v-model="formValues.scoreEnemy">
+      </div>
+    </div>
+  </div>
+
+  <div class="duration">
+    <div class="label">{{ 'Duration'|trans }}</div>
+    <input type="text" v-model="formValues.duration">
+  </div>
+
+  <div class="sr-pane">
+    <div class="label">SR</div>
     <input type="number" v-model="formValues.sr" min="1" max="5000">
   </div>
 

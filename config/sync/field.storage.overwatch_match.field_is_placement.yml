@@ -1,0 +1,18 @@
+uuid: 75d14f66-534d-4e31-b602-243478c011d7
+langcode: ru
+status: true
+dependencies:
+  module:
+    - overwatch_match
+id: overwatch_match.field_is_placement
+field_name: field_is_placement
+entity_type: overwatch_match
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

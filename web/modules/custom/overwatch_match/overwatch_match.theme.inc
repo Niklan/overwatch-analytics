@@ -13,8 +13,7 @@ function template_preprocess_overwatch_match_add_competitive_form(&$variables) {
   $settings['formValues'] = [
     'token' => \Drupal::csrfToken()->get(),
     'hasSr' => FALSE,
-    // 1 - placement, 2 - base.
-    'matchType' => NULL,
+    'isPlacement' => 0,
     'matchResult' => NULL,
     'seasons' => [],
     'seasonSelected' => NULL,
@@ -27,6 +26,11 @@ function template_preprocess_overwatch_match_add_competitive_form(&$variables) {
     'heroes' => [],
     'heroesSelected' => [],
     'notes' => '',
+    'scoreTeam' => NULL,
+    'scoreEnemy' => NULL,
+    'duration' => NULL,
+    'dateDate' => NULL,
+    'dateTime' => NULL,
   ];
 
   /** @var \Drupal\overwatch_season\OverwatchSeasonHelperService $overwatch_season_helper */
@@ -44,4 +48,8 @@ function template_preprocess_overwatch_match_add_competitive_form(&$variables) {
 
   // Add AJAX callback to trusted.
   $variables['#attached']['drupalSettings']['ajaxTrustedUrl']['/add/match/competitive/callback'] = TRUE;
+
+  // Is user has SR in season.
+  $settings['formValues']['hasSr'] = \Drupal::service('overwatch_match.helper')
+    ->isUserHasSrInSeason($settings['formValues']['seasonSelected']);
 }

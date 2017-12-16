@@ -29,7 +29,7 @@
                   data: this.formValues,
                 }).done(response => {
                   location.reload();
-                }).fail((response) => {
+                }).fail(response => {
                   console.log(response.responseJSON.error);
                 });
               },

@@ -53,7 +53,11 @@ class OverwatchMatchAddCompetitiveController extends ControllerBase {
             }
           }
 
-          // @todo duration
+          if (!empty($form_values['duration'])) {
+            if (preg_match("/([0-9]+):?([0-9]+)?/", $form_values['duration'])) {
+              $match->field_duration->value = $form_values['duration'];
+            }
+          }
 
           if (!empty($form_values['notes'])) {
             $match->field_notes->value = $form_values['notes'];
@@ -79,11 +83,34 @@ class OverwatchMatchAddCompetitiveController extends ControllerBase {
             $match->field_starting_side->value = $form_values['startingSide'];
           }
 
-          // @todo score
-
-          if (!empty($form_values['matchType'])) {
-            $match->field_special_match_type->value = $form_values['matchType'];
+          if (!empty($form_values['scoreTeam']) && !empty($form_values['scoreEnemy'])) {
+            $match->field_score->value = $form_values['scoreTeam'] . ':' . $form_values['scoreEnemy'];
           }
+
+          if (!empty($form_values['isPlacement'])) {
+            $match->field_is_placement->value = $form_values['isPlacement'];
+          }
+
+          // Date.
+          /** @var \Drupal\Core\Datetime\DateFormatter $date_formatter */
+          $date_formatter = \Drupal::service('date.formatter');
+          $request_time = \Drupal::time()->getRequestTime();
+          if (!empty($form_values['dateDate'])) {
+            $date = $form_values['dateDate'];
+          }
+          else {
+            $date = $date_formatter->format($request_time, 'custom', 'd.m.Y');
+          }
+
+          if (!empty($form_values['dateTime'])) {
+            $time = $form_values['dateTime'];
+          }
+          else {
+            $time = $date_formatter->format($request_time, 'custom', 'h:m');
+          }
+
+          $date_time = strtotime("$date $time");
+          $match->field_date = $date_time;
 
           $match->save();
           $response['success'] = 'Match was added successfully.';

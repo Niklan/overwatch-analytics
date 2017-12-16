@@ -7,13 +7,13 @@ dependencies:
     - field.field.overwatch_match.competitive.field_duration
     - field.field.overwatch_match.competitive.field_group_size
     - field.field.overwatch_match.competitive.field_heroes
+    - field.field.overwatch_match.competitive.field_is_placement
     - field.field.overwatch_match.competitive.field_map
     - field.field.overwatch_match.competitive.field_match_result
     - field.field.overwatch_match.competitive.field_notes
     - field.field.overwatch_match.competitive.field_score
     - field.field.overwatch_match.competitive.field_season
     - field.field.overwatch_match.competitive.field_skill_rating
-    - field.field.overwatch_match.competitive.field_special_match_type
     - field.field.overwatch_match.competitive.field_starting_side
     - overwatch_match.overwatch_match_type.competitive
   module:
@@ -56,6 +56,16 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
+  field_is_placement:
+    weight: 15
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
     region: content
   field_map:
     weight: 3
@@ -103,13 +113,6 @@ content:
       prefix_suffix: true
     third_party_settings: {  }
     type: number_integer
-    region: content
-  field_special_match_type:
-    weight: 13
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: list_default
     region: content
   field_starting_side:
     weight: 5
