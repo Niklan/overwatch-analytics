@@ -1,0 +1,22 @@
+uuid: fab6c06a-d5c6-45c8-bac0-ea39fc019983
+langcode: ru
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - glisseo
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: glisseo_content
+theme: glisseo
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Содержимое страницы'
+  provider: system
+  label_display: '0'
+visibility: {  }

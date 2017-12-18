@@ -6,7 +6,8 @@
   "license": "GPL-2.0+",
   "minimum-stability": "dev",
   "require": {
-    "vuejs/vue": "^2"
+    "vuejs/vue": "^2",
+    "select2/select2": "^4"
   },
   "repositories": [
     {
@@ -19,6 +20,19 @@
           "url": "https://github.com/vuejs/vue.git",
           "type": "git",
           "reference": "v2.5.9"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "select2/select2",
+        "type": "drupal-library",
+        "version": "4.0.6-rc1",
+        "source": {
+          "url": "https://github.com/select2/select2.git",
+          "type": "git",
+          "reference": "Select2 4.0.6-rc.1"
         }
       }
     }

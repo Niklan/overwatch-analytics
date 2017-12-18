@@ -19,18 +19,24 @@ class AuthController extends ControllerBase {
    * {@inheritdoc}
    */
   public function auth() {
-    \Drupal::service('page_cache_kill_switch')->trigger();
-    // It's necessary to work csrfToken.
-    $state = \Drupal::service('session_manager')->start();
-    $client_id = \Drupal::state()->get('bnet_oauth_settings_key');
+    if (\Drupal::currentUser()->isAuthenticated()) {
+      $frontpage_url = Url::fromRoute('<front>')->toString();
+      return RedirectResponse::create($frontpage_url);
+    }
+    else {
+      \Drupal::service('page_cache_kill_switch')->trigger();
+      // It's necessary to work csrfToken.
+      $state = \Drupal::service('session_manager')->start();
+      $client_id = \Drupal::state()->get('bnet_oauth_settings_key');
 
-    /** @var \Drupal\bnet_oauth\BnetOAuth $bnet_oauth */
-    $bnet_auth_code_url = \Drupal::service('bnet_oauth')
-      ->setClientId($client_id)
-      ->setRegion('eu')
-      ->getAuthorizationCodeUrl();
+      /** @var \Drupal\bnet_oauth\BnetOAuth $bnet_oauth */
+      $bnet_auth_code_url = \Drupal::service('bnet_oauth')
+        ->setClientId($client_id)
+        ->setRegion('eu')
+        ->getAuthorizationCodeUrl();
 
-    return TrustedRedirectResponse::create($bnet_auth_code_url);
+      return TrustedRedirectResponse::create($bnet_auth_code_url);
+    }
   }
 
   /**

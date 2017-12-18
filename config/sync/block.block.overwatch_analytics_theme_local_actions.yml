@@ -1,0 +1,20 @@
+uuid: b23cfea5-42b5-403e-8ae6-ffac1bd0568f
+langcode: ru
+status: true
+dependencies:
+  theme:
+    - overwatch_analytics_theme
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: overwatch_analytics_theme_local_actions
+theme: overwatch_analytics_theme
+region: content
+weight: -20
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

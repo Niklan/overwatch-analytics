@@ -1,0 +1,22 @@
+uuid: f7fda2a4-c464-4a48-849a-ddb44401efe9
+langcode: ru
+status: true
+dependencies:
+  theme:
+    - glisseo
+_core:
+  default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
+id: glisseo_local_tasks
+theme: glisseo
+region: content
+weight: -40
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Вкладки
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

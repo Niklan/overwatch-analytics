@@ -1,0 +1,16 @@
+# Theme base information.
+screenshot: screenshot.png
+name: Overwatch Analytics Theme
+type: theme
+base theme: glisseo
+description: 'Main theme for project.'
+package: Glisseo
+core: 8.x
+libraries:
+  - overwatch_analytics_theme/global-styling
+regions:
+  header: Header
+  navigation: Navigation
+  content: Content
+  sidebar_first: 'Sidebar first'
+  footer: Footer

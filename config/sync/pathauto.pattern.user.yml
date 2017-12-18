@@ -1,0 +1,14 @@
+uuid: 214f309d-32cc-4936-8ad6-261c12b833db
+langcode: ru
+status: true
+dependencies:
+  module:
+    - user
+id: user
+label: User
+type: 'canonical_entities:user'
+pattern: 'players/pc/[user:display-name]'
+selection_criteria: {  }
+selection_logic: and
+weight: 0
+relationships: {  }

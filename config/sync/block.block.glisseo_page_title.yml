@@ -1,0 +1,20 @@
+uuid: 77dae967-4126-4a52-824b-008baaa506ca
+langcode: ru
+status: true
+dependencies:
+  theme:
+    - glisseo
+_core:
+  default_config_hash: 7rR9chwXvdM2H8OYMAYx9Zj3GGlPMrZp_M3ZA4thYTk
+id: glisseo_page_title
+theme: glisseo
+region: content
+weight: -50
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Заголовок страницы'
+  provider: core
+  label_display: '0'
+visibility: {  }

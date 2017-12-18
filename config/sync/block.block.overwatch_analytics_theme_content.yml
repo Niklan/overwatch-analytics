@@ -1,0 +1,22 @@
+uuid: 93246036-6feb-4e94-b1a2-f89eb2d21122
+langcode: ru
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - overwatch_analytics_theme
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: overwatch_analytics_theme_content
+theme: overwatch_analytics_theme
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Содержимое страницы'
+  provider: system
+  label_display: '0'
+visibility: {  }
