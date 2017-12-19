@@ -4,7 +4,7 @@
     display: flex;
 
     > li {
-      flex: 1 1 auto;
+      flex: 0 1 auto;
 
       > a {
         text-align: center;
@@ -13,10 +13,19 @@
         text-transform: uppercase;
         display: block;
         line-height: 55px;
+        padding: 0 gap(2);
         &:hover {
           color: theme-color('secondary');
         }
       }
     }
+  }
+}
+
+#block-overwatch-analytics-theme-page-title {
+  h1 {
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: gap(4);
   }
 }

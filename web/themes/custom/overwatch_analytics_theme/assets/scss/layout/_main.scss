@@ -1,0 +1,4 @@
+#main {
+  padding: gap(4) 0;
+  @include media-container-gutters();
+}

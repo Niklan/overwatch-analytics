@@ -9,7 +9,7 @@ _core:
 id: overwatch_analytics_theme_page_title
 theme: overwatch_analytics_theme
 region: content
-weight: -7
+weight: -2
 provider: null
 plugin: page_title_block
 settings:

@@ -5,3 +5,11 @@ overwatch_analytics.overwatch_menu_group:
     _title: 'Overwatch'
   requirements:
     _permission: 'access administration pages'
+
+overwatch_analytics.user_season_page:
+  path: '/players/pc/{username}/seasons/{sid}'
+  defaults:
+    _controller: '\Drupal\overwatch_analytics\Controller\UserSeasonPageController::content'
+    _title_callback: '\Drupal\overwatch_analytics\Controller\UserSeasonPageController::getPageTitle'
+  requirements:
+    _permission: 'access content'

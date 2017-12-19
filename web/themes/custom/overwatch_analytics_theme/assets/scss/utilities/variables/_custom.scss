@@ -3,11 +3,21 @@
  * Custom variables and overrides of existing.
  */
 
+$base-gap: 8px;
+
 $theme-colors: (
   'primary': #00A5E2,
   'secondary': #FF9C00,
 );
-$colors: (
-);
+$colors: ();
+
+$body-bg: #f8f9fa;
 
 $font-family-sans-serif: 'Open Sans', sans-serif;
+$focus-outline-color: rgba(theme-color('secondary'), .3);
+
+$breadcrumb-padding-vertical: 0;
+$breadcrumb-padding-horizontal: 0;
+$breadcrumb-margin-bottom: gap();
+$breadcrumb-bg: transparent;
+$breadcrumb-link-color: #868e96;

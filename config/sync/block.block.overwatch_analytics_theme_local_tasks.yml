@@ -9,7 +9,7 @@ _core:
 id: overwatch_analytics_theme_local_tasks
 theme: overwatch_analytics_theme
 region: content
-weight: -7
+weight: 0
 provider: null
 plugin: local_tasks_block
 settings:

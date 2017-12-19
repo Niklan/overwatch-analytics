@@ -15,6 +15,7 @@ input[autofocus],
 input[required],
 textarea,
 select {
+  color: $text-color;
   display: block;
   max-width: 100%;
   width: 100%;
@@ -63,7 +64,6 @@ textarea {
 }
 
 select {
-  @include gradient-y(white, #F9F9F9);
 }
 
 label {

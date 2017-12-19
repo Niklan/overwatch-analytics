@@ -1,11 +1,19 @@
 .region--navigation {
   position: fixed;
   //top: gap(2);
-  width: 100%;
+  width: inherit;
   z-index: 100;
+  top: 0;
+
+  .toolbar-horizontal.toolbar-fixed & {
+    top: 80px;
+  }
+
+  .toolbar-vertical.toolbar-fixed & {
+    top: 39px;
+  }
 
   .container {
-    @include media-container(false);
     background: rgba(black, .75);
     display: flex;
 

@@ -2902,14 +2902,14 @@ template {
  * Clearfix.
  */
 :focus {
-  outline: 2px solid rgba(0, 165, 226, 0.3); }
+  outline: 2px solid rgba(255, 156, 0, 0.3); }
 
 ::selection {
   background: #00A5E2;
   color: #fff; }
 
 body {
-  background: white; }
+  background: #f8f9fa; }
 
 img {
   max-width: 100%;
@@ -3230,9 +3230,9 @@ blockquote {
     box-shadow: 0 0 0 3px rgba(41, 182, 246, 0.5); }
 
 .breadcrumbs {
-  background: #f5f5f5;
-  padding: 8px 16px;
-  margin-bottom: 10px;
+  background: transparent;
+  padding: 0 0;
+  margin-bottom: 8px;
   border-radius: 4px;
   font-size: 14px; }
   .breadcrumbs .delimiter {
@@ -3248,9 +3248,9 @@ blockquote {
         display: inline-block;
         color: #ccc; }
       .breadcrumbs ol li a {
-        color: #00A5E2; }
+        color: #868e96; }
         .breadcrumbs ol li a:hover {
-          color: #0080af; }
+          color: #6c757d; }
 
 .contextual-region .contextual-links {
   background: white;
@@ -3279,6 +3279,7 @@ input[autofocus],
 input[required],
 textarea,
 select {
+  color: #333;
   display: block;
   max-width: 100%;
   width: 100%;
@@ -3357,10 +3358,6 @@ input[type="checkbox"] {
 
 textarea {
   height: auto; }
-
-select {
-  background-image: linear-gradient(to bottom, white 0%, #F9F9F9 100%);
-  background-repeat: repeat-x; }
 
 label {
   display: inline-block;
@@ -3573,7 +3570,7 @@ th {
   .table > tbody + tbody, table > tbody + tbody {
     border-top: 2px solid #e9ecef; }
   .table .table, table .table, .table table, table table {
-    background-color: white; }
+    background-color: #f8f9fa; }
 
 .table-condensed > thead > tr > th,
 .table-condensed > thead > tr > td,
@@ -3755,31 +3752,40 @@ th {
  * @file
  * Main layouts and styles for #app and other elements inside.
  */
+#app {
+  margin-right: auto;
+  margin-left: auto;
+  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.1);
+  padding-top: 55px; }
+  @media (min-width: 576px) {
+    #app {
+      width: 540px;
+      max-width: 100%; } }
+  @media (min-width: 768px) {
+    #app {
+      width: 720px;
+      max-width: 100%; } }
+  @media (min-width: 992px) {
+    #app {
+      width: 960px;
+      max-width: 100%; } }
+  @media (min-width: 1200px) {
+    #app {
+      width: 1140px;
+      max-width: 100%; } }
+
 .region--navigation {
   position: fixed;
-  width: 100%;
-  z-index: 100; }
+  width: inherit;
+  z-index: 100;
+  top: 0; }
+  .toolbar-horizontal.toolbar-fixed .region--navigation {
+    top: 80px; }
+  .toolbar-vertical.toolbar-fixed .region--navigation {
+    top: 39px; }
   .region--navigation .container {
-    margin-right: auto;
-    margin-left: auto;
     background: rgba(0, 0, 0, 0.75);
     display: flex; }
-    @media (min-width: 576px) {
-      .region--navigation .container {
-        width: 540px;
-        max-width: 100%; } }
-    @media (min-width: 768px) {
-      .region--navigation .container {
-        width: 720px;
-        max-width: 100%; } }
-    @media (min-width: 992px) {
-      .region--navigation .container {
-        width: 960px;
-        max-width: 100%; } }
-    @media (min-width: 1200px) {
-      .region--navigation .container {
-        width: 1140px;
-        max-width: 100%; } }
     .region--navigation .container .block--system-branding-block {
       flex: 0 1 23.72881%;
       margin-right: 1.69492%; }
@@ -3791,22 +3797,75 @@ th {
     .region--navigation .container #block-navigation-auth-block {
       flex: 0 1 15.25424%; }
 
+#main {
+  padding: 32px 0;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px; }
+  @media (min-width: 576px) {
+    #main {
+      padding-right: 15px;
+      padding-left: 15px; } }
+  @media (min-width: 768px) {
+    #main {
+      padding-right: 15px;
+      padding-left: 15px; } }
+  @media (min-width: 992px) {
+    #main {
+      padding-right: 15px;
+      padding-left: 15px; } }
+  @media (min-width: 1200px) {
+    #main {
+      padding-right: 15px;
+      padding-left: 15px; } }
+
+.region--footer {
+  padding: 32px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+  background: #e9ecef; }
+  @media (min-width: 576px) {
+    .region--footer {
+      padding-right: 15px;
+      padding-left: 15px; } }
+  @media (min-width: 768px) {
+    .region--footer {
+      padding-right: 15px;
+      padding-left: 15px; } }
+  @media (min-width: 992px) {
+    .region--footer {
+      padding-right: 15px;
+      padding-left: 15px; } }
+  @media (min-width: 1200px) {
+    .region--footer {
+      padding-right: 15px;
+      padding-left: 15px; } }
+
 #block-overwatch-analytics-theme-main-menu > ul {
   margin: 0;
   padding: 0;
   list-style: none;
   display: flex; }
   #block-overwatch-analytics-theme-main-menu > ul > li {
-    flex: 1 1 auto; }
+    flex: 0 1 auto; }
     #block-overwatch-analytics-theme-main-menu > ul > li > a {
       text-align: center;
       color: rgba(255, 255, 255, 0.7);
       font-weight: bold;
       text-transform: uppercase;
       display: block;
-      line-height: 55px; }
+      line-height: 55px;
+      padding: 0 16px; }
       #block-overwatch-analytics-theme-main-menu > ul > li > a:hover {
         color: #FF9C00; }
+
+#block-overwatch-analytics-theme-page-title h1 {
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 32px; }
 
 .overwatch-analytics-navigation-auth-block {
   color: white; }
@@ -3822,7 +3881,9 @@ th {
     .overwatch-analytics-navigation-auth-block.is-authenticated .profile-link .username {
       flex: 1 1 auto;
       color: #FF9C00;
-      font-weight: bold; }
+      font-weight: bold;
+      white-space: nowrap;
+      text-overflow: ellipsis; }
       .overwatch-analytics-navigation-auth-block.is-authenticated .profile-link .username .more-subtitle {
         display: block;
         color: white;

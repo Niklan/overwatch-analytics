@@ -1,0 +1,25 @@
+uuid: 553b7da2-280e-4d93-bf2a-f39959c0d8a4
+langcode: ru
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:3097aa2c-cf01-4f20-ba00-2773ce682c96'
+  module:
+    - block_content
+  theme:
+    - overwatch_analytics_theme
+id: footer_copyright
+theme: overwatch_analytics_theme
+region: footer
+weight: 0
+provider: null
+plugin: 'block_content:3097aa2c-cf01-4f20-ba00-2773ce682c96'
+settings:
+  id: 'block_content:3097aa2c-cf01-4f20-ba00-2773ce682c96'
+  label: 'Подвал: Копирайты'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

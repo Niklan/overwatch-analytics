@@ -23,6 +23,10 @@ function template_preprocess_overwatch_analytics_navigation_auth_block(&$variabl
       $variables['picture'] = FALSE;
     }
     $variables['username'] = $user->label();
+    if ($user->hasField('bnet_oauth_battletag') && !$user->bnet_oauth_battletag->isEmpty()) {
+      $battletag = explode('#', $user->bnet_oauth_battletag->value);
+      $variables['username'] = $battletag[0];
+    }
     $variables['profile_url'] = $user->toUrl()->toString();
   }
 }

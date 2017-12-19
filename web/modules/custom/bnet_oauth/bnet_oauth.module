@@ -33,5 +33,24 @@ function bnet_oauth_entity_base_field_info(EntityTypeInterface $entity_type) {
  * Implements hook_user_login().
  */
 function bnet_oauth_user_login($account) {
-  // @todo add/update avatar and overwatch level.
+  if (!$account->bnet_oauth_battletag->isEmpty()) {
+    $battletag = str_replace('#', '-', $account->bnet_oauth_battletag->value);
+    $url = "https://playoverwatch.com/en-us/career/pc/$battletag";
+    $dom = new DOMDocument();
+    @$dom->loadHTMLFile($url);
+    $finder = new DOMXPath($dom);
+    $nodes = $finder->query('//img[contains(@class,"player-portrait")]');
+    if (!empty($nodes[0]->getAttribute('src'))) {
+      $picture_path = 'public://bnet-oauth/user-pictures';
+      if (file_prepare_directory($picture_path, FILE_CREATE_DIRECTORY)) {
+        $file = system_retrieve_file($nodes[0]->getAttribute('src'), $picture_path, TRUE);
+        if ($file) {
+          $file_usage = \Drupal::service('file.usage');
+          $file_usage->add($file, 'bnet_oauth', 'avatar', $account->id());
+          $account->user_picture = $file->id();
+          $account->save();
+        }
+      }
+    }
+  }
 }

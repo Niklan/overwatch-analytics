@@ -1,0 +1,8 @@
+uuid: dfe2bdc1-5ae9-4fe7-aa5a-5aaa28efbcfd
+langcode: ru
+status: true
+dependencies: {  }
+name: 'Pure HTML'
+format: pure_html
+weight: -6
+filters: {  }

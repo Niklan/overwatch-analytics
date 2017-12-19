@@ -1,0 +1,5 @@
+.region--footer {
+  padding: gap(4);
+  @include media-container-gutters();
+  background: gray('200');
+}
