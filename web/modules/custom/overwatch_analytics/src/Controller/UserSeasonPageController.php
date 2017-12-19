@@ -51,8 +51,11 @@ class UserSeasonPageController extends ControllerBase {
    * Content for page.
    */
   public function content() {
-
-    return ['#markup' => 'Well Done!'];
+    return [
+      '#theme' => 'overwatch_analytics_season_statistic_for_user',
+      '#uid' => $this->account->id(),
+      '#sid' => $this->overwatchSeason->id(),
+    ];
   }
 
 }

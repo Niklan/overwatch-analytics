@@ -1,0 +1,14 @@
+{% if is_empty %}
+  User has no statistic for current season.
+{% else %}
+  <div class="overwatch-analytics-season-statistic-for-user">
+    <div class="group">
+      <h2 class="title">{{ 'Summary'|trans }}</h2>
+      <div class="content">
+        Игр сыграно: {{ summary.match_played }}
+      </div>
+
+      <img src="/{{ path_to_theme ~ '/assets/images/ranks/rank-7.png' }}" alt="Rank">
+    </div>
+  </div>
+{% endif %}

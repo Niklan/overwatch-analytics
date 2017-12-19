@@ -21,5 +21,18 @@ function overwatch_analytics_theme($existing, $type, $theme, $path) {
       'variables' => [],
       'file' => 'overwatch_analytics.theme.inc',
     ],
+    'overwatch_analytics_custom_page_title_block' => [
+      'variables' => [
+        'title' => NULL,
+        'breadcrumbs' => NULL,
+      ],
+    ],
+    'overwatch_analytics_season_statistic_for_user' => [
+      'variables' => [
+        'uid' => NULL,
+        'sid' => NULL,
+      ],
+      'file' => 'overwatch_analytics.theme.inc',
+    ],
   ];
 }

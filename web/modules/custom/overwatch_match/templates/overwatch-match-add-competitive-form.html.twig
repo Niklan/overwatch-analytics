@@ -1,7 +1,9 @@
+{# @todo finish grouping by match status. #}
 {{ attach_library('overwatch_match/add-competitive-form') }}
 <div @submit.prevent class="overwatch-match-add-competitive-form">
   <input type="hidden" name="token" v-model="formValues.token">
 
+  <h2 class="group">{{ 'During preare'|trans }}</h2>
   <div class="first-step">
     <select class="season" v-model="formValues.seasonSelected">
       <option v-for="season in formValues.seasons" :value="season.id">${
@@ -45,6 +47,7 @@
     </div>
   </div>
 
+  <h2 class="group">{{ 'In game process'|trans }}</h2>
   <div class="third-step">
     <div class="heroes">
       <div class="label">{{ 'Heroes'|trans }}</div>
@@ -78,7 +81,7 @@
     <label for="is-placement">{{ 'Placement match'|trans }}</label>
   </div>
 
-
+  <h2 class="group">{{ 'After match ends'|trans }}</h2>
   <div v-if="formValues.isPlacement" class="match-result">
     <div class="title">{{ 'Match result'|trans }}</div>
 
