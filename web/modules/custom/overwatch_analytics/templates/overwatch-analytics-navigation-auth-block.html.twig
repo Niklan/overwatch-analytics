@@ -1,0 +1,24 @@
+{% set attributes = create_attribute() %}
+{% set classes = [
+  'overwatch-analytics-navigation-auth-block',
+  is_authenticated ? 'is-authenticated',
+] %}
+<div{{ attributes.addClass(classes) }}>
+  {% if not is_authenticated %}
+    <a href="{{ path('bnet_oauth.auth') }}"
+       class="login">{{ 'Login'|trans }}</a>
+  {% else %}
+    <a href="{{ profile_url }}" class="profile-link">
+      <span class="username">
+      {{ username }}
+        <span class="more-subtitle">{{ 'View profile'|trans([], {'context': 'navigation_auth'}) }}</span>
+    </span>
+      <span class="avatar">
+      {% if picture %}
+        <img src="{{ picture|image_style('navigation_user_picture') }}"
+             class="picture">
+      {% endif %}
+    </span>
+    </a>
+  {% endif %}
+</div>

@@ -1,0 +1,30 @@
+.region--navigation {
+  position: fixed;
+  //top: gap(2);
+  width: 100%;
+  z-index: 100;
+
+  .container {
+    @include media-container(false);
+    background: rgba(black, .75);
+    display: flex;
+
+    .block--system-branding-block {
+      flex: 0 1 span(3);
+      margin-right: gutter();
+
+      a {
+        display: block;
+        padding: gap();
+      }
+    }
+
+    #block-overwatch-analytics-theme-main-menu {
+      flex: 0 1 span(6);
+    }
+
+    #block-navigation-auth-block {
+      flex: 0 1 span(2);
+    }
+  }
+}

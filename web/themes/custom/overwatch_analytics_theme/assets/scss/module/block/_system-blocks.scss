@@ -1,1 +1,22 @@
- 
+#block-overwatch-analytics-theme-main-menu {
+  > ul {
+    @include list-unstyled;
+    display: flex;
+
+    > li {
+      flex: 1 1 auto;
+
+      > a {
+        text-align: center;
+        color: hsla(0,0%,100%,.7);
+        font-weight: bold;
+        text-transform: uppercase;
+        display: block;
+        line-height: 55px;
+        &:hover {
+          color: theme-color('secondary');
+        }
+      }
+    }
+  }
+}

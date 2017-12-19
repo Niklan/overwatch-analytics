@@ -11,3 +11,15 @@
 function overwatch_analytics_preprocess_toolbar(&$variables) {
   $variables['#attached']['library'][] = 'overwatch_analytics/toolbar-styles';
 }
+
+/**
+ * Implements hook_theme().
+ */
+function overwatch_analytics_theme($existing, $type, $theme, $path) {
+  return [
+    'overwatch_analytics_navigation_auth_block' => [
+      'variables' => [],
+      'file' => 'overwatch_analytics.theme.inc',
+    ],
+  ];
+}

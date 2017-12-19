@@ -3,7 +3,11 @@
  * Custom variables and overrides of existing.
  */
 
-$theme-colors: ();
-$colors: ();
+$theme-colors: (
+  'primary': #00A5E2,
+  'secondary': #FF9C00,
+);
+$colors: (
+);
 
 $font-family-sans-serif: 'Open Sans', sans-serif;

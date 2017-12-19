@@ -1,0 +1,20 @@
+uuid: 52e354db-b48d-4e35-b346-a33773ec863b
+langcode: en
+status: true
+dependencies:
+  module:
+    - overwatch_analytics
+  theme:
+    - overwatch_analytics_theme
+id: navigation_auth_block
+theme: overwatch_analytics_theme
+region: navigation
+weight: 0
+provider: null
+plugin: navigation_auth_block
+settings:
+  id: navigation_auth_block
+  label: 'Navigation auth block'
+  provider: overwatch_analytics
+  label_display: '0'
+visibility: {  }

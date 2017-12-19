@@ -11,7 +11,7 @@ _core:
 id: overwatch_analytics_theme_powered
 theme: overwatch_analytics_theme
 region: header
-weight: 10
+weight: -3
 provider: null
 plugin: system_powered_by_block
 settings:

@@ -1,0 +1,14 @@
+uuid: 89bd7cdd-e8ce-46b9-9c04-111ef0c9f550
+langcode: en
+status: true
+dependencies: {  }
+name: navigation_user_picture
+label: 'Navigation user picture'
+effects:
+  b42b408f-9d39-4b57-adbc-84813aaa5872:
+    uuid: b42b408f-9d39-4b57-adbc-84813aaa5872
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 39
+      height: 39

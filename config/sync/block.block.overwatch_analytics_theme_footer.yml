@@ -13,7 +13,7 @@ _core:
 id: overwatch_analytics_theme_footer
 theme: overwatch_analytics_theme
 region: header
-weight: 0
+weight: -7
 provider: null
 plugin: 'system_menu_block:footer'
 settings:

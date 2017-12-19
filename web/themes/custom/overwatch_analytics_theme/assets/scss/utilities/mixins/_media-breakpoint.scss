@@ -89,7 +89,12 @@
 /**
  * Container max width with centering and gutters.
  */
-@mixin media-container($with-gutters: false) {
+@mixin media-container($with-gutters: true) {
   @include media-containers-max-width();
-  @include media-container-gutters();
+  @if $with-gutters {
+    @include media-container-gutters();
+  }
+  @else {
+    @include media-container-gutters(());
+  }
 }

@@ -1,0 +1,20 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a single page.
+ *
+ * @see template_preprocess_page()
+ */
+#}
+
+<div id="app">
+  {{ page.navigation }}
+  {{ page.header }}
+
+  <main id="main">
+    {{ page.sidebar_first }}
+    {{ page.content }}
+  </main>
+
+  {{ page.footer }}
+</div>

@@ -1,0 +1,36 @@
+.overwatch-analytics-navigation-auth-block {
+  color: white;
+
+  .login {
+    text-align: right;
+    font-weight: bold;
+    line-height: 55px;
+    display: block;
+    color: theme-color('secondary');
+  }
+
+  &.is-authenticated {
+    .profile-link {
+      display: flex;
+      padding: gap();
+
+      .username {
+        flex: 1 1 auto;
+        color: theme-color('secondary');
+        font-weight: bold;
+
+        .more-subtitle {
+          display: block;
+          color: white;
+          font-weight: normal;
+          font-size: 75%;
+        }
+      }
+
+      .avatar {
+        flex: 0 0 39px;
+        margin-left: gap();
+      }
+    }
+  }
+}

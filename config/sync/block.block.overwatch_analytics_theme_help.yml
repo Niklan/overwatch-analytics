@@ -11,7 +11,7 @@ _core:
 id: overwatch_analytics_theme_help
 theme: overwatch_analytics_theme
 region: content
-weight: -30
+weight: -7
 provider: null
 plugin: help_block
 settings:
