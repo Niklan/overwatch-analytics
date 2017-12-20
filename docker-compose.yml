@@ -34,8 +34,8 @@ services:
       DB_PASSWORD: drupal
       DB_NAME: drupal
       DB_DRIVER: mysql
-#      PHP_XDEBUG: 1
-#      PHP_XDEBUG_DEFAULT_ENABLE: 1
+      PHP_XDEBUG: 1
+      PHP_XDEBUG_DEFAULT_ENABLE: 1
 #      PHP_XDEBUG_REMOTE_CONNECT_BACK: 0
 #      PHP_XDEBUG_REMOTE_HOST: "10.254.254.254"
 #      PHP_XDEBUG_PROFILER_OUTPUT_DIR: /mnt/files/xdebug/profiler

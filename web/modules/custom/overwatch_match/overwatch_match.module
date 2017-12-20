@@ -5,6 +5,9 @@
  * Contains overwatch_match.module.
  */
 
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\overwatch_match\Entity\OverwatchMatch;
+
 
 /**
  * Implements hook_theme().
@@ -42,4 +45,23 @@ function overwatch_match_theme_suggestions_overwatch_match(array $variables) {
   $suggestions[] = 'overwatch_match__' . $entity->id();
   $suggestions[] = 'overwatch_match__' . $entity->id() . '__' . $sanitized_view_mode;
   return $suggestions;
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_presave().
+ */
+function overwatch_match_overwatch_match_presave(Drupal\Core\Entity\EntityInterface $entity) {
+  $result = &drupal_static(__FUNCTION__);
+  // Avoid infinity loop, update just once.
+  if (!isset($result)) {
+    if ($entity->isNew()) {
+      // @todo helper method to return last match for user/season.
+    }
+    else {
+      $overwatch_match_helper = \Drupal::service('overwatch_match.helper');
+      $overwatch_match_helper->updateMatchStatus($entity);
+      $entity->save();
+    }
+    $result = TRUE;
+  }
 }

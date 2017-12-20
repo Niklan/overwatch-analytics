@@ -1,0 +1,5 @@
+services:
+  overwatch_analytics.competitive_season:
+    class: Drupal\overwatch_analytics\CompetitiveSeasonsService
+    arguments: ['@entity_type.manager']
+
