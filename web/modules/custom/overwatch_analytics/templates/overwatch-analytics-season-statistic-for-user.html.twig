@@ -1,6 +1,7 @@
 {% if is_empty %}
   User has no statistic for current season.
 {% else %}
+  {{ attach_library('overwatch_analytics/season-statistic-for-user-charts') }}
   <div class="overwatch-analytics-season-statistic-for-user">
     <div class="group">
       <h2 class="title">{{ 'Summary'|trans }}</h2>
@@ -12,6 +13,11 @@
         Побед %: {{ results.summary.win_percentage }}%<br/>
         Поражений %: {{ results.summary.losses_percentage }}%<br/>
         Ничей %: {{ results.summary.draw_percentage }}%<br/>
+
+        <canvas id="winrate-circle"
+                data-wins="{{ results.summary.wins }}"
+                data-losses="{{ results.summary.losses }}"
+                data-draws="{{ results.summary.draws }}"></canvas>
       </div>
     </div>
   </div>

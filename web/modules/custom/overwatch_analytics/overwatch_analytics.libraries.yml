@@ -4,6 +4,15 @@ toolbar-styles:
     theme:
       assets/css/overwatch_analytics.toolbar.css: {}
 
+season-statistic-for-user-charts:
+  version: VERSION
+  js:
+    assets/js/season-statistic-for-user-charts.js: {}
+  dependencies:
+    - core/jquery.once
+    - core/drupal
+    - overwatch_analytics/chartjs
+
 # Third party libraries.
 vue:
   version: 2.5.9
