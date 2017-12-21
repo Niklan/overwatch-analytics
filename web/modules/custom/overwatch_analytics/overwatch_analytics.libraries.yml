@@ -15,3 +15,13 @@ vue:
   js:
     #/libraries/vue/dist/vue.min.js: { minified: true }
     /libraries/vue/dist/vue.js: {}
+
+chartjs:
+  version: 2.5.9
+  remote: https://vuejs.org/
+  license:
+    name: MIT
+    url: https://en.wikipedia.org/wiki/MIT_License
+    gpl-compatible: true
+  js:
+    /libraries/chart.js/dist/Chart.bundle.min.js: { minified: true }

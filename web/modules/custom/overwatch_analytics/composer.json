@@ -7,7 +7,8 @@
   "minimum-stability": "dev",
   "require": {
     "vuejs/vue": "^2",
-    "select2/select2": "^4"
+    "select2/select2": "^4",
+    "chartjs/chart.js": "^2"
   },
   "repositories": [
     {
@@ -32,7 +33,20 @@
         "source": {
           "url": "https://github.com/select2/select2.git",
           "type": "git",
-          "reference": "Select2 4.0.6-rc.1"
+          "reference": "4.0.6-rc.1"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "chartjs/chart.js",
+        "type": "drupal-library",
+        "version": "2.7.1",
+        "source": {
+          "url": "https://github.com/chartjs/Chart.js.git",
+          "type": "git",
+          "reference": "v2.7.1"
         }
       }
     }
