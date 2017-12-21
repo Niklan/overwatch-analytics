@@ -25,10 +25,7 @@ class AuthController extends ControllerBase {
     }
     else {
       \Drupal::service('page_cache_kill_switch')->trigger();
-      // It's necessary to work csrfToken.
-      $state = \Drupal::service('session_manager')->start();
       $client_id = \Drupal::state()->get('bnet_oauth_settings_key');
-
       /** @var \Drupal\bnet_oauth\BnetOAuth $bnet_oauth */
       $bnet_auth_code_url = \Drupal::service('bnet_oauth')
         ->setClientId($client_id)
@@ -49,7 +46,7 @@ class AuthController extends ControllerBase {
     /** @var \Drupal\bnet_oauth\BnetOAuth $bnet_oauth */
     $bnet_oauth = \Drupal::service('bnet_oauth')->setRegion('eu');
     $frontpage_url = Url::fromRoute('<front>')->toString();
-    if ($bnet_oauth->compareCsrfToken($state)) {
+    if ($bnet_oauth->validateStateToken($state)) {
       $response = \Drupal::httpClient()
         ->post('https://eu.battle.net/oauth/token', [
           'verify' => TRUE,

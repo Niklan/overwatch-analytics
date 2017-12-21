@@ -3,6 +3,8 @@
 namespace Drupal\bnet_oauth;
 
 use Drupal\Component\Render\FormattableMarkup;
+use Drupal\Component\Utility\Crypt;
+use Drupal\Core\PrivateKey;
 use Drupal\Core\Url;
 
 /**
@@ -90,7 +92,7 @@ class BnetOAuth {
       'query' => [
         'client_id' => $this->clientId,
         'scope' => '',
-        'state' => $this->getCsrfToken(),
+        'state' => $this->getStateToken(),
         'redirect_uri' => 'https://overwatch-analytics.localhost/bnet/callback',
         'response_type' => 'code',
       ],
@@ -101,8 +103,10 @@ class BnetOAuth {
   /**
    * Generate token for state parameter of auth.
    */
-  public function getCsrfToken() {
-    return \Drupal::csrfToken()->get();
+  public function getStateToken() {
+    $ip = \Drupal::request()->getClientIp();
+    $secret = \Drupal::service('private_key')->get();
+    return Crypt::hashBase64($ip . $secret);
   }
 
   /**
@@ -114,8 +118,8 @@ class BnetOAuth {
    * @return bool
    *   TRUE if they are equal.
    */
-  public function compareCsrfToken($token) {
-    return \Drupal::csrfToken()->validate($token);
+  public function validateStateToken($token) {
+    return Crypt::hashEquals($this->getStateToken(), $token);
   }
 
   /**
