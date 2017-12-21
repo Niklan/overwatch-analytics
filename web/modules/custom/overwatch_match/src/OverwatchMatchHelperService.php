@@ -76,6 +76,20 @@ class OverwatchMatchHelperService {
   }
 
   /**
+   * Finds last match for season.
+   */
+  public function getLastMatch($season_id) {
+    $query = \Drupal::entityQuery('overwatch_match')
+      ->condition('status', 1)
+      ->condition('field_season', $season_id)
+      ->range(0, 1)
+      ->sort('created', 'DESC');
+
+    $entities = $query->execute();
+    return $entities ? reset($entities) : FALSE;
+  }
+
+  /**
    * Trying to set status for match based on previous matches.
    *
    * This method only update value for filed, but not save an entity.
