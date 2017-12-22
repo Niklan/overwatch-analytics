@@ -3,3 +3,13 @@ global-styling:
   css:
     theme:
       assets/css/styles.css: {}
+
+
+select2:
+  version: VERSION
+  js:
+    assets/js/select2.js: {}
+  dependencies:
+    - core/jquery.once
+    - core/drupal
+    - overwatch_analytics/select2

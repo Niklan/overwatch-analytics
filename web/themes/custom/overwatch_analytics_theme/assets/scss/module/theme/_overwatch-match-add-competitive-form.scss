@@ -1,0 +1,101 @@
+.overwatch-match-add-competitive-form {
+  .group {
+    &:not(:last-child) {
+      margin-bottom: gap(4);
+    }
+
+    .title {
+      font-weight: bold;
+    }
+
+    .content {
+      display: flex;
+      flex-flow: wrap;
+
+      .item {
+        .label {
+          font-weight: bold;
+          margin-bottom: gap();
+        }
+
+        .description {
+          color: gray('600');
+          margin-top: gap();
+          font-size: 75%;
+        }
+
+        &.group-size {
+          flex: 0 1 span(2);
+          margin-right: gutter();
+        }
+
+
+        &.maps {
+          flex: 0 1 span(3);
+          margin-right: gutter();
+        }
+
+        &.starting-side {
+          flex: 0 1 span(4);
+          margin-right: gutter();
+
+          .inputs {
+            display: flex;
+            border: 1px solid $input-border;
+            border-radius: $input-border-radius;
+            background: $input-bg;
+            overflow: hidden;
+            
+            input {
+              display: none;
+
+              &:checked + label {
+                color: white;
+
+                svg {
+                  fill: white;
+                }
+
+                &.attack {
+                  background: color('red');
+                }
+
+                &.defend {
+                  background: color('blue');
+                }
+              }
+            }
+
+            label {
+              display: flex;
+              flex: 0 0 50%;
+              cursor: pointer;
+              margin: 0;
+              padding: gap();
+              font-weight: bold;
+
+              svg {
+                width: 20px;
+                margin-right: gap();
+              }
+            }
+          }
+        }
+
+        &.date-and-time {
+          flex: 0 1 span(3);
+          min-width: 0;
+
+          .inputs {
+            display: flex;
+
+            .time {
+              flex: 0 1 170px;
+              margin-left: gap();
+            }
+          }
+        }
+      }
+    }
+  }
+}

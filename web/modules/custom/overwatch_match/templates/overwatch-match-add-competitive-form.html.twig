@@ -1,48 +1,60 @@
-{# @todo finish grouping by match status. #}
 {{ attach_library('overwatch_match/add-competitive-form') }}
+{{ attach_library('overwatch_analytics_theme/select2') }}
 <div @submit.prevent class="overwatch-match-add-competitive-form">
   <input type="hidden" name="token" v-model="formValues.token">
 
-  <h2 class="group">{{ 'During preare'|trans }}</h2>
-  <div class="first-step">
-    <select class="season" v-model="formValues.seasonSelected">
+  <div class="group season-pane">
+    <div class="label">{{ 'Season'|trans }}</div>
+    <select class="seasons" v-model="formValues.seasonSelected">
       <option v-for="season in formValues.seasons" :value="season.id">${
         season.label }
       </option>
     </select>
-
-    <div class="group-size">
-      <div class="label">{{ 'Group size'|trans }}</div>
-      <input type="number" v-model="formValues.groupSize" min="1" max="6">
-    </div>
   </div>
 
-  <div class="time">
-    <div class="label">{{ 'Date and time'|trans }}</div>
-    <input type="date" v-model="formValues.dateDate">
-    <input type="time" v-model="formValues.dateTime">
-    <div class="description">{% trans %}Leave values empty for auto time on save.{% endtrans %}</div>
-  </div>
+  <div class="group prepare">
+    <h2 class="title">{{ 'During preare'|trans }}</h2>
 
-  <div class="second-step">
-    <div class="maps">
-      <div class="label">{{ 'Map'|trans }}</div>
-      <select class="map" v-model="formValues.mapSelected">
-        <option v-for="map in formValues.maps" :value="map.id">${ map.label }
-        </option>
-      </select>
-    </div>
+    <div class="content">
+      <div class="item group-size">
+        <div class="label">{{ 'Group size'|trans }}</div>
+        <input type="number" v-model="formValues.groupSize" min="1" max="6">
+      </div>
 
-    <div class="starting-side">
-      <div class="label">{{ 'Starting side'|trans }}</div>
-      <div class="radios">
-        <input type="radio" id="attack" name="starting_side" value="1"
-               v-model="formValues.startingSide">
-        <label for="attack">{{ 'Attack first'|trans }}</label>
+      <div class="item maps">
+        <div class="label">{{ 'Map'|trans }}</div>
+        <select class="map" v-model="formValues.mapSelected">
+          <option v-for="map in formValues.maps" :value="map.id">${ map.label }
+          </option>
+        </select>
+      </div>
 
-        <input type="radio" id="defend" name="starting_side" value="2"
-               v-model="formValues.startingSide">
-        <label for="defend">{{ 'Defend first'|trans }}</label>
+      <div class="item starting-side">
+        <div class="label">{{ 'Starting side'|trans }}</div>
+        <div class="inputs">
+          <input type="radio" id="attack" name="starting_side" value="1"
+                 v-model="formValues.startingSide">
+          <label for="attack" class="attack">
+            {{ source(theme_path ~ '/assets/images/roles/offense.svg') }}{{ 'Attack first'|trans }}
+          </label>
+
+          <input type="radio" id="defend" name="starting_side" value="2"
+                 v-model="formValues.startingSide">
+          <label for="defend" class="defend">
+            {{ source(theme_path ~ '/assets/images/roles/defense.svg') }}
+            {{ 'Defend first'|trans }}
+          </label>
+        </div>
+      </div>
+
+      <div class="item date-and-time">
+        <div class="label">{{ 'Date and time'|trans }}</div>
+        <div class="inputs">
+          <input type="date" v-model="formValues.dateDate" class="date">
+          <input type="time" v-model="formValues.dateTime" class="time">
+        </div>
+        <div
+          class="description">{% trans %}Leave values empty for auto time on save.{% endtrans %}</div>
       </div>
     </div>
   </div>

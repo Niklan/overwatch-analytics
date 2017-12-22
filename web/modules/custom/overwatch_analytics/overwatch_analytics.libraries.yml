@@ -34,3 +34,19 @@ chartjs:
     gpl-compatible: true
   js:
     /libraries/chart.js/dist/Chart.bundle.min.js: { minified: true }
+
+select2:
+  verrsion: 4.0.6-rc.1
+  remote: https://select2.org/
+  license:
+  license:
+      name: MIT
+      url: https://en.wikipedia.org/wiki/MIT_License
+      gpl-compatible: true
+  js:
+    /libraries/select2/dist/js/select2.full.min.js: { minified: true }
+  css:
+    base:
+      /libraries/select2/dist/css/select2.min.css: { minified: true }
+  dependencies:
+    - core/jquery

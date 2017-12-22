@@ -14,7 +14,7 @@
         once('winrate-pie');
 
       if (winratePieCanvas.length) {
-        var config = {
+        let config = {
           type: 'pie',
           data: {
             datasets: [
@@ -25,16 +25,16 @@
                   $(winratePieCanvas).data('draws'),
                 ],
                 backgroundColor: [
-                  '#dc3545',
-                  '#28a745',
-                  '#fd7e14',
+                  '#A6EA33',
+                  '#A82D42',
+                  '#FFD600',
                 ],
                 label: 'Winrate',
               }],
             labels: [
-              'Wins',
-              'Losses',
-              'Draws',
+              Drupal.t('Wins'),
+              Drupal.t('Losses'),
+              Drupal.t('Draws'),
             ],
           },
           options: {

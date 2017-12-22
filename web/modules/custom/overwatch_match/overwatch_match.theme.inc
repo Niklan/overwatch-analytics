@@ -9,6 +9,8 @@
  * Implements template_preprocess_HOOK().
  */
 function template_preprocess_overwatch_match_add_competitive_form(&$variables) {
+  $variables['theme_path'] = drupal_get_path('theme', 'overwatch_analytics_theme');
+
   $settings = &$variables['#attached']['drupalSettings']['overwatchMatchAddCompetitiveForm'];
   $settings['formValues'] = [
     'token' => \Drupal::csrfToken()->get(),
