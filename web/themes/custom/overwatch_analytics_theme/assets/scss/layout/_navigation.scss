@@ -4,6 +4,7 @@
   width: inherit;
   z-index: 100;
   top: 0;
+  grid-area: navigation;
 
   .toolbar-horizontal.toolbar-fixed & {
     top: 80px;
@@ -15,11 +16,12 @@
 
   .container {
     background: rgba(black, .75);
-    display: flex;
+    display: grid;
+    grid-gap: gap(2);
+    grid-template-columns: repeat(12, 1fr);
 
     .block--system-branding-block {
-      flex: 0 1 span(3);
-      margin-right: gutter();
+      grid-column: span 3;
 
       a {
         display: block;
@@ -28,11 +30,11 @@
     }
 
     #block-overwatch-analytics-theme-main-menu {
-      flex: 0 1 span(6);
+      grid-column: span 6;
     }
 
     #block-navigation-auth-block {
-      flex: 0 1 span(2);
+      grid-column: span 2;
     }
   }
 }

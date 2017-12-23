@@ -12,7 +12,7 @@
   &.is-authenticated {
     .profile-link {
       display: flex;
-      padding: gap();
+      padding: gap() 0;
 
       .username {
         flex: 1 1 auto;

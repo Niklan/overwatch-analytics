@@ -1,5 +1,4 @@
 {{ attach_library('overwatch_match/add-competitive-form') }}
-{{ attach_library('overwatch_analytics_theme/select2') }}
 <div @submit.prevent class="overwatch-match-add-competitive-form">
   <input type="hidden" name="token" v-model="formValues.token">
 
@@ -11,6 +10,10 @@
       </option>
     </select>
   </div>
+
+  <select2 :options="formValues.seasons" v-model="formValues.seasonSelected">
+    <option disabled value="0">Select one</option>
+  </select2>
 
   <div class="group prepare">
     <h2 class="title">{{ 'During preare'|trans }}</h2>

@@ -1,4 +1,5 @@
 #main {
-  padding: gap(4) 0;
-  @include media-container-gutters();
+  padding: 0 gap(2);
+  grid-area: content;
+  grid-column: span 12;
 }

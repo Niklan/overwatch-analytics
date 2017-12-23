@@ -7,4 +7,12 @@
   @include media-container(false);
   box-shadow: 0 0 4px 4px rgba(black, 0.1);
   padding-top: 55px;
+
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: gap(2);
+  grid-template-areas:
+    "header"
+    "content"
+    "footer";
 }

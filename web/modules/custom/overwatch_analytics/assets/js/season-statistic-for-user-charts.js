@@ -25,8 +25,8 @@
                   $(winratePieCanvas).data('draws'),
                 ],
                 backgroundColor: [
-                  '#A6EA33',
-                  '#A82D42',
+                  '#7DFF00',
+                  '#CD1535',
                   '#FFD600',
                 ],
                 label: 'Winrate',

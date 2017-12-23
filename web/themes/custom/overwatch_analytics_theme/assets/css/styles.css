@@ -3756,7 +3756,11 @@ th {
   margin-right: auto;
   margin-left: auto;
   box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.1);
-  padding-top: 55px; }
+  padding-top: 55px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 16px;
+  grid-template-areas: "header" "content" "footer"; }
   @media (min-width: 576px) {
     #app {
       width: 540px;
@@ -3778,71 +3782,37 @@ th {
   position: fixed;
   width: inherit;
   z-index: 100;
-  top: 0; }
+  top: 0;
+  grid-area: navigation; }
   .toolbar-horizontal.toolbar-fixed .region--navigation {
     top: 80px; }
   .toolbar-vertical.toolbar-fixed .region--navigation {
     top: 39px; }
   .region--navigation .container {
     background: rgba(0, 0, 0, 0.75);
-    display: flex; }
+    display: grid;
+    grid-gap: 16px;
+    grid-template-columns: repeat(12, 1fr); }
     .region--navigation .container .block--system-branding-block {
-      flex: 0 1 23.72881%;
-      margin-right: 1.69492%; }
+      grid-column: span 3; }
       .region--navigation .container .block--system-branding-block a {
         display: block;
         padding: 8px; }
     .region--navigation .container #block-overwatch-analytics-theme-main-menu {
-      flex: 0 1 49.15254%; }
+      grid-column: span 6; }
     .region--navigation .container #block-navigation-auth-block {
-      flex: 0 1 15.25424%; }
+      grid-column: span 2; }
 
 #main {
-  padding: 32px 0;
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: 15px;
-  padding-left: 15px; }
-  @media (min-width: 576px) {
-    #main {
-      padding-right: 15px;
-      padding-left: 15px; } }
-  @media (min-width: 768px) {
-    #main {
-      padding-right: 15px;
-      padding-left: 15px; } }
-  @media (min-width: 992px) {
-    #main {
-      padding-right: 15px;
-      padding-left: 15px; } }
-  @media (min-width: 1200px) {
-    #main {
-      padding-right: 15px;
-      padding-left: 15px; } }
+  padding: 0 16px;
+  grid-area: content;
+  grid-column: span 12; }
 
 .region--footer {
-  padding: 32px;
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: 15px;
-  padding-left: 15px;
-  background: #e9ecef; }
-  @media (min-width: 576px) {
-    .region--footer {
-      padding-right: 15px;
-      padding-left: 15px; } }
-  @media (min-width: 768px) {
-    .region--footer {
-      padding-right: 15px;
-      padding-left: 15px; } }
-  @media (min-width: 992px) {
-    .region--footer {
-      padding-right: 15px;
-      padding-left: 15px; } }
-  @media (min-width: 1200px) {
-    .region--footer {
-      padding-right: 15px;
-      padding-left: 15px; } }
+  padding: 32px 16px;
+  background: #e9ecef;
+  grid-area: footer;
+  grid-column: span 12; }
 
 #block-overwatch-analytics-theme-main-menu > ul {
   margin: 0;
@@ -3877,7 +3847,7 @@ th {
     color: #FF9C00; }
   .overwatch-analytics-navigation-auth-block.is-authenticated .profile-link {
     display: flex;
-    padding: 8px; }
+    padding: 8px 0; }
     .overwatch-analytics-navigation-auth-block.is-authenticated .profile-link .username {
       flex: 1 1 auto;
       color: #FF9C00;
@@ -3931,9 +3901,9 @@ th {
           .overwatch-match-add-competitive-form .group .content .item.starting-side .inputs input:checked + label svg {
             fill: white; }
           .overwatch-match-add-competitive-form .group .content .item.starting-side .inputs input:checked + label.attack {
-            background: #dc3545; }
+            background: #CD1535; }
           .overwatch-match-add-competitive-form .group .content .item.starting-side .inputs input:checked + label.defend {
-            background: #007bff; }
+            background: #3EB4F7; }
       .overwatch-match-add-competitive-form .group .content .item.starting-side .inputs label {
         display: flex;
         flex: 0 0 50%;

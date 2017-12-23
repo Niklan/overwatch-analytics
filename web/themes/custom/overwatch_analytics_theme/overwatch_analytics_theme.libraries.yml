@@ -4,7 +4,6 @@ global-styling:
     theme:
       assets/css/styles.css: {}
 
-
 select2:
   version: VERSION
   js:
@@ -13,3 +12,10 @@ select2:
     - core/jquery.once
     - core/drupal
     - overwatch_analytics/select2
+
+vue-components:
+  version: VERSION
+  js:
+    assets/vue-components/dist/vue-components.js: { minified: true }
+  dependencies:
+    - overwatch_analytics/vue
