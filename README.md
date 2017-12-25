@@ -1,5 +1,5 @@
 <p align="center">
- <img src="https://rawgit.com/Niklan/overwatch-analytics/master/web/themes/custom/overwatach_analytics_theme/logo.svg" align="center" alt="Overwatch Analytics">
+ <img src="https://rawgit.com/Niklan/overwatch-analytics/master/web/themes/custom/overwatch_analytics_theme/logo-dark.svg" align="center" alt="Overwatch Analytics">
 
  <p align="center">
    Website which analze Overwatch competitive games.
