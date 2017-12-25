@@ -59,3 +59,5 @@ This installation process don't add any content. So you need to add by yourself.
 2. Get you key and secret.
 3. Go to site Configurations > System > Battle.net OAuth settings
 4. Enter secret and key.
+
+Overwatch © 2017 Blizzard Entertainment.
