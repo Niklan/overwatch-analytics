@@ -2,7 +2,7 @@
  <img src="https://rawgit.com/Niklan/overwatch-analytics/master/web/themes/custom/overwatch_analytics_theme/logo-dark.svg" align="center" alt="Overwatch Analytics">
 
  <p align="center">
-   Website which analze Overwatch competitive games.
+   Website which analyze Overwatch competitive games.
  </p>
 </p>
 
@@ -44,16 +44,18 @@ Yes, you can fully install it and try.
 1. git clone this repo in you web root.
 2. Install all required packages via composer: `composer install`
 3. Install config installer profile: `composer require drupal/config-installer`
-4. Open you website domain and install Drupal ass usual. The only thing you need to change - select Config Installer profile, not minimal or standard.
+4. Open you website domain and install Drupal as usual. The only thing you need to change - select Config Installer profile, not minimal or standard.
 5. After it installs, you're done.
 
-This installation process don't add any content. So you need to add by yourself. You can add it via new toolbar items "Overwatch'.
+This installation process don't add any content. So you need to add by yourself. You can add it via new toolbar item "Overwatch'.
 
 ![Toolbar](https://i.imgur.com/HpFUrO7.png)
 
 ### Battle.net auth support.
 
 1. Register on https://dev.battle.net/ and create an app.
+    1.1 To work Battle.net OAuth your local site must have HTTPS. Self-signed is okay, but it must be.
+    1.2 For "Register callback URL" enter: `https://YOURDOMAIN/bnet/callback`.
 2. Get you key and secret.
 3. Go to site Configurations > System > Battle.net OAuth settings
 4. Enter secret and key.
