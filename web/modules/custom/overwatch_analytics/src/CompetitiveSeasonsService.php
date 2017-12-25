@@ -127,6 +127,12 @@ class CompetitiveSeasonsService {
     $summary = [];
     $summary['games_played'] = count($this->matches);
 
+    // If first match has no result status, this mean this match was initial
+    // for SR.
+    if (reset($this->matches)->field_match_result->isEmpty()) {
+      $summary['games_played']--;
+    }
+
     // Wins, losses and draws.
     $summary['wins'] = 0;
     $summary['draws'] = 0;
@@ -150,9 +156,14 @@ class CompetitiveSeasonsService {
     }
 
     // WLD in percentage.
-    $summary['win_percentage'] = ($summary['wins'] * 100) / $summary['games_played'];
-    $summary['draw_percentage'] = ($summary['draws'] * 100) / $summary['games_played'];
-    $summary['losses_percentage'] = ($summary['losses'] * 100) / $summary['games_played'];
+    if ($summary['games_played']) {
+      $summary['win_percentage'] = ($summary['wins'] * 100) / $summary['games_played'];
+      $summary['draw_percentage'] = ($summary['draws'] * 100) / $summary['games_played'];
+      $summary['losses_percentage'] = ($summary['losses'] * 100) / $summary['games_played'];
+    }
+    else {
+      $summary['win_percentage'] = $summary['draw_percentage'] = $summary['losses_percentage'] = 0;
+    }
 
     $this->result['summary'] = $summary;
   }

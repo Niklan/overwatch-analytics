@@ -38,7 +38,7 @@ class OverwatchHeroHelperService {
       foreach ($heroes as $hero) {
         $result[] = [
           'id' => $hero->id(),
-          'label' => $hero->getTranslation($language)->label(),
+          'text' => $hero->getTranslation($language)->label(),
         ];
       }
     }

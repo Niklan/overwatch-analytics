@@ -3737,6 +3737,34 @@ th {
         padding: 0; }
 
 /**
+ * @depends on form component variables.
+ */
+.select2 .selection .select2-selection--single {
+  border-color: rgba(34, 36, 38, 0.15);
+  box-shadow: 0 0 0 0 transparent;
+  height: 35.5px; }
+  .select2 .selection .select2-selection--single .select2-selection__rendered {
+    line-height: 35.5px; }
+  .select2 .selection .select2-selection--single .select2-selection__arrow {
+    height: calc(35.5px - 2px);
+    width: 30px;
+    background: rgba(0, 0, 0, 0.1); }
+
+.select2 .selection .select2-selection--multiple {
+  border-color: rgba(34, 36, 38, 0.15);
+  box-shadow: 0 0 0 0 transparent;
+  height: 35.5px; }
+  .select2 .selection .select2-selection--multiple .select2-selection__choice {
+    background: #3EB4F7;
+    color: white;
+    border-color: #2faef6; }
+    .select2 .selection .select2-selection--multiple .select2-selection__choice .select2-selection__choice__remove {
+      color: white; }
+
+.select2-dropdown {
+  border-color: rgba(34, 36, 38, 0.15); }
+
+/**
  * @file
  * Layout settings.
  *
@@ -3922,6 +3950,23 @@ th {
       .overwatch-match-add-competitive-form .group .content .item.date-and-time .inputs .time {
         flex: 0 1 170px;
         margin-left: 8px; }
+  .overwatch-match-add-competitive-form .group .content .item.heroes {
+    flex: 0 1 100%; }
+  .overwatch-match-add-competitive-form .group .content .item.score {
+    flex: 0 1 32.20339%;
+    margin-right: 8px; }
+    .overwatch-match-add-competitive-form .group .content .item.score .value {
+      display: flex; }
+      .overwatch-match-add-competitive-form .group .content .item.score .value .team {
+        flex: 0 1 49.15254%;
+        margin-right: 1.69492%; }
+      .overwatch-match-add-competitive-form .group .content .item.score .value .enemy {
+        flex: 0 1 49.15254%; }
+  .overwatch-match-add-competitive-form .group .content .item.duration {
+    flex: 0 1 32.20339%;
+    margin-right: 8px; }
+  .overwatch-match-add-competitive-form .group .content .item.sr {
+    flex: 0 1 32.20339%; }
 
 /**
  * @file

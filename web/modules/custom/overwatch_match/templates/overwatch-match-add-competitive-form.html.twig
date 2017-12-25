@@ -3,17 +3,10 @@
   <input type="hidden" name="token" v-model="formValues.token">
 
   <div class="group season-pane">
-    <div class="label">{{ 'Season'|trans }}</div>
-    <select class="seasons" v-model="formValues.seasonSelected">
-      <option v-for="season in formValues.seasons" :value="season.id">${
-        season.label }
-      </option>
-    </select>
+    <select2 :options="formValues.seasons" v-model="formValues.seasonSelected">
+      <option disabled value="0">Select one</option>
+    </select2>
   </div>
-
-  <select2 :options="formValues.seasons" v-model="formValues.seasonSelected">
-    <option disabled value="0">Select one</option>
-  </select2>
 
   <div class="group prepare">
     <h2 class="title">{{ 'During preare'|trans }}</h2>
@@ -26,10 +19,10 @@
 
       <div class="item maps">
         <div class="label">{{ 'Map'|trans }}</div>
-        <select class="map" v-model="formValues.mapSelected">
-          <option v-for="map in formValues.maps" :value="map.id">${ map.label }
-          </option>
-        </select>
+
+        <select2 :options="formValues.maps" v-model="formValues.mapSelected">
+          <option disabled value="0">Select one</option>
+        </select2>
       </div>
 
       <div class="item starting-side">
@@ -62,80 +55,89 @@
     </div>
   </div>
 
-  <h2 class="group">{{ 'In game process'|trans }}</h2>
-  <div class="third-step">
-    <div class="heroes">
-      <div class="label">{{ 'Heroes'|trans }}</div>
-      <select class="hero" v-model="formValues.heroesSelected" multiple
-              :size="formValues.heroes.length">
-        <option v-for="hero in formValues.heroes" :value="hero.id">${ hero.label
-          }
-        </option>
-      </select>
-    </div>
-  </div>
+  <div class="group in-game">
+    <h2 class="title">{{ 'In game process'|trans }}</h2>
 
-  <div v-if="!formValues.hasSr" class="no-sr">
-    <p>
-      {% trans %}
-        We don't have any information about your SR in current season. If you
-        don't finish placement already, you must mark this match as
-        placement.
-      {% endtrans %}
-    </p>
+    <div class="content">
+      <div class="item heroes">
+        <div class="label">{{ 'Heroes'|trans }}</div>
 
-    <p>
-      {% trans %}
-        If you already finish placement matches and want to start your analyze from
-        current state, just add game only with SR data.
-      {% endtrans %}
-    </p>
-
-    <input type="checkbox" id="is-placement" name="is_placement" value="1"
-           v-model="formValues.isPlacement">
-    <label for="is-placement">{{ 'Placement match'|trans }}</label>
-  </div>
-
-  <h2 class="group">{{ 'After match ends'|trans }}</h2>
-  <div v-if="formValues.isPlacement" class="match-result">
-    <div class="title">{{ 'Match result'|trans }}</div>
-
-    <input type="radio" id="victory" value="1" v-model="formValues.matchResult">
-    <label for="victory">{{ 'Victory'|trans }}</label>
-    <br>
-    <input type="radio" id="draw" value="0" v-model="formValues.matchResult">
-    <label for="draw">{{ 'Draw'|trans }}</label>
-    <br>
-    <input type="radio" id="defeat" value="2" v-model="formValues.matchResult">
-    <label for="defeat">{{ 'Defeat'|trans }}</label>
-  </div>
-
-  <div class="score">
-    <div class="label">{{ 'Score'|trans }}</div>
-    <div class="value">
-      <div class="team">
-        <div class="label">{{ 'Team'|trans }}</div>
-        <input type="number" min="0" max="10" v-model="formValues.scoreTeam">
-      </div>
-
-      <div class="enemy">
-        <div class="label">{{ 'Enemy'|trans }}</div>
-        <input type="number" min="0" max="10" v-model="formValues.scoreEnemy">
+        <select2 :options="formValues.heroes" multiple="multiple"
+                 v-model="formValues.heroesSelected">
+          <option disabled value="0">Select one</option>
+        </select2>
       </div>
     </div>
   </div>
 
-  <div class="duration">
-    <div class="label">{{ 'Duration'|trans }}</div>
-    <input type="text" v-model="formValues.duration">
+  <div class="group after-match">
+    <h2 class="title">{{ 'After match ends'|trans }}</h2>
+
+    <div v-if="!formValues.hasSr" class="no-sr">
+      <p>
+        {% trans %}
+          We don't have any information about your SR in current season. If you
+          don't finish placement already, you must mark this match as
+          placement.
+        {% endtrans %}
+      </p>
+
+      <p>
+        {% trans %}
+          If you already finish placement matches and want to start your analyze from
+          current state, just add game only with SR data.
+        {% endtrans %}
+      </p>
+
+      <input type="checkbox" id="is-placement" name="is_placement" value="1"
+             v-model="formValues.isPlacement">
+      <label for="is-placement">{{ 'Placement match'|trans }}</label>
+
+      <div v-if="formValues.isPlacement" class="match-result">
+        <div class="title">{{ 'Match result'|trans }}</div>
+
+        <input type="radio" id="victory" value="1"
+               v-model="formValues.matchResult">
+        <label for="victory">{{ 'Victory'|trans }}</label>
+        <br>
+        <input type="radio" id="draw" value="0"
+               v-model="formValues.matchResult">
+        <label for="draw">{{ 'Draw'|trans }}</label>
+        <br>
+        <input type="radio" id="defeat" value="2"
+               v-model="formValues.matchResult">
+        <label for="defeat">{{ 'Defeat'|trans }}</label>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="item score">
+        <div class="label">{{ 'Score'|trans }}</div>
+        <div class="value">
+          <div class="team">
+            <input type="number" min="0" max="10" v-model="formValues.scoreTeam" placeholder="{{ 'Team'|trans }}">
+          </div>
+
+          <div class="enemy">
+            <input type="number" min="0" max="10" v-model="formValues.scoreEnemy" placeholder="{{ 'Enemy'|trans }}">
+          </div>
+        </div>
+      </div>
+
+      <div class="item duration">
+        <div class="label">{{ 'Duration'|trans }}</div>
+        <input type="text" v-model="formValues.duration">
+      </div>
+
+      <div class="item sr">
+        <div class="label">SR</div>
+        <input type="number" v-model="formValues.sr" min="1" max="5000">
+      </div>
+    </div>
   </div>
 
-  <div class="sr-pane">
-    <div class="label">SR</div>
-    <input type="number" v-model="formValues.sr" min="1" max="5000">
-  </div>
 
-  <div class="note">
+  <div class="group note">
     <div class="label">{{ 'Note'|trans }}</div>
     <textarea v-model="formValues.notes"></textarea>
   </div>

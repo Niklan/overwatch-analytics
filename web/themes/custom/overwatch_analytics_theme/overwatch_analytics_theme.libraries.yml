@@ -16,6 +16,7 @@ select2:
 vue-components:
   version: VERSION
   js:
-    assets/vue-components/dist/vue-components.js: { minified: true }
+    assets/js/vue-components.js: { }
   dependencies:
     - overwatch_analytics/vue
+    - overwatch_analytics/select2

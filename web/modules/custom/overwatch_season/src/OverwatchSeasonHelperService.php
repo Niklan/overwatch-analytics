@@ -38,7 +38,7 @@ class OverwatchSeasonHelperService {
       foreach ($seasons as $season) {
         $result[] = [
           'id' => $season->id(),
-          'label' => $season->getTranslation($language)->label(),
+          'text' => $season->getTranslation($language)->label(),
         ];
       }
     }

@@ -95,7 +95,40 @@
             }
           }
         }
+
+        &.heroes {
+          flex: 0 1 100%;
+        }
+
+        &.score {
+          flex: 0 1 span(4);
+          margin-right: gap();
+
+          .value {
+            display: flex;
+
+            .team {
+              flex: 0 1 span(6);
+              margin-right: gutter();
+            }
+
+            .enemy {
+              flex: 0 1 span(6);
+            }
+          }
+        }
+
+        &.duration {
+          flex: 0 1 span(4);
+          margin-right: gap();
+        }
+
+        &.sr {
+          flex: 0 1 span(4);
+        }
       }
     }
   }
+
+
 }

@@ -1,0 +1,43 @@
+/**
+ * @depends on form component variables.
+ */
+
+.select2 {
+  .selection {
+    .select2-selection--single {
+      border-color: $input-border;
+      box-shadow: $input-box-shadow;
+      height: 35.5px;
+
+      .select2-selection__rendered {
+        line-height: 35.5px;
+      }
+
+      .select2-selection__arrow {
+        height: calc(35.5px - 2px);
+        width: 30px;
+        background: rgba(black, 0.1);
+      }
+    }
+
+    .select2-selection--multiple {
+      border-color: $input-border;
+      box-shadow: $input-box-shadow;
+      height: 35.5px;
+
+      .select2-selection__choice {
+        background: color('ow-blue');
+        color: white;
+        border-color: darken(color('ow-blue'), 3%);
+
+        .select2-selection__choice__remove {
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+.select2-dropdown {
+  border-color: $input-border;
+}

@@ -38,7 +38,7 @@ class OverwatchMapHelperService {
       foreach ($maps as $map) {
         $result[] = [
           'id' => $map->id(),
-          'label' => $map->getTranslation($language)->label(),
+          'text' => $map->getTranslation($language)->label(),
         ];
       }
     }
