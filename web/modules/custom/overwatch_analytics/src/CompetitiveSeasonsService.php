@@ -157,14 +157,9 @@ class CompetitiveSeasonsService {
     }
 
     // WLD in percentage.
-    if ($summary['games_played']) {
-      $summary['win_percentage'] = ($summary['wins'] * 100) / $summary['games_played'];
-      $summary['draw_percentage'] = ($summary['draws'] * 100) / $summary['games_played'];
-      $summary['losses_percentage'] = ($summary['losses'] * 100) / $summary['games_played'];
-    }
-    else {
-      $summary['win_percentage'] = $summary['draw_percentage'] = $summary['losses_percentage'] = 0;
-    }
+    $summary['win_percentage'] = $this->calculatePercetage($summary['wins'], $summary['games_played']);
+    $summary['draw_percentage'] = $this->calculatePercetage($summary['draws'], $summary['games_played']);
+    $summary['losses_percentage'] = $this->calculatePercetage($summary['losses'], $summary['games_played']);
 
     $this->result['summary'] = $summary;
   }
@@ -183,6 +178,25 @@ class CompetitiveSeasonsService {
       }
     }
     $this->result['sr_history'] = $sr_history;
+  }
+
+  /**
+   * Calculate percentage from two numbers and format result.
+   *
+   * @param int $fist_number
+   *   First number for which need to find percentage.
+   * @param int $second_number
+   *   Second number from which need to find percentage of first number.
+   *
+   * @return string
+   *   Formatted percentage result.
+   */
+  protected function calculatePercetage($fist_number, $second_number) {
+    if ($fist_number && $second_number) {
+      $result = ($fist_number * 100) / $second_number;
+      return number_format($result, 2);
+    }
+    return 0;
   }
 
 }
