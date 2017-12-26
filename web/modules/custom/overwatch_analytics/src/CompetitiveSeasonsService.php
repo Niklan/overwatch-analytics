@@ -94,6 +94,7 @@ class CompetitiveSeasonsService {
     if ($this->account && $this->overwatchSeason) {
       if ($matches = $this->loadMatches()) {
         $this->calculateSummary();
+        $this->srHistory();
         return $this->result;
       }
       return FALSE;
@@ -166,6 +167,22 @@ class CompetitiveSeasonsService {
     }
 
     $this->result['summary'] = $summary;
+  }
+
+  /**
+   * Create an array with all matches dates and SR to it.
+   */
+  protected function srHistory() {
+    $sr_history = [];
+    foreach ($this->matches as $match) {
+      if (!$match->field_skill_rating->isEmpty() && !$match->field_date->isEmpty()) {
+        $sr_history[] = [
+          'date' => $match->field_date->value,
+          'sr' => $match->field_skill_rating->value,
+        ];
+      }
+    }
+    $this->result['sr_history'] = $sr_history;
   }
 
 }

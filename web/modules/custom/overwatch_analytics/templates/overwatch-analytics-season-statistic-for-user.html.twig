@@ -2,6 +2,7 @@
   User has no statistic for current season.
 {% else %}
   {{ attach_library('overwatch_analytics/season-statistic-for-user-charts') }}
+  {{ dd(results) }}
   <div class="overwatch-analytics-season-statistic-for-user">
     <div class="group">
       <h2 class="title">{{ 'Summary'|trans }}</h2>
@@ -18,6 +19,9 @@
                 data-wins="{{ results.summary.wins }}"
                 data-losses="{{ results.summary.losses }}"
                 data-draws="{{ results.summary.draws }}"></canvas>
+
+        <canvas id="sr-history"
+                data-sr-history="{{ results.sr_history|json_encode }}"></canvas>
       </div>
     </div>
   </div>

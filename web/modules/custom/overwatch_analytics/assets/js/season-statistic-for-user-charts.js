@@ -47,6 +47,50 @@
     },
   };
 
+  Drupal.behaviors.ssfuSrHistory = {
+    attach: function(context, settings) {
+      let srHistoryCanvas = $(context).
+        find('#sr-history').
+        once('sr-history');
+
+      if (srHistoryCanvas.length) {
+        let srHistoryData = $(srHistoryCanvas).data('sr-history');
+        let labels = [];
+        let data = [];
+        $.each(srHistoryData, (key, item) => {
+          let date = new Date(item.date * 1000);
+          labels.push(date.getUTCDay() + '/' + date.getMonth() + '/' + date.getFullYear());
+          data.push(item.sr);
+        });
+
+        let config = {
+          type: 'line',
+          data: {
+            labels: labels,
+            datasets: [{
+              data: data,
+              label: 'SR',
+              borderColor: '#00A5E2',
+              fill: false,
+              borderJoinStyle: 'miter',
+              cubicInterpolationMode: 'monotone',
+              lineTension: 0,
+            }],
+          },
+          options: {
+            responsive: true,
+            title: {
+              display: true,
+              text: 'SR change',
+            }
+          },
+        };
+
+        let srHistory = new Chart(srHistoryCanvas, config);
+      }
+    },
+  };
+
 })(jQuery, Drupal);
 
 
