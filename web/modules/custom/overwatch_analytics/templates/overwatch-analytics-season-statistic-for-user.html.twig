@@ -19,14 +19,14 @@
         </div>
 
         <div class="winrate">
-          <canvas id="winrate-circle"
+          <canvas id="winrate-circle" height="300"
                   data-wins="{{ results.summary.wins }}"
                   data-losses="{{ results.summary.losses }}"
                   data-draws="{{ results.summary.draws }}"></canvas>
         </div>
 
         <div class="sr-history">
-          <canvas id="sr-history"
+          <canvas id="sr-history" height="300"
                   data-sr-history="{{ results.sr_history|json_encode }}"></canvas>
         </div>
       </div>

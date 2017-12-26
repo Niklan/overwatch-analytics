@@ -56,10 +56,16 @@ This installation process don't add any content. So you need to add by yourself.
 1. Register on https://dev.battle.net/ and create an app.
 
     1.1 To work Battle.net OAuth your local site must have HTTPS. Self-signed is okay, but it must be.
-    1.2 For "Register callback URL" enter: `https://YOURDOMAIN/bnet/callback`.
+    
+    2.1 For "Register callback URL" enter: `https://YOURDOMAIN/bnet/callback`.
 
 2. Get you key and secret.
 3. Go to site Configurations > System > Battle.net OAuth settings
 4. Enter secret and key.
+
+## Screenshots
+
+![Statistics page with analyze example](https://i.imgur.com/JXn2gZn.png)
+![Add competitive match page](https://i.imgur.com/yYzURmX.png)
 
 Overwatch © 2017 Blizzard Entertainment.
