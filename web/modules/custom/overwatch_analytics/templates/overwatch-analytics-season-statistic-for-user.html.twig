@@ -2,26 +2,31 @@
   User has no statistic for current season.
 {% else %}
   {{ attach_library('overwatch_analytics/season-statistic-for-user-charts') }}
-  {{ dd(results) }}
   <div class="overwatch-analytics-season-statistic-for-user">
-    <div class="group">
+    <div class="group summary">
       <h2 class="title">{{ 'Summary'|trans }}</h2>
       <div class="content">
-        Игр сыграно: {{ results.summary.games_played }}<br/>
-        Побед: {{ results.summary.wins }}<br/>
-        Поражений: {{ results.summary.losses }}<br/>
-        Ничей: {{ results.summary.draws }}<br/>
-        Побед %: {{ results.summary.win_percentage }}%<br/>
-        Поражений %: {{ results.summary.losses_percentage }}%<br/>
-        Ничей %: {{ results.summary.draw_percentage }}%<br/>
+        <div class="summary">
+          Игр сыграно: {{ results.summary.games_played }}<br/>
+          Побед: {{ results.summary.wins }}<br/>
+          Поражений: {{ results.summary.losses }}<br/>
+          Ничей: {{ results.summary.draws }}<br/>
+          Побед %: {{ results.summary.win_percentage }}%<br/>
+          Поражений %: {{ results.summary.losses_percentage }}%<br/>
+          Ничей %: {{ results.summary.draw_percentage }}%<br/>
+        </div>
 
-        <canvas id="winrate-circle"
-                data-wins="{{ results.summary.wins }}"
-                data-losses="{{ results.summary.losses }}"
-                data-draws="{{ results.summary.draws }}"></canvas>
+        <div class="winrate">
+          <canvas id="winrate-circle"
+                  data-wins="{{ results.summary.wins }}"
+                  data-losses="{{ results.summary.losses }}"
+                  data-draws="{{ results.summary.draws }}"></canvas>
+        </div>
 
-        <canvas id="sr-history"
-                data-sr-history="{{ results.sr_history|json_encode }}"></canvas>
+        <div class="sr-history">
+          <canvas id="sr-history"
+                  data-sr-history="{{ results.sr_history|json_encode }}"></canvas>
+        </div>
       </div>
     </div>
   </div>

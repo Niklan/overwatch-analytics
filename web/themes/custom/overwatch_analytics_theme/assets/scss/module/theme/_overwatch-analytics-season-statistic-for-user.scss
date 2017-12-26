@@ -1,0 +1,12 @@
+.overwatch-analytics-season-statistic-for-user {
+  .group {
+
+    &.summary {
+      > .content {
+        display: grid;
+        grid-gap: 16px;
+        grid-template-columns: 200px 1fr 1fr;
+      }
+    }
+  }
+}

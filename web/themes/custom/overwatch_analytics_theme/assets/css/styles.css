@@ -3968,6 +3968,11 @@ th {
   .overwatch-match-add-competitive-form .group .content .item.sr {
     flex: 0 1 32.20339%; }
 
+.overwatch-analytics-season-statistic-for-user .group.summary > .content {
+  display: grid;
+  grid-gap: 16px;
+  grid-template-columns: 200px 1fr 1fr; }
+
 /**
  * @file
  * Styles which you want to use more than few times and they always the same.
