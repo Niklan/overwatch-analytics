@@ -7,13 +7,13 @@
       <h2 class="title">{{ 'Summary'|trans }}</h2>
       <div class="content">
         <div class="summary">
-          Игр сыграно: {{ results.summary.games_played }}<br/>
-          Побед: {{ results.summary.wins }}<br/>
-          Поражений: {{ results.summary.losses }}<br/>
-          Ничей: {{ results.summary.draws }}<br/>
-          Побед %: {{ results.summary.win_percentage }}%<br/>
-          Поражений %: {{ results.summary.losses_percentage }}%<br/>
-          Ничей %: {{ results.summary.draw_percentage }}%<br/>
+          {{ 'Games played'|trans }}: {{ results.summary.games_played }}<br/>
+          {{ 'Wins'|trans }}: {{ results.summary.wins }}<br/>
+          {{ 'Losses'|trans }}: {{ results.summary.losses }}<br/>
+          {{ 'Draws'|trans }}: {{ results.summary.draws }}<br/>
+          {{ 'Wins'|trans }} %: {{ results.summary.win_percentage }}%<br/>
+          {{ 'Losses'|trans }} %: {{ results.summary.losses_percentage }}%<br/>
+          {{ 'Draws'|trans }} %: {{ results.summary.draw_percentage }}%<br/>
         </div>
 
         <div class="winrate">
