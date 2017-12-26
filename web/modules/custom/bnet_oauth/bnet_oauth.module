@@ -7,6 +7,7 @@
 
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\file\FileInterface;
 
 /**
  * Implements hook_entity_base_field_info().
@@ -46,7 +47,12 @@ function bnet_oauth_user_login($account) {
         $file = system_retrieve_file($nodes[0]->getAttribute('src'), $picture_path, TRUE);
         if ($file) {
           $file_usage = \Drupal::service('file.usage');
-          $file_usage->add($file, 'bnet_oauth', 'avatar', $account->id());
+          // Remove old attached file.
+          $old_file = $account->user_picture->entity;
+          if ($old_file instanceof FileInterface) {
+            $file_usage->delete($old_file, 'bneth_oath', 'user', $account->id());
+          }
+          $file_usage->add($file, 'bnet_oauth', 'user', $account->id());
           $account->user_picture = $file->id();
           $account->save();
         }
