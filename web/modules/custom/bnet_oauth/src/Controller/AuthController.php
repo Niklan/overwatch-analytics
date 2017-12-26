@@ -110,8 +110,7 @@ class AuthController extends ControllerBase {
     $battletag = str_replace('#', '-', $account_data['battletag']);
     $id = $account_data['id'];
     $user = User::create([
-      // The name in Drupal must be unique. name-tag-id.
-      'name' => $battletag . '-' . $id,
+      'name' => $battletag,
       'pass' => NULL,
       'mail' => NULL,
       'init' => NULL,
