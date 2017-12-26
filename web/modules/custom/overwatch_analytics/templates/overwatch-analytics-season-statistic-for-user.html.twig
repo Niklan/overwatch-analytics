@@ -14,6 +14,8 @@
           {{ 'Wins'|trans }} %: {{ results.summary.win_percentage }}%<br/>
           {{ 'Losses'|trans }} %: {{ results.summary.losses_percentage }}%<br/>
           {{ 'Draws'|trans }} %: {{ results.summary.draw_percentage }}%<br/>
+          {{ 'Longest win streak'|trans }}: {{ results.win_loss_streaks.longest_win }}<br/>
+          {{ 'Longest loss streak'|trans }}: {{ results.win_loss_streaks.longest_loss }}<br/>
         </div>
 
         <div class="winrate">
@@ -27,6 +29,13 @@
           <canvas id="sr-history"
                   data-sr-history="{{ results.sr_history|json_encode }}"></canvas>
         </div>
+      </div>
+    </div>
+
+    <div class="group summary">
+      <div class="content">
+        <canvas id="win-loss-streaks-history" height="300"
+                data-history="{{ results.win_loss_streaks.history|json_encode }}"></canvas>
       </div>
     </div>
   </div>

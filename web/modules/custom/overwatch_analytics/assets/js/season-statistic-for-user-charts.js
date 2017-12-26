@@ -44,6 +44,7 @@
               display: true,
               text: 'Win/Loss %',
             },
+            maintainAspectRatio: false,
           },
         };
 
@@ -90,10 +91,58 @@
               display: true,
               text: 'Skill Rating over time',
             },
+            maintainAspectRatio: false,
           },
         };
 
         let srHistory = new Chart(srHistoryCanvas, config);
+      }
+    },
+  };
+
+  Drupal.behaviors.ssfuWinLossStreaks = {
+    attach: function(context, settings) {
+      let chartCanvas = $(context).
+        find('#win-loss-streaks-history').
+        once('ssfu-chart');
+
+      if (chartCanvas.length) {
+        let historyData = $(chartCanvas).data('history');
+        let labels = [];
+        let data = [];
+        $.each(historyData, (key, item) => {
+          let date = new Date(item.date * 1000);
+          labels.push(date.getUTCDay() + '/' + date.getMonth() + '/' +
+            date.getFullYear());
+          data.push(item.result);
+        });
+
+        let config = {
+          type: 'line',
+          data: {
+            labels: labels,
+            datasets: [
+              {
+                data: data,
+                label: 'Win Loss Streak',
+                borderColor: '#00A5E2',
+                fill: false,
+                borderJoinStyle: 'miter',
+                cubicInterpolationMode: 'monotone',
+                lineTension: 0,
+              }],
+          },
+          options: {
+            responsive: true,
+            title: {
+              display: true,
+              text: 'Streaks',
+            },
+            maintainAspectRatio: false,
+          },
+        };
+
+        let chart = new Chart(chartCanvas, config);
       }
     },
   };

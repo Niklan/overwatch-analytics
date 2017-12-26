@@ -95,6 +95,7 @@ class CompetitiveSeasonsService {
       if ($matches = $this->loadMatches()) {
         $this->calculateSummary();
         $this->srHistory();
+        $this->winLossStreaks();
         return $this->result;
       }
       return FALSE;
@@ -152,6 +153,7 @@ class CompetitiveSeasonsService {
 
           case OverwatchMatch::STATUS_DEFEAT:
             $summary['losses']++;
+            break;
         }
       }
     }
@@ -178,6 +180,58 @@ class CompetitiveSeasonsService {
       }
     }
     $this->result['sr_history'] = $sr_history;
+  }
+
+  /**
+   * Calculate win and loss streak, with max and min as well.
+   *
+   * The loss streaks is negative values, and win streak are positive. Draws
+   * keep current streak not touched. F.e. -2 means - two losses in a row, and 3
+   * means three wins in a row.
+   */
+  protected function winLossStreaks() {
+    $result = [];
+    $current_streak = 0;
+    foreach ($this->matches as $match) {
+      if (!$match->field_match_result->isEmpty()) {
+        switch ($match->field_match_result->value) {
+          case OverwatchMatch::STATUS_VICTORY:
+            if ($current_streak < 0) {
+              $current_streak = 0;
+            }
+            $result['history'][] = [
+              'date' => $match->field_date->value,
+              'result' => ++$current_streak,
+            ];
+            break;
+
+          case OverwatchMatch::STATUS_DRAW:
+            $result['history'][] = [
+              'date' => $match->field_date->value,
+              'result' => ++$current_streak,
+            ];
+            break;
+
+          case OverwatchMatch::STATUS_DEFEAT:
+            if ($current_streak > 0) {
+              $current_streak = 0;
+            }
+            $result['history'][] = [
+              'date' => $match->field_date->value,
+              'result' => --$current_streak,
+            ];
+            break;
+        }
+      }
+    }
+
+    $numbers = array_column($result['history'], 'result');
+    $result['longest_win'] = max($numbers);
+    // We don't need to show for people negative numbers, this is for charts
+    // only.
+    $result['longest_loss'] = abs(min($numbers));
+
+    $this->result['win_loss_streaks'] = $result;
   }
 
   /**
