@@ -208,7 +208,7 @@ class CompetitiveSeasonsService {
           case OverwatchMatch::STATUS_DRAW:
             $result['history'][] = [
               'date' => $match->field_date->value,
-              'result' => ++$current_streak,
+              'result' => $current_streak,
             ];
             break;
 
