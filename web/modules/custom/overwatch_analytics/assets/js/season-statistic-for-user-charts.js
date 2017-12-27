@@ -139,6 +139,13 @@
               text: 'Streaks',
             },
             maintainAspectRatio: false,
+            scales: {
+              xAxes: [
+                {
+                  display: false,
+                },
+              ],
+            },
           },
         };
 
