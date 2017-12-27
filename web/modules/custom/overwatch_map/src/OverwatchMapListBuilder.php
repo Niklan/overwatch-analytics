@@ -15,10 +15,27 @@ class OverwatchMapListBuilder extends EntityListBuilder {
 
 
   /**
+   * Loads entity IDs using a pager sorted by the name.
+   *
+   * @return array
+   *   An array of entity IDs.
+   */
+  protected function getEntityIds() {
+    $query = $this->getStorage()->getQuery()
+      ->sort($this->entityType->getKey('label'));
+
+    // Only add the pager if a limit is specified.
+    if ($this->limit) {
+      $query->pager($this->limit);
+    }
+    return $query->execute();
+  }
+
+  /**
    * {@inheritdoc}
    */
   public function buildHeader() {
-    $header['id'] = $this->t('Overwatch map ID');
+    $header['id'] = $this->t('Map ID');
     $header['name'] = $this->t('Name');
     return $header + parent::buildHeader();
   }
