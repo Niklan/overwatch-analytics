@@ -3,6 +3,8 @@
 namespace Drupal\overwatch_analytics;
 
 use Drupal\Core\Entity\EntityTypeManager;
+use Drupal\overwatch_map\Entity\OverwatchMap;
+use Drupal\overwatch_map\Entity\OverwatchMapInterface;
 use Drupal\overwatch_match\Entity\OverwatchMatch;
 
 /**
@@ -96,6 +98,7 @@ class CompetitiveSeasonsService {
         $this->calculateSummary();
         $this->srHistory();
         $this->winLossStreaks();
+        $this->mapBreakdown();
         return $this->result;
       }
       return FALSE;
@@ -232,6 +235,46 @@ class CompetitiveSeasonsService {
     $result['longest_loss'] = abs(min($numbers));
 
     $this->result['win_loss_streaks'] = $result;
+  }
+
+  /**
+   * Gather map statistic from matches.
+   */
+  protected function mapBreakdown() {
+    $result = [];
+    // This method require summary to be calculated already.
+    if (empty($this->result['summary'])) {
+      $this->calculateSummary();
+    }
+    /** @var \Drupal\overwatch_map\OverwatchMapHelperService $map_helper */
+    $map_helper = \Drupal::service('overwatch_map.helper');
+    $maps = $map_helper->loadAllMaps();
+    $games_played = $this->result['summary']['games_played'];
+    $overwatch_map_fields = \Drupal::service('entity_field.manager')
+      ->getFieldDefinitions('overwatch_map', 'overwatch_map');
+    $map_types = $overwatch_map_fields['field_map_types']->getSetting('allowed_values');
+    foreach ($maps as $map) {
+      $allowed_map_types = [
+        OverwatchMapInterface::ASSAULT,
+        OverwatchMapInterface::ASSAULT_ESCORT,
+        OverwatchMapInterface::ESCORT,
+        OverwatchMapInterface::CONTROL,
+      ];
+
+      // @todo the map types is multiple field. Add support for that.
+      if (in_array($map->field_map_types->value, $allowed_map_types)) {
+        $result[$map->field_map_types->value][$map->id()] = [
+          'label' => $map->label(),
+          'type' => $map_types[$map->field_map_types->value],
+        ];
+      }
+    }
+
+    foreach ($this->matches as $match) {
+      // @todo complete it.
+    }
+
+    $this->result['map_breakdown'] = $result;
   }
 
   /**
