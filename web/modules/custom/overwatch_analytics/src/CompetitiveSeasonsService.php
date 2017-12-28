@@ -239,6 +239,8 @@ class CompetitiveSeasonsService {
 
   /**
    * Gather map statistic from matches.
+   *
+   * @throws \Consolidation\OutputFormatters\Exception\UnknownFieldException
    */
   protected function mapBreakdown() {
     $result = [];
@@ -253,27 +255,50 @@ class CompetitiveSeasonsService {
     $overwatch_map_fields = \Drupal::service('entity_field.manager')
       ->getFieldDefinitions('overwatch_map', 'overwatch_map');
     $map_types = $overwatch_map_fields['field_map_types']->getSetting('allowed_values');
-    foreach ($maps as $map) {
-      $allowed_map_types = [
-        OverwatchMapInterface::ASSAULT,
-        OverwatchMapInterface::ASSAULT_ESCORT,
-        OverwatchMapInterface::ESCORT,
-        OverwatchMapInterface::CONTROL,
-      ];
+    $allowed_map_types = [
+      OverwatchMapInterface::ASSAULT,
+      OverwatchMapInterface::ASSAULT_ESCORT,
+      OverwatchMapInterface::ESCORT,
+      OverwatchMapInterface::CONTROL,
+    ];
 
-      // @todo the map types is multiple field. Add support for that.
-      if (in_array($map->field_map_types->value, $allowed_map_types)) {
-        $result[$map->field_map_types->value][$map->id()] = [
+    // Add each allowed map type to result array as group.
+    foreach ($allowed_map_types as $map_type) {
+      $result['types'][$map_type] = [
+        'label' => $map_types[$map_type],
+        'maps' => [],
+      ];
+    }
+
+    // Add information about every map in array.
+    foreach ($maps as $map) {
+      if ($map->isCompetitive()) {
+        $result['types'][$map->field_map_types->value]['maps'][$map->id()] = $map->label();
+        $result['maps'][$map->id()] = [
           'label' => $map->label(),
-          'type' => $map_types[$map->field_map_types->value],
+          'stats' => [
+            'games_played' => 0,
+          ],
         ];
       }
     }
 
+    // Now we add basic stats for maps from matches.
     foreach ($this->matches as $match) {
-      // @todo complete it.
+      // There is possible that match has no map entered. For initial SR.
+      if (!$match->field_map->isEmpty()) {
+        /** @var OverwatchMap $match_map */
+        $match_map = $match->field_map->entity;
+        if ($match_map->isCompetitive()) {
+          // @todo % played, wins, losses, draws, and WLD in %.
+          $map_stats = &$result['maps'][$match_map->id()]['stats'];
+          $map_stats['games_played'] += 1;
+        }
+      }
+
     }
 
+    ksm($result);
     $this->result['map_breakdown'] = $result;
   }
 
