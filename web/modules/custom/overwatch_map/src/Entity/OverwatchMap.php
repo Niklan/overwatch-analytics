@@ -2,6 +2,7 @@
 
 namespace Drupal\overwatch_map\Entity;
 
+use Consolidation\OutputFormatters\Exception\UnknownFieldException;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\Core\Entity\RevisionableContentEntityBase;
@@ -55,10 +56,14 @@ use Drupal\user\UserInterface;
  *     "edit-form" = "/overwatch-map/{overwatch_map}/edit",
  *     "delete-form" = "/overwatch-map/{overwatch_map}/delete",
  *     "version-history" = "/overwatch-map/{overwatch_map}/revisions",
- *     "revision" = "/overwatch-map/{overwatch_map}/revisions/{overwatch_map_revision}/view",
- *     "revision_revert" = "/overwatch-map/{overwatch_map}/revisions/{overwatch_map_revision}/revert",
- *     "revision_delete" = "/overwatch-map/{overwatch_map}/revisions/{overwatch_map_revision}/delete",
- *     "translation_revert" = "/overwatch-map/{overwatch_map}/revisions/{overwatch_map_revision}/revert/{langcode}",
+ *     "revision" =
+ *   "/overwatch-map/{overwatch_map}/revisions/{overwatch_map_revision}/view",
+ *     "revision_revert" =
+ *   "/overwatch-map/{overwatch_map}/revisions/{overwatch_map_revision}/revert",
+ *     "revision_delete" =
+ *   "/overwatch-map/{overwatch_map}/revisions/{overwatch_map_revision}/delete",
+ *     "translation_revert" =
+ *   "/overwatch-map/{overwatch_map}/revisions/{overwatch_map_revision}/revert/{langcode}",
  *     "collection" = "/admin/overwatch/map",
  *   },
  *   field_ui_base_route = "overwatch_map.settings"
@@ -184,6 +189,39 @@ class OverwatchMap extends RevisionableContentEntityBase implements OverwatchMap
       ->setTranslatable(TRUE);
 
     return $fields;
+  }
+
+  /**
+   * Check is this map competitive or not.
+   *
+   * @throws \Consolidation\OutputFormatters\Exception\UnknownFieldException
+   *   If field with map type is missing, we can't handle it.
+   *
+   * @return bool
+   *   TRUE is competitive, FALSE otherwise.
+   */
+  public function isCompetitive() {
+    if (!$this->hasField('field_map_types')) {
+      throw new UnknownFieldException('field_map_types');
+    }
+
+    if ($this->field_map_types->isEmpty()) {
+      return FALSE;
+    }
+
+    $competitive_map_types = [
+      OverwatchMapInterface::ASSAULT,
+      OverwatchMapInterface::ASSAULT_ESCORT,
+      OverwatchMapInterface::ESCORT,
+      OverwatchMapInterface::CONTROL,
+    ];
+
+    foreach ($this->field_map_types->getValue() as $value) {
+      if (in_array($value['value'], $competitive_map_types)) {
+        return TRUE;
+      }
+    }
+    return FALSE;
   }
 
 }
