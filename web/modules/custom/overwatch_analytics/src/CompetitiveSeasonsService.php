@@ -6,6 +6,7 @@ use Drupal\Core\Entity\EntityTypeManager;
 use Drupal\overwatch_map\Entity\OverwatchMap;
 use Drupal\overwatch_map\Entity\OverwatchMapInterface;
 use Drupal\overwatch_match\Entity\OverwatchMatch;
+use Drupal\overwatch_match\Entity\OverwatchMatchInterface;
 
 /**
  * Class CompetitiveSeasonsService.
@@ -278,6 +279,9 @@ class CompetitiveSeasonsService {
           'label' => $map->label(),
           'stats' => [
             'games_played' => 0,
+            'wins' => 0,
+            'losses' => 0,
+            'draws' => 0,
           ],
         ];
       }
@@ -290,15 +294,34 @@ class CompetitiveSeasonsService {
         /** @var OverwatchMap $match_map */
         $match_map = $match->field_map->entity;
         if ($match_map->isCompetitive()) {
-          // @todo % played, wins, losses, draws, and WLD in %.
           $map_stats = &$result['maps'][$match_map->id()]['stats'];
           $map_stats['games_played'] += 1;
+          switch ($match->field_match_result->value) {
+            case OverwatchMatchInterface::STATUS_VICTORY:
+              $map_stats['wins'] += 1;
+              break;
+
+            case OverwatchMatchInterface::STATUS_DEFEAT:
+              $map_stats['losses'] += 1;
+              break;
+
+            case OverwatchMatchInterface::STATUS_DRAW:
+              $map_stats['draws'] += 1;
+              break;
+          }
         }
       }
-
     }
 
-    ksm($result);
+    // Count win, lose, draw percentage for stats.
+    foreach ($result['maps'] as &$map_result) {
+      $map_stats = &$map_result['stats'];
+      $map_stats['wins_percent'] = $this->calculatePercetage($map_stats['wins'], $map_stats['games_played']) . '%';
+      $map_stats['losses_percent'] = $this->calculatePercetage($map_stats['losses'], $map_stats['games_played']) . '%';
+      $map_stats['draws_percent'] = $this->calculatePercetage($map_stats['draws'], $map_stats['games_played']) . '%';
+      $map_stats['played_percent'] = $this->calculatePercetage($map_stats['games_played'], $this->result['summary']['games_played']) . '%';
+    }
+
     $this->result['map_breakdown'] = $result;
   }
 

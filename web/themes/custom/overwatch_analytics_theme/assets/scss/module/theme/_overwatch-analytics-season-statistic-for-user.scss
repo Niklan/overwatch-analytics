@@ -1,11 +1,57 @@
 .overwatch-analytics-season-statistic-for-user {
   .group {
+    margin-bottom: gap(4);
 
     &.summary {
       > .content {
         display: grid;
         grid-gap: 16px;
         grid-template-columns: 200px 1fr 1fr;
+      }
+    }
+
+    &.map-breakdown {
+      .map-breakdown-table {
+        border: 1px solid gray('300');
+        background: white;
+
+        .row {
+          display: grid;
+          grid-template-columns: 200px repeat(8, 1fr);
+
+          &.heading {
+            border-bottom: 1px solid gray('300');
+          }
+
+          .col {
+            padding: gap();
+
+            &.label {
+              text-align: center;
+              font-weight: bold;
+              background: gray('200');
+              user-select: none;
+              cursor: default;
+            }
+
+            &.map-label {
+              background: gray('100');
+              border-right: 1px solid gray('300');
+            }
+
+            &.map-type {
+              font-weight: bold;
+              background: gray('200');
+              user-select: none;
+              cursor: default;
+              grid-column: span 9;
+            }
+
+            &.value {
+              text-align: center;
+            }
+          }
+        }
       }
     }
   }

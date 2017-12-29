@@ -3968,10 +3968,39 @@ th {
   .overwatch-match-add-competitive-form .group .content .item.sr {
     flex: 0 1 32.20339%; }
 
-.overwatch-analytics-season-statistic-for-user .group.summary > .content {
-  display: grid;
-  grid-gap: 16px;
-  grid-template-columns: 200px 1fr 1fr; }
+.overwatch-analytics-season-statistic-for-user .group {
+  margin-bottom: 32px; }
+  .overwatch-analytics-season-statistic-for-user .group.summary > .content {
+    display: grid;
+    grid-gap: 16px;
+    grid-template-columns: 200px 1fr 1fr; }
+  .overwatch-analytics-season-statistic-for-user .group.map-breakdown .map-breakdown-table {
+    border: 1px solid #dee2e6;
+    background: white; }
+    .overwatch-analytics-season-statistic-for-user .group.map-breakdown .map-breakdown-table .row {
+      display: grid;
+      grid-template-columns: 200px repeat(8, 1fr); }
+      .overwatch-analytics-season-statistic-for-user .group.map-breakdown .map-breakdown-table .row.heading {
+        border-bottom: 1px solid #dee2e6; }
+      .overwatch-analytics-season-statistic-for-user .group.map-breakdown .map-breakdown-table .row .col {
+        padding: 8px; }
+        .overwatch-analytics-season-statistic-for-user .group.map-breakdown .map-breakdown-table .row .col.label {
+          text-align: center;
+          font-weight: bold;
+          background: #e9ecef;
+          user-select: none;
+          cursor: default; }
+        .overwatch-analytics-season-statistic-for-user .group.map-breakdown .map-breakdown-table .row .col.map-label {
+          background: #f8f9fa;
+          border-right: 1px solid #dee2e6; }
+        .overwatch-analytics-season-statistic-for-user .group.map-breakdown .map-breakdown-table .row .col.map-type {
+          font-weight: bold;
+          background: #e9ecef;
+          user-select: none;
+          cursor: default;
+          grid-column: span 9; }
+        .overwatch-analytics-season-statistic-for-user .group.map-breakdown .map-breakdown-table .row .col.value {
+          text-align: center; }
 
 /**
  * @file

@@ -65,7 +65,7 @@ This installation process don't add any content. So you need to add by yourself.
 
 ## Screenshots
 
-![Statistics page with analyze example](https://i.imgur.com/JXn2gZn.png)
+![Statistics page with analyze example](https://i.imgur.com/jaCmOxC.png)
 ![Add competitive match page](https://i.imgur.com/yYzURmX.png)
 
 Overwatch © 2017 Blizzard Entertainment.

@@ -11,11 +11,13 @@
           {{ 'Wins'|trans }}: {{ results.summary.wins }}<br/>
           {{ 'Losses'|trans }}: {{ results.summary.losses }}<br/>
           {{ 'Draws'|trans }}: {{ results.summary.draws }}<br/>
-          {{ 'Wins'|trans }} %: {{ results.summary.win_percentage }}%<br/>
-          {{ 'Losses'|trans }} %: {{ results.summary.losses_percentage }}%<br/>
-          {{ 'Draws'|trans }} %: {{ results.summary.draw_percentage }}%<br/>
-          {{ 'Longest win streak'|trans }}: {{ results.win_loss_streaks.longest_win }}<br/>
-          {{ 'Longest loss streak'|trans }}: {{ results.win_loss_streaks.longest_loss }}<br/>
+          {{ 'Win'|trans }} %: {{ results.summary.win_percentage }}%<br/>
+          {{ 'Loss'|trans }} %: {{ results.summary.losses_percentage }}%<br/>
+          {{ 'Draw'|trans }} %: {{ results.summary.draw_percentage }}%<br/>
+          {{ 'Longest win streak'|trans }}
+          : {{ results.win_loss_streaks.longest_win }}<br/>
+          {{ 'Longest loss streak'|trans }}
+          : {{ results.win_loss_streaks.longest_loss }}<br/>
         </div>
 
         <div class="winrate">
@@ -32,10 +34,46 @@
       </div>
     </div>
 
-    <div class="group summary">
+    <div class="group win-loss-streaks">
       <div class="content">
         <canvas id="win-loss-streaks-history" height="300"
                 data-history="{{ results.win_loss_streaks.history|json_encode }}"></canvas>
+      </div>
+    </div>
+
+    <div class="group map-breakdown">
+      <div class="content">
+        <div class="map-breakdown-table">
+          <div class="row heading">
+            <div class="col label">{{ 'Map'|trans }}</div>
+            <div class="col label">{{ '% Played'|trans }}</div>
+            <div class="col label">{{ 'Played'|trans }}</div>
+            <div class="col label">{{ 'Wins'|trans }}</div>
+            <div class="col label">{{ 'Losses'|trans }}</div>
+            <div class="col label">{{ 'Draws'|trans }}</div>
+            <div class="col label">{{ 'Win %'|trans }}</div>
+            <div class="col label">{{ 'Loss %'|trans }}</div>
+            <div class="col label">{{ 'Draw %'|trans }}</div>
+          </div>
+
+          {% for tid, type in results.map_breakdown.types %}
+            <div class="row">
+              <div class="col map-type">{{ type.label }}</div>
+            </div>
+
+            {% for mid, map_label in type.maps %}
+              <div class="row">
+                <div class="col map-label">{{ map_label }}</div>
+
+                {% for label, value in results.map_breakdown.maps[mid].stats %}
+                  <div class="col value {{ label|clean_class }}">
+                    {{ value }}
+                  </div>
+                {% endfor %}
+              </div>
+            {% endfor %}
+          {% endfor %}
+        </div>
       </div>
     </div>
   </div>
