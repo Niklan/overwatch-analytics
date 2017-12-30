@@ -26,10 +26,13 @@ class BnetOAuth {
 
   protected $tokenUri;
 
+  protected $host;
+
   /**
    * BnetOAuth constructor.
    */
   public function __construct() {
+    $this->host = \Drupal::request()->getSchemeAndHttpHost();
     return $this;
   }
 
@@ -93,7 +96,7 @@ class BnetOAuth {
         'client_id' => $this->clientId,
         'scope' => '',
         'state' => $this->getStateToken(),
-        'redirect_uri' => 'https://overwatch-analytics.localhost/bnet/callback',
+        'redirect_uri' => $this->host . '/bnet/callback',
         'response_type' => 'code',
       ],
     ]);
@@ -128,7 +131,7 @@ class BnetOAuth {
   public function getAccessTokenUrl($code) {
     $url = Url::fromUri($this->tokenUri, [
       'query' => [
-        'redirect_uri' => 'https://overwatch-analytics.localhost/',
+        'redirect_uri' => $this->host,
         'scope' => '',
         'grant_type' => 'authorization_code',
         'code' => $code,
