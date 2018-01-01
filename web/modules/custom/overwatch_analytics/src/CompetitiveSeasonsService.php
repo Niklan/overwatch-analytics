@@ -274,7 +274,7 @@ class CompetitiveSeasonsService {
     // Add information about every map in array.
     foreach ($maps as $map) {
       if ($map->isCompetitive()) {
-        $result['types'][$map->field_map_types->value]['maps'][$map->id()] = $map->label();
+        $result['types'][$map->field_competitive_map_type->value]['maps'][$map->id()] = $map->label();
         $result['maps'][$map->id()] = [
           'label' => $map->label(),
           'stats' => [
