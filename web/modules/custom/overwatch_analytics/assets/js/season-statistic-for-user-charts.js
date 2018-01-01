@@ -154,6 +154,68 @@
     },
   };
 
+  Drupal.behaviors.ssfuGamesPlayedByMap = {
+    attach: function(context, settings) {
+      let chartCanvas = $(context).
+        find('#games-played-by-map').
+        once('games-played-by-map');
+
+      if (chartCanvas.length) {
+        let data = $(chartCanvas).data('data');
+        console.log(data);
+        let counts = [];
+        let labels = [];
+        $.each(data, (key, item) => {
+          counts.push(item.played_count);
+          labels.push(item.label);
+        });
+
+        let config = {
+          type: 'doughnut',
+          data: {
+            datasets: [
+              {
+                data: counts,
+                backgroundColor: [
+                  '#CC0000',
+                  '#E67300',
+                  '#FFFF00',
+                  '#CFE2F3',
+                  '#38761D',
+                  '#FF9900',
+                  '#B45F06',
+                  '#76A5AF',
+                  '#B7B7B7',
+                  '#FFD966',
+                  '#666666',
+                  '#93C47D',
+                  '#3C78D8',
+                  '#C27BA0',
+                  '#F6B26B',
+                  '#00FFFF',
+                ],
+              },
+            ],
+            labels: labels,
+          },
+          options: {
+            legend: {
+              display: false,
+            },
+            responsive: true,
+            title: {
+              display: true,
+              text: 'Games Played by Map',
+            },
+            maintainAspectRatio: false,
+          },
+        };
+
+        let chart = new Chart(chartCanvas, config);
+      }
+    },
+  };
+
 })(jQuery, Drupal);
 
 

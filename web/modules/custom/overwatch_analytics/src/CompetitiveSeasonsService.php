@@ -92,6 +92,8 @@ class CompetitiveSeasonsService {
    * @return array|bool
    *   An array with all results, if something wrong with account or season
    *   returns FALSE.
+   *
+   * @throws \Consolidation\OutputFormatters\Exception\UnknownFieldException
    */
   public function getResult() {
     if ($this->account && $this->overwatchSeason) {
@@ -100,6 +102,7 @@ class CompetitiveSeasonsService {
         $this->srHistory();
         $this->winLossStreaks();
         $this->mapBreakdown();
+        $this->gamesPlayedByMap();
         return $this->result;
       }
       return FALSE;
@@ -323,6 +326,41 @@ class CompetitiveSeasonsService {
     }
 
     $this->result['map_breakdown'] = $result;
+  }
+
+  /**
+   * Calculate games played by maps.
+   *
+   * @throws \Consolidation\OutputFormatters\Exception\UnknownFieldException
+   */
+  protected function gamesPlayedByMap() {
+    $result = [];
+
+    /** @var \Drupal\overwatch_map\OverwatchMapHelperService $map_helper */
+    $map_helper = \Drupal::service('overwatch_map.helper');
+    $maps = $map_helper->loadAllMaps();
+
+    /** @var OverwatchMap $map */
+    foreach ($maps as $map) {
+      if ($map->isCompetitive()) {
+        $result[$map->id()] = [
+          'label' => $map->label(),
+          'played_count' => 0,
+        ];
+      }
+    }
+
+    // Now we add basic stats for maps from matches.
+    foreach ($this->matches as $match) {
+      // There is possible that match has no map entered. For initial SR.
+      if (!$match->field_map->isEmpty()) {
+        /** @var OverwatchMap $match_map */
+        $match_map = $match->field_map->entity;
+        $result[$match_map->id()]['played_count'] += 1;
+      }
+    }
+
+    $this->result['games_played_by_map'] = $result;
   }
 
   /**

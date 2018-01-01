@@ -77,5 +77,18 @@
         </div>
       </div>
     </div>
+
+    <div class="group map-charts">
+      <div class="content">
+        <div class="played-chart">
+          <canvas id="games-played-by-map" height="300"
+                  data-data="{{ results.games_played_by_map|json_encode }}"></canvas>
+        </div>
+
+        <div class="win-chart">
+
+        </div>
+      </div>
+    </div>
   </div>
 {% endif %}

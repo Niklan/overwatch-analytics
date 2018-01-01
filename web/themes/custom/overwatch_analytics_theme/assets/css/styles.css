@@ -3979,7 +3979,7 @@ th {
     background: white; }
     .overwatch-analytics-season-statistic-for-user .group.map-breakdown .map-breakdown-table .row {
       display: grid;
-      grid-template-columns: 200px repeat(8, 1fr); }
+      grid-template-columns: 250px repeat(8, 1fr); }
       .overwatch-analytics-season-statistic-for-user .group.map-breakdown .map-breakdown-table .row.heading {
         border-bottom: 1px solid #dee2e6; }
       .overwatch-analytics-season-statistic-for-user .group.map-breakdown .map-breakdown-table .row .col {
@@ -4001,6 +4001,10 @@ th {
           grid-column: span 9; }
         .overwatch-analytics-season-statistic-for-user .group.map-breakdown .map-breakdown-table .row .col.value {
           text-align: center; }
+  .overwatch-analytics-season-statistic-for-user .group.map-charts .content {
+    display: grid;
+    grid-gap: 16px;
+    grid-template-columns: 250px 1fr; }
 
 /**
  * @file
