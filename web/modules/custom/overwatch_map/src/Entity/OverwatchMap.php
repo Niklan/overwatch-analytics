@@ -201,27 +201,14 @@ class OverwatchMap extends RevisionableContentEntityBase implements OverwatchMap
    *   TRUE is competitive, FALSE otherwise.
    */
   public function isCompetitive() {
-    if (!$this->hasField('field_map_types')) {
-      throw new UnknownFieldException('field_map_types');
+    if (!$this->hasField('field_competitive_map_type')) {
+      throw new UnknownFieldException('field_competitive_map_type');
     }
 
-    if ($this->field_map_types->isEmpty()) {
+    if ($this->field_competitive_map_type->isEmpty()) {
       return FALSE;
     }
-
-    $competitive_map_types = [
-      OverwatchMapInterface::ASSAULT,
-      OverwatchMapInterface::ASSAULT_ESCORT,
-      OverwatchMapInterface::ESCORT,
-      OverwatchMapInterface::CONTROL,
-    ];
-
-    foreach ($this->field_map_types->getValue() as $value) {
-      if (in_array($value['value'], $competitive_map_types)) {
-        return TRUE;
-      }
-    }
-    return FALSE;
+    return TRUE;
   }
 
 }
