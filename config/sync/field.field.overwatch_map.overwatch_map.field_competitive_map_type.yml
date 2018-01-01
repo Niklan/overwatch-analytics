@@ -1,0 +1,21 @@
+uuid: d2d1cc1e-5e2a-421b-b3c4-a78a752da79d
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.overwatch_map.field_competitive_map_type
+  module:
+    - options
+    - overwatch_map
+id: overwatch_map.overwatch_map.field_competitive_map_type
+field_name: field_competitive_map_type
+entity_type: overwatch_map
+bundle: overwatch_map
+label: 'Соревновательный тип'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

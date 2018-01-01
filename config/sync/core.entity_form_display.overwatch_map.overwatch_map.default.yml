@@ -3,6 +3,7 @@ langcode: ru
 status: true
 dependencies:
   config:
+    - field.field.overwatch_map.overwatch_map.field_competitive_map_type
     - field.field.overwatch_map.overwatch_map.field_map_types
     - field.field.overwatch_map.overwatch_map.field_promo
     - image.style.thumbnail
@@ -15,6 +16,12 @@ targetEntityType: overwatch_map
 bundle: overwatch_map
 mode: default
 content:
+  field_competitive_map_type:
+    weight: 27
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
   field_map_types:
     weight: 2
     settings: {  }
@@ -50,4 +57,7 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
 hidden: {  }

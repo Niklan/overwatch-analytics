@@ -1,0 +1,45 @@
+uuid: ec3df426-2b0a-496f-8416-f4a3bf0c6fc2
+langcode: ru
+status: true
+dependencies:
+  module:
+    - options
+    - overwatch_map
+id: overwatch_map.field_competitive_map_type
+field_name: field_competitive_map_type
+entity_type: overwatch_map
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '1'
+      label: Арена
+    -
+      value: '2'
+      label: 'Захват точек'
+    -
+      value: '3'
+      label: 'Захват точек/сопровождение'
+    -
+      value: '4'
+      label: 'Захват флага'
+    -
+      value: '5'
+      label: 'Контроль объекта'
+    -
+      value: '6'
+      label: Схватка
+    -
+      value: '7'
+      label: Сопровождение
+    -
+      value: '8'
+      label: 'Командная схватка'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
