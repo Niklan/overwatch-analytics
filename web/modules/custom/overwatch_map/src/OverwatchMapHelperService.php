@@ -48,16 +48,20 @@ class OverwatchMapHelperService {
   /**
    * Return array with all entities of OverwatchMap.
    */
-  public function loadAllMaps() {
-    $result = &drupal_static(__METHOD__);
+  public function loadAllMaps($langcode = NULL) {
+    $result = &drupal_static(__METHOD__ . $langcode);
     if (!isset($result)) {
-      $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
       $query = \Drupal::entityQuery('overwatch_map')
         ->condition('status', 1)
-        ->condition('langcode', $language)
         ->sort('name', 'ASC');
       $query_result = $query->execute();
       $result = $this->entityTypeManager->loadMultiple($query_result);
+
+      if (isset($langcode)) {
+        foreach ($result as &$result_item) {
+          $result_item = $result_item->getTranslation($langcode);
+        }
+      }
     }
     return $result;
   }

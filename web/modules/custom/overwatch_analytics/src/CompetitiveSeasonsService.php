@@ -255,7 +255,9 @@ class CompetitiveSeasonsService {
     }
     /** @var \Drupal\overwatch_map\OverwatchMapHelperService $map_helper */
     $map_helper = \Drupal::service('overwatch_map.helper');
-    $maps = $map_helper->loadAllMaps();
+    $maps = $map_helper->loadAllMaps(\Drupal::languageManager()
+      ->getCurrentLanguage()
+      ->getId());
     $games_played = $this->result['summary']['games_played'];
     $overwatch_map_fields = \Drupal::service('entity_field.manager')
       ->getFieldDefinitions('overwatch_map', 'overwatch_map');
@@ -339,7 +341,9 @@ class CompetitiveSeasonsService {
 
     /** @var \Drupal\overwatch_map\OverwatchMapHelperService $map_helper */
     $map_helper = \Drupal::service('overwatch_map.helper');
-    $maps = $map_helper->loadAllMaps();
+    $maps = $map_helper->loadAllMaps(\Drupal::languageManager()
+      ->getCurrentLanguage()
+      ->getId());
 
     /** @var OverwatchMap $map */
     foreach ($maps as $map) {
@@ -366,6 +370,7 @@ class CompetitiveSeasonsService {
 
   /**
    * Calculate win percentage by map.
+   *
    * @throws \Consolidation\OutputFormatters\Exception\UnknownFieldException
    */
   protected function winPercentageByMap() {
@@ -373,7 +378,9 @@ class CompetitiveSeasonsService {
 
     /** @var \Drupal\overwatch_map\OverwatchMapHelperService $map_helper */
     $map_helper = \Drupal::service('overwatch_map.helper');
-    $maps = $map_helper->loadAllMaps();
+    $maps = $map_helper->loadAllMaps(\Drupal::languageManager()
+      ->getCurrentLanguage()
+      ->getId());
 
     /** @var OverwatchMap $map */
     foreach ($maps as $map) {
