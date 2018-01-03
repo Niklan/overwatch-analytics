@@ -11,7 +11,7 @@ bundle: menu_link_content
 label: Изменение
 description: 'Время последнего редактирования ссылки меню.'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }
