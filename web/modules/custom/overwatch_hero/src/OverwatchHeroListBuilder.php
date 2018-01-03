@@ -34,7 +34,7 @@ class OverwatchHeroListBuilder extends EntityListBuilder {
    * {@inheritdoc}
    */
   public function buildHeader() {
-    $header['id'] = $this->t('Overwatch hero ID');
+    $header['id'] = $this->t('Hero ID');
     $header['name'] = $this->t('Name');
     return $header + parent::buildHeader();
   }
@@ -44,6 +44,10 @@ class OverwatchHeroListBuilder extends EntityListBuilder {
    */
   public function buildRow(EntityInterface $entity) {
     /* @var $entity \Drupal\overwatch_hero\Entity\OverwatchHero */
+    $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+    if ($entity->hasTranslation($language)) {
+      $entity = $entity->getTranslation($language);
+    }
     $row['id'] = $entity->id();
     $row['name'] = Link::createFromRoute(
       $entity->label(),
