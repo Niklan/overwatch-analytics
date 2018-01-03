@@ -103,6 +103,7 @@ class CompetitiveSeasonsService {
         $this->winLossStreaks();
         $this->mapBreakdown();
         $this->gamesPlayedByMap();
+        $this->winPercentageByMap();
         return $this->result;
       }
       return FALSE;
@@ -361,6 +362,63 @@ class CompetitiveSeasonsService {
     }
 
     $this->result['games_played_by_map'] = $result;
+  }
+
+  /**
+   * Calculate win percentage by map.
+   * @throws \Consolidation\OutputFormatters\Exception\UnknownFieldException
+   */
+  protected function winPercentageByMap() {
+    $result = [];
+
+    /** @var \Drupal\overwatch_map\OverwatchMapHelperService $map_helper */
+    $map_helper = \Drupal::service('overwatch_map.helper');
+    $maps = $map_helper->loadAllMaps();
+
+    /** @var OverwatchMap $map */
+    foreach ($maps as $map) {
+      if ($map->isCompetitive()) {
+        $result[$map->id()] = [
+          'label' => $map->label(),
+          'played_count' => 0,
+          'win_percentage' => 0,
+          'wins' => 0,
+          'losses' => 0,
+          'draws' => 0,
+        ];
+      }
+    }
+
+    // Now we add basic stats for maps from matches.
+    foreach ($this->matches as $match) {
+      // There is possible that match has no map entered. For initial SR.
+      if (!$match->field_map->isEmpty()) {
+        /** @var OverwatchMap $match_map */
+        $match_map = $match->field_map->entity;
+        $result[$match_map->id()]['played_count'] += 1;
+
+        switch ($match->field_match_result->value) {
+          case OverwatchMatchInterface::STATUS_VICTORY:
+            $result[$match_map->id()]['wins'] += 1;
+            break;
+
+          case OverwatchMatchInterface::STATUS_DEFEAT:
+            $result[$match_map->id()]['losses'] += 1;
+            break;
+
+          case OverwatchMatchInterface::STATUS_DRAW:
+            $result[$match_map->id()]['draws'] += 1;
+            break;
+        }
+      }
+    }
+
+    // Calculate percentages.
+    foreach ($result as &$map_results) {
+      $map_results['win_percentage'] = $this->calculatePercetage($map_results['wins'], $map_results['played_count']);
+    }
+
+    $this->result['win_percentage_by_map'] = $result;
   }
 
   /**

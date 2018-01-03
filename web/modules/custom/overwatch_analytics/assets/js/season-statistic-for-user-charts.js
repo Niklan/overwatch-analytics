@@ -162,7 +162,6 @@
 
       if (chartCanvas.length) {
         let data = $(chartCanvas).data('data');
-        console.log(data);
         let counts = [];
         let labels = [];
         $.each(data, (key, item) => {
@@ -208,6 +207,105 @@
               text: 'Games Played by Map',
             },
             maintainAspectRatio: false,
+          },
+        };
+
+        let chart = new Chart(chartCanvas, config);
+      }
+    },
+  };
+
+  Drupal.behaviors.ssfuWinPercentageByMap = {
+    attach: function(context, settings) {
+      let chartCanvas = $(context).
+        find('#win-percentage-by-map').
+        once('win-percentage-by-map');
+
+      if (chartCanvas.length) {
+        let data = $(chartCanvas).data('data');
+        console.log(data);
+        let win_percentage = [];
+        let labels = [];
+        $.each(data, (key, item) => {
+          win_percentage.push(item.win_percentage);
+          labels.push(item.label);
+        });
+
+        let config = {
+          type: 'bar',
+          data: {
+            datasets: [
+              {
+                data: win_percentage,
+                backgroundColor: [
+                  '#CC0000',
+                  '#E67300',
+                  '#FFFF00',
+                  '#CFE2F3',
+                  '#38761D',
+                  '#FF9900',
+                  '#B45F06',
+                  '#76A5AF',
+                  '#B7B7B7',
+                  '#FFD966',
+                  '#666666',
+                  '#93C47D',
+                  '#3C78D8',
+                  '#C27BA0',
+                  '#F6B26B',
+                  '#00FFFF',
+                ],
+              },
+            ],
+            labels: labels,
+          },
+          options: {
+            legend: {
+              display: false,
+            },
+            responsive: true,
+            title: {
+              display: true,
+              text: 'Win % by map',
+            },
+            maintainAspectRatio: false,
+            scales: {
+              xAxes: [{
+                ticks: {
+                  callback: function(value) {
+                    return value.substr(0, 6) + '…';
+                  }
+                }
+              }],
+              yAxes: [
+                {
+                  ticks: {
+                    min: 0,
+                    max: 100,
+                    callback: function(value) {
+                      return value + '%';
+                    },
+                  },
+                  scaleLabel: {
+                    display: true,
+                    labelString: 'Percentage',
+                  },
+                }],
+            },
+            tooltips: {
+              enabled: true,
+              mode: 'label',
+              callbacks: {
+                title: function(tooltipItems, data) {
+                  let id = tooltipItems[0].index;
+                  console.log(tooltipItems, data);
+                  return data.labels[id];
+                },
+                label: function(tooltipItems, data) {
+                  return tooltipItems.yLabel + '%';
+                }
+              }
+            },
           },
         };
 
