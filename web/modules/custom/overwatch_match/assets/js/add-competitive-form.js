@@ -24,6 +24,7 @@
             },
             methods: {
               submitForm() {
+                window.scrollTo(0, 0);
                 $.ajax({
                   type: 'POST',
                   url: '/add/match/competitive/callback',
