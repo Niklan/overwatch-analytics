@@ -18,12 +18,26 @@
           let vm = new Vue({
             el: formElement,
             delimiters: ['${', '}'],
+
+            props: {
+              loading: {
+                type: Boolean,
+                default: false,
+              }
+            },
+
             data: {
               formValues: settings.overwatchMatchAddCompetitiveForm.formValues,
               error: '',
             },
+
             methods: {
-              // Check is user has SR in selected season.
+
+              /**
+               * Checks is current user has Skill Rating for selected season.
+               *
+               * @param seasonId
+               */
               onSeasonChange(seasonId) {
                 $.ajax({
                   url: '/api/v1/is-user-has-rating-in-season',
@@ -42,6 +56,10 @@
                   },
                 });
               },
+
+              /**
+               * Submit button handler for form.
+               */
               submitForm() {
                 window.scrollTo(0, 0);
                 $.ajax({

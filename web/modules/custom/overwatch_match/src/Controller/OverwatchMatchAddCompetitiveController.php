@@ -113,7 +113,8 @@ class OverwatchMatchAddCompetitiveController extends ControllerBase {
           $date_time = strtotime("$date $time");
           $match->field_date = $date_time;
 
-          $match->save();
+          ksm($match->field_heroes->getValue());
+          //$match->save();
           $response['success'] = 'Match was added successfully.';
           drupal_set_message('Match was added successfully.');
         } catch (EntityStorageException $e) {

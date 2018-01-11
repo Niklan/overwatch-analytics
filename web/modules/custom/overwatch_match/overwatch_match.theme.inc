@@ -15,7 +15,7 @@ function template_preprocess_overwatch_match_add_competitive_form(&$variables) {
   $settings['formValues'] = [
     'token' => \Drupal::csrfToken()->get(),
     'hasSr' => FALSE,
-    'isPlacement' => 0,
+    'isPlacement' => FALSE,
     'matchResult' => NULL,
     'seasons' => [],
     'seasonSelected' => NULL,
