@@ -1,5 +1,5 @@
 (function($) {
-  
+
   Vue.component('select2', {
     props: ['options', 'value'],
     template: `<select>
@@ -8,11 +8,12 @@
     mounted: function() {
       let vm = this;
       $(this.$el)
-      // init select2
+        // init select2
         .select2({data: this.options}).val(this.value).trigger('change')
-      // emit event on change.
+        // emit event on change.
         .on('change', function() {
           vm.$emit('input', this.value);
+          vm.$emit('change', this.value);
         });
     },
     watch: {

@@ -1,5 +1,5 @@
 {{ attach_library('overwatch_match/add-competitive-form') }}
-<div @submit.prevent class="overwatch-match-add-competitive-form">
+<div class="overwatch-match-add-competitive-form">
   <input type="hidden" name="token" v-model="formValues.token">
 
   <div class="messages error" v-if="error.length">
@@ -7,7 +7,7 @@
   </div>
 
   <div class="group season-pane">
-    <select2 :options="formValues.seasons" v-model="formValues.seasonSelected">
+    <select2 :options="formValues.seasons" v-model="formValues.seasonSelected" @change="onSeasonChange">
       <option disabled value="0">Select one</option>
     </select2>
   </div>

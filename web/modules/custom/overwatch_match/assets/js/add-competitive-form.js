@@ -23,6 +23,25 @@
               error: '',
             },
             methods: {
+              // Check is user has SR in selected season.
+              onSeasonChange(seasonId) {
+                $.ajax({
+                  url: '/api/v1/is-user-has-rating-in-season',
+                  dataType: 'json',
+                  data: {
+                    '_format': 'json',
+                    'sid': seasonId,
+                  },
+                  type: 'GET',
+                  success: response => {
+                    this.formValues.hasSr = response.has_sr;
+                    this.formValues.isPlacement = !response.has_sr;
+                  },
+                  error: response => {
+                    this.error = response.message;
+                  },
+                });
+              },
               submitForm() {
                 window.scrollTo(0, 0);
                 $.ajax({

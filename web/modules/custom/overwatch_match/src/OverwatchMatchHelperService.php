@@ -47,6 +47,7 @@ class OverwatchMatchHelperService {
       ->condition('status', 1)
       ->exists('field_skill_rating')
       ->condition('user_id', $uid)
+      ->condition('field_season', $season_id)
       ->range(0, 1);
     return (bool) $query->count()->execute();
   }
