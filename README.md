@@ -115,8 +115,12 @@ Checks, has user SR in particular season or not.
 
   ```javascript
     $.ajax({
-      url: '/api/v1/is-user-has-rating-in-season?_format=json&sid=7',
+      url: '/api/v1/is-user-has-rating-in-season',
       dataType: 'json',
+      data: {
+        '_format': 'json',
+        'sid': 8,
+      },
       type : 'GET',
       success : response => {
         console.log(response);
