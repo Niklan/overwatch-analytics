@@ -15,6 +15,7 @@ This is experimental project not targeted for launch. I created it for learn new
 - Vue.js for custom forms inside Drupal with controller to handle his requests.
 - Chart.js for beautiful chart on canvas.
 - Multilingual Drupal 8 features and behaviour for custom entities.
+- Drupal custom REST resources.
 - Other things.
 
 The primary target for this site is analytics for competitive games. You can enter your competitive games information such as group size, map you've been playing, heroes you played, starting side, result score, duration and final skill rating with notes. The site will analyze it in whole season and shows statistic for you with charts.

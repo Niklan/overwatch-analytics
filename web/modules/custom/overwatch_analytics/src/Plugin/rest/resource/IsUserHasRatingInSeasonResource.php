@@ -5,13 +5,11 @@ namespace Drupal\overwatch_analytics\Plugin\rest\resource;
 use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\rest\Plugin\ResourceBase;
 use Drupal\rest\ResourceResponse;
-use Drupal\user\UserInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Psr\Log\LoggerInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Provides a resource to get view modes by entity and bundle.
+ * Provides a resource to get status of user skill rating for season.
  *
  * @RestResource(
  *   id = "is_user_has_rating_in_season_resource",
@@ -77,8 +75,6 @@ class IsUserHasRatingInSeasonResource extends ResourceBase {
    *
    * Returns indication is has user SR in provided season or not.
    *
-   * @todo add Season ID check.
-   *
    * @throws \Symfony\Component\HttpKernel\Exception\HttpException
    *   Throws exception expected.
    */
@@ -86,6 +82,15 @@ class IsUserHasRatingInSeasonResource extends ResourceBase {
     $query = \Drupal::request()->query;
     if (!$query->has('sid')) {
       $response['message'] = 'The SID (Season ID) is not provided.';
+      return new ResourceResponse($response, 400);
+    }
+
+    $overwatch_season = \Drupal::entityTypeManager()
+      ->getStorage('overwatch_season')
+      ->load($query->get('sid'));
+
+    if (!$overwatch_season) {
+      $response['message'] = 'Incorrect Season ID.';
       return new ResourceResponse($response, 400);
     }
 
@@ -100,7 +105,7 @@ class IsUserHasRatingInSeasonResource extends ResourceBase {
     $user = \Drupal::entityTypeManager()
       ->getStorage('user')
       ->load($uid);
-    if ($user instanceof UserInterface) {
+    if ($user) {
       $overwatch_match_helper = \Drupal::service('overwatch_match.helper');
       $response['has_sr'] = $overwatch_match_helper->isUserHasSrInSeason($query->get('sid'), $user->id());
       return new ResourceResponse($response);
