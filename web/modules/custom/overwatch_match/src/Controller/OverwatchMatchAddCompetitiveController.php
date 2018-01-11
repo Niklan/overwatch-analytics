@@ -36,7 +36,8 @@ class OverwatchMatchAddCompetitiveController extends ControllerBase {
     $response = [];
     $status = 200;
     if (\Drupal::csrfToken()->validate($form_values['token'])) {
-      $has_permission = \Drupal::currentUser()->hasPermission('add overwatch match entities');
+      $has_permission = \Drupal::currentUser()
+        ->hasPermission('add overwatch match entities');
       if ($has_permission) {
         try {
           $match = OverwatchMatch::create([
@@ -112,23 +113,26 @@ class OverwatchMatchAddCompetitiveController extends ControllerBase {
           $date_time = strtotime("$date $time");
           $match->field_date = $date_time;
 
+          // @todo after rework of errors.
           $match->save();
           $response['success'] = 'Match was added successfully.';
           drupal_set_message('Match was added successfully.');
-        }
-        catch (EntityStorageException $e) {
+        } catch (EntityStorageException $e) {
           \Drupal::logger('overwatch_match')->error($e);
-          $response['error'] = 'Something went wrong when we try to create match.';
+          $response['error']['message'] = 'Something went wrong when we try to create match.';
+          $response['error']['code'] = 400;
           $status = 400;
         }
       }
       else {
-        $response['error'] = "You don't has permission to add match.";
+        $response['error']['message'] = "You don't has permission to add match.";
+        $response['error']['code'] = 400;
         $status = 400;
       }
     }
     else {
-      $response['error'] = 'Token is not the same.';
+      $response['error']['message'] = 'Token is not the same.';
+      $response['error']['code'] = 400;
       $status = 400;
     }
 

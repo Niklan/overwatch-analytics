@@ -20,6 +20,7 @@
             delimiters: ['${', '}'],
             data: {
               formValues: settings.overwatchMatchAddCompetitiveForm.formValues,
+              error: '',
             },
             methods: {
               submitForm() {
@@ -30,7 +31,7 @@
                 }).done(response => {
                   location.reload();
                 }).fail(response => {
-                  console.log(response.responseJSON.error);
+                  this.error = response.responseJSON.error.message;
                 });
               },
             },

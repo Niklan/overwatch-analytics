@@ -2,6 +2,10 @@
 <div @submit.prevent class="overwatch-match-add-competitive-form">
   <input type="hidden" name="token" v-model="formValues.token">
 
+  <div class="messages error" v-if="error.length">
+    ${ error }
+  </div>
+
   <div class="group season-pane">
     <select2 :options="formValues.seasons" v-model="formValues.seasonSelected">
       <option disabled value="0">Select one</option>
