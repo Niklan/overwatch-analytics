@@ -1,0 +1,19 @@
+uuid: d795d6ec-d2cf-46bb-b241-17ad690bf1ce
+langcode: ru
+status: true
+dependencies:
+  module:
+    - overwatch_analytics
+    - serialization
+    - user
+id: is_user_has_rating_in_season_resource
+plugin_id: is_user_has_rating_in_season_resource
+granularity: resource
+configuration:
+  methods:
+    - GET
+  formats:
+    - json
+    - xml
+  authentication:
+    - cookie
