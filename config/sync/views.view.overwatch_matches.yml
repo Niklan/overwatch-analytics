@@ -182,6 +182,7 @@ display:
         type: normal
         title: Матчи
         menu_name: main
+        enabled: false
     cache_metadata:
       max-age: 0
       contexts:

@@ -1,0 +1,6 @@
+settings:
+  allowed_values:
+    0:
+      label: Arena
+    6:
+      label: Escort
