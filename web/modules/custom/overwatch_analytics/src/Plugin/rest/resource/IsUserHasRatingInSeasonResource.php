@@ -77,6 +77,8 @@ class IsUserHasRatingInSeasonResource extends ResourceBase {
    *
    * Returns indication is has user SR in provided season or not.
    *
+   * @todo add Season ID check.
+   *
    * @throws \Symfony\Component\HttpKernel\Exception\HttpException
    *   Throws exception expected.
    */

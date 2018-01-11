@@ -68,4 +68,59 @@ This installation process don't add any content. So you need to add by yourself.
 ![Statistics page with analyze example](https://i.imgur.com/5BiauJu.png)
 ![Add competitive match page](https://i.imgur.com/yYzURmX.png)
 
+## API
+
+The site expose API to own needs. It's not for third-paty use, but it must be documented.
+
+**WARNING!** Every request must have GET parameter `_format`. It can be `json` or `xml`. This is type in which result will be returned.
+
+### Is user has rating in season
+
+Checks, has user SR in particular season or not.
+
+* **URL**
+
+  /api/v1/is-user-has-rating-in-season
+
+* **Method:**
+
+  `GET`
+  
+*  **URL Params**
+
+   **Required:**
+ 
+   `sid=[integer]` - Season entity (!) ID.
+
+   **Optional:**
+ 
+   `uid=[integer]` - User ID. If not provided, current user will be used.
+
+* **Data Params**
+
+  None
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `{ has_sr : true }`
+ 
+* **Error Response:**
+
+  * **Code:** 400 Bad Request<br />
+    **Content:** `{ message : "User is not found" }`
+
+* **Sample Call:**
+
+  ```javascript
+    $.ajax({
+      url: '/api/v1/is-user-has-rating-in-season?_format=json&sid=7',
+      dataType: 'json',
+      type : 'GET',
+      success : response => {
+        console.log(response);
+      }  
+    });
+  ```
+
 Overwatch © 2018 Blizzard Entertainment.
