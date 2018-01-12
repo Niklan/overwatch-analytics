@@ -11,16 +11,19 @@
 
     props: {
       /**
-       * An object with options for Select2 plugin.
+       * An array with options list.
        */
       options: {},
+      default: {},
     },
 
-    data: {
-      /**
-       * Value of select.
-       */
-      value: [],
+    data: function() {
+      return {
+        /**
+         * Value of select.
+         */
+        value: [],
+      }
     },
 
     /**
@@ -30,7 +33,7 @@
       let vm = this;
       $(this.$el).
         select2({data: this.options}).
-        val(this.value).
+        val(vm.default).
         trigger('change').
         on('change', function() {
           vm.value = $(this).val();

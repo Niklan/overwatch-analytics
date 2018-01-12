@@ -7,7 +7,7 @@
   </div>
 
   <div class="group season-pane">
-    <select2 :options="formValues.seasons" v-model="formValues.seasonSelected" @change="onSeasonChange">
+    <select2 :options="formValues.seasons" :default="formValues.seasonSelected" v-model="formValues.seasonSelected" @change="onSeasonChange">
       <option disabled value="0">Select one</option>
     </select2>
   </div>
