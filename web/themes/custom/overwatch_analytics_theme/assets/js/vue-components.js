@@ -1,43 +1,70 @@
 (function($) {
 
   Vue.component('select2', {
+
+    /**
+     * Template for component.
+     */
     template: `<select>
   <slot></slot>
 </select>`,
 
-    props: [
-      'options',
-      'value',
-    ],
+    props: {
+      /**
+       * An object with options for Select2 plugin.
+       */
+      options: {},
+    },
 
+    data: {
+      /**
+       * Value of select.
+       */
+      value: [],
+    },
+
+    /**
+     * Fired up when Vue.js is loaded and ready.
+     */
     mounted: function() {
       let vm = this;
-      $(this.$el)
-      // init select2
-        .select2({data: this.options}).val(this.value).trigger('change')
-      // emit event on change.
-        .on('change', function() {
-          vm.$emit('input', this.value);
-          vm.$emit('change', this.value);
+      $(this.$el).
+        select2({data: this.options}).
+        val(this.value).
+        trigger('change').
+        on('change', function() {
+          vm.value = $(this).val();
+          vm.$emit('input', vm.value);
+          vm.$emit('change', vm.value);
         });
     },
 
     watch: {
+      /**
+       * Update value for select if value was changed in JS.
+       * @param value
+       */
       value: function(value) {
-        // update value
-        // @todo add support for multiple select.
         $(this.$el).val(value);
       },
 
+      /**
+       * Update options.
+       * @param options
+       */
       options: function(options) {
-        // update options
         $(this.$el).empty().select2({data: options});
       },
     },
 
+    /**
+     * Destroy callback, called when Vue.js instance was destroyed.
+     */
     destroyed: function() {
+      // Disable plugin for this instance.
       $(this.$el).off().select2('destroy');
     },
+
   });
 
 })(jQuery);

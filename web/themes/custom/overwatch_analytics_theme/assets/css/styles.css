@@ -3785,6 +3785,7 @@ th {
   margin-left: auto;
   box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.1);
   padding-top: 55px;
+  background: white;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-gap: 16px;

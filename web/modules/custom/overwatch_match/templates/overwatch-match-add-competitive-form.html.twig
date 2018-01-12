@@ -66,8 +66,8 @@
       <div class="item heroes">
         <div class="label">{{ 'Heroes'|trans }}</div>
 
-        <select2 :options="formValues.heroes" multiple="multiple"
-                 v-model="formValues.heroesSelected">
+        <select2 :options="formValues.heroes"
+                 v-model="formValues.heroesSelected" multiple>
           <option disabled value="0">Select one</option>
         </select2>
       </div>

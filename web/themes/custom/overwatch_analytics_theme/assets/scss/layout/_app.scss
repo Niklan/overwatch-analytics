@@ -7,6 +7,7 @@
   @include media-container(false);
   box-shadow: 0 0 4px 4px rgba(black, 0.1);
   padding-top: 55px;
+  background: white;
 
   display: grid;
   grid-template-columns: repeat(12, 1fr);
