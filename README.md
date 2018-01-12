@@ -128,4 +128,60 @@ Checks, has user SR in particular season or not.
     });
   ```
 
+### Add competitive match
+
+Add new competitive match for current user.
+
+* **URL**
+
+  /api/v1/add-competitive-match
+
+* **Method:**
+
+  `POST`
+  
+*  **URL Params**
+
+   **Required:**
+ 
+   @todo
+
+   **Optional:**
+ 
+   @todo
+
+* **Data Params**
+
+  None
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** @todo
+ 
+* **Error Response:**
+
+  * **Code:** 400 Bad Request<br />
+    **Content:** @todo
+
+* **Sample Call:**
+
+  ```javascript
+    $.ajax({
+      url: '/api/v1/add-competitive-match',
+      dataType: 'json',
+      data: {
+        '_format': 'json',
+      },
+      type : 'GET',
+      success : response => {
+        console.log(response);
+      }  
+    });
+  ```
+ 
+* **Notes:**
+
+  For internal use only.
+
 Overwatch © 2018 Blizzard Entertainment.
