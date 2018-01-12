@@ -10,6 +10,7 @@ use Drupal\rest\ResourceResponse;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Psr\Log\LoggerInterface;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 /**
  * Provides a resource to add competitive match for OverwatchMatch entity.
@@ -18,7 +19,7 @@ use Psr\Log\LoggerInterface;
  *   id = "add_competitive_match_resource",
  *   label = @Translation("Add competitive match resource"),
  *   uri_paths = {
- *     "canonical" = "/api/v1/add-competitive-match"
+ *     "https://www.drupal.org/link-relations/create" = "/api/v1/add-competitive-match",
  *   }
  * )
  */
@@ -162,15 +163,17 @@ class AddCompetitiveMatchResource extends ResourceBase {
       $date_time = strtotime("$date $time");
       $match->field_date = $date_time;
 
-      $match->save();
+      $match->validate();
+      //$match->save();
+      ksm($match);
       drupal_set_message('Match was added successfully.');
 
       $response['message'] = 'Match was added successfully.';
-      return new ResourceResponse($response, 400);
+      return new ResourceResponse($response);
     } catch (EntityStorageException $e) {
       \Drupal::logger('overwatch_match')->error($e);
       $response['message'] = 'Something went wrong when we try to create match.';
-      return new ResourceResponse($response, 400);
+      return new BadRequestHttpException('Something went wrong when we try to create match.');
     }
   }
 

@@ -23,12 +23,19 @@
               loading: {
                 type: Boolean,
                 default: false,
-              }
+              },
+
+              /**
+               * Error message.
+               */
+              error: {
+                type: String,
+                default: '',
+              },
             },
 
             data: {
               formValues: settings.overwatchMatchAddCompetitiveForm.formValues,
-              error: '',
             },
 
             methods: {
@@ -62,14 +69,20 @@
                */
               submitForm() {
                 window.scrollTo(0, 0);
-                $.ajax({
+                $.post({
+                  url: '/api/v1/add-competitive-match',
+                  dataType: 'json',
+                  data: {
+                    'sid': 7,
+                  },
                   type: 'POST',
-                  url: '/add/match/competitive/callback',
-                  data: this.formValues,
-                }).done(response => {
-                  location.reload();
-                }).fail(response => {
-                  this.error = response.responseJSON.error.message;
+                  success: () => {
+                    location.reload();
+                  },
+                  error: response => {
+                    console.log(response, this);
+                    this.error = response.message;
+                  },
                 });
               },
             },

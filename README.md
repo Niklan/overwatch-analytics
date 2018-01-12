@@ -66,8 +66,8 @@ This installation process don't add any content. So you need to add by yourself.
 
 ## Screenshots
 
-![Statistics page with analyze example](https://i.imgur.com/5BiauJu.png)
-![Add competitive match page](https://i.imgur.com/yYzURmX.png)
+![Statistics page with analyze example](https://i.imgur.com/QMQ67GS.png)
+![Add competitive match page](https://i.imgur.com/4AIiVJb.png?1)
 
 ## API
 
@@ -167,13 +167,13 @@ Add new competitive match for current user.
 * **Sample Call:**
 
   ```javascript
-    $.ajax({
+    $.post({
       url: '/api/v1/add-competitive-match',
       dataType: 'json',
       data: {
         '_format': 'json',
       },
-      type : 'GET',
+      type : 'POST',
       success : response => {
         console.log(response);
       }  
