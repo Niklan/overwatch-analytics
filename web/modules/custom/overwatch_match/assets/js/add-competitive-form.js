@@ -106,19 +106,23 @@
                 this.getRestToken().then(
                   result => {
                     $.ajax({
+                      url: '/api/v1/add-competitive-match',
+                      type: 'POST',
                       headers: {
                         'Content-Type': 'application/json',
                         'X-CSRF-Token': result,
                       },
-                      url: '/api/v1/add-competitive-match',
-                      type: 'POST',
+                      dataType: 'json',
+                      data: JSON.stringify({
+                        'form_values': this.formValues,
+                      }),
                       success: () => {
                         this.loading = false;
                         location.reload();
                       },
                       error: response => {
                         this.loading = false;
-                        this.error = response.message;
+                        this.error = response.statusText;
                       },
                     });
                   },

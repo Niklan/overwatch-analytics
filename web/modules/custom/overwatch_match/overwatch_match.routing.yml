@@ -1,4 +1,3 @@
-
 overwatch_match.add_competitive_match_controller_hello:
   path: '/add/match/competitive'
   defaults:
@@ -6,11 +5,3 @@ overwatch_match.add_competitive_match_controller_hello:
     _title: 'Add competitive match'
   requirements:
     _permission: 'add overwatch match entities'
-
-overwatch_match.overwatch_match_add_competitive_controller_content:
-  path: '/add/match/competitive/callback'
-  defaults:
-    _controller: '\Drupal\overwatch_match\Controller\OverwatchMatchAddCompetitiveController::submitForm'
-    _title: 'content'
-  requirements:
-    _permission: 'access content'

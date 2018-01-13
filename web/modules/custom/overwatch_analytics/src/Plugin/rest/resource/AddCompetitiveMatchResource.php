@@ -7,10 +7,10 @@ use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\overwatch_match\Entity\OverwatchMatch;
 use Drupal\rest\Plugin\ResourceBase;
 use Drupal\rest\ResourceResponse;
+use Psr\Log\LoggerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
-use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 /**
@@ -20,7 +20,8 @@ use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
  *   id = "add_competitive_match_resource",
  *   label = @Translation("Add competitive match resource"),
  *   uri_paths = {
- *     "https://www.drupal.org/link-relations/create" = "/api/v1/add-competitive-match",
+ *     "https://www.drupal.org/link-relations/create" =
+ *   "/api/v1/add-competitive-match",
  *   }
  * )
  */
@@ -89,8 +90,7 @@ class AddCompetitiveMatchResource extends ResourceBase {
     }
 
     try {
-      $form_values = $request->request->all();
-
+      $form_values = $data['form_values'];
       $match = OverwatchMatch::create([
         'type' => 'competitive',
       ]);
@@ -165,15 +165,15 @@ class AddCompetitiveMatchResource extends ResourceBase {
       $match->field_date = $date_time;
 
       $match->validate();
-      //$match->save();
-      //ksm($match);
+      $match->save();
+      ksm($match->field_heroes->getValue());
       drupal_set_message('Match was added successfully.');
 
-      $response['message'] = 'Match was added successfully.';
+      $response['statusText'] = 'Match was added successfully.';
       return new ResourceResponse($response);
     } catch (EntityStorageException $e) {
       \Drupal::logger('overwatch_match')->error($e);
-      $response['message'] = 'Something went wrong when we try to create match.';
+      $response['statusText'] = 'Something went wrong when we try to create match.';
       return new BadRequestHttpException('Something went wrong when we try to create match.');
     }
   }

@@ -1,0 +1,19 @@
+uuid: 9ba6f73f-af90-4cc1-b389-7bf9037d98de
+langcode: ru
+status: true
+dependencies:
+  module:
+    - overwatch_analytics
+    - serialization
+    - user
+id: add_competitive_match_resource
+plugin_id: add_competitive_match_resource
+granularity: resource
+configuration:
+  methods:
+    - POST
+  formats:
+    - json
+    - xml
+  authentication:
+    - cookie
