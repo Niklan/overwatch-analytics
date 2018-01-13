@@ -8,6 +8,7 @@ use Drupal\overwatch_match\Entity\OverwatchMatch;
 use Drupal\rest\Plugin\ResourceBase;
 use Drupal\rest\ResourceResponse;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
@@ -82,13 +83,13 @@ class AddCompetitiveMatchResource extends ResourceBase {
    * @throws \Symfony\Component\HttpKernel\Exception\HttpException
    *   Throws exception expected.
    */
-  public function post() {
+  public function post($data, Request $request) {
     if (!$this->currentUser->hasPermission('add overwatch match entities')) {
       throw new AccessDeniedHttpException();
     }
 
     try {
-      $form_values = \Drupal::request()->request->all();
+      $form_values = $request->request->all();
 
       $match = OverwatchMatch::create([
         'type' => 'competitive',
@@ -165,7 +166,7 @@ class AddCompetitiveMatchResource extends ResourceBase {
 
       $match->validate();
       //$match->save();
-      ksm($match);
+      //ksm($match);
       drupal_set_message('Match was added successfully.');
 
       $response['message'] = 'Match was added successfully.';

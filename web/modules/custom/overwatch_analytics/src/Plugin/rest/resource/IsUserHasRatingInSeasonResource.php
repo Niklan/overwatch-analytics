@@ -99,7 +99,7 @@ class IsUserHasRatingInSeasonResource extends ResourceBase {
     }
     else {
       // If User ID is not provided we load current user.
-      $uid = \Drupal::currentUser()->id();
+      $uid = $this->currentUser->id();
     }
 
     $user = \Drupal::entityTypeManager()

@@ -32,6 +32,14 @@
                 type: String,
                 default: '',
               },
+
+              /**
+               * Required for POST.
+               */
+              restToken: {
+                type: String,
+                default: '',
+              },
             },
 
             data: {
@@ -65,25 +73,60 @@
               },
 
               /**
+               * Get REST token for POST requests.
+               */
+              getRestToken() {
+                return new Promise((resolve, reject) => {
+                  if (this.restToken.length === 0) {
+                    $.ajax({
+                      url: '/rest/session/token',
+                      dataType: 'text',
+                      type: 'GET',
+                      success: response => {
+                        this.restToken = response;
+                        resolve(response);
+                      },
+                      error: response => {
+                        this.error = response.statusText;
+                        reject(response);
+                      },
+                    });
+                  }
+                  else {
+                    resolve(this.restToken);
+                  }
+                });
+              },
+
+              /**
                * Submit button handler for form.
                */
               submitForm() {
-                window.scrollTo(0, 0);
-                $.post({
-                  url: '/api/v1/add-competitive-match',
-                  dataType: 'json',
-                  data: {
-                    'sid': 7,
+                this.loading = true;
+                this.getRestToken().then(
+                  result => {
+                    $.ajax({
+                      headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-Token': result,
+                      },
+                      url: '/api/v1/add-competitive-match',
+                      type: 'POST',
+                      success: () => {
+                        this.loading = false;
+                        location.reload();
+                      },
+                      error: response => {
+                        this.loading = false;
+                        this.error = response.message;
+                      },
+                    });
                   },
-                  type: 'POST',
-                  success: () => {
-                    location.reload();
-                  },
-                  error: response => {
-                    console.log(response, this);
-                    this.error = response.message;
-                  },
-                });
+                  error => {
+                    this.error = 'Form submissions failed';
+                    this.loading = false;
+                  }
+                );
               },
             },
           });

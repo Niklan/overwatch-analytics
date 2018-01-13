@@ -147,4 +147,8 @@
   </div>
 
   <button type="submit" @click="submitForm" class="button-primary">{{ 'Save'|trans }}</button>
+
+  <div v-if="loading">
+    {{ 'Loading'|trans }}
+  </div>
 </div>
